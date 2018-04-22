@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="views/css/style1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>ReadBook</title>
+</head>
+<body ng-app="bookApp">        
+    <a class="login" href="#!/login">Login</a>
+    <a class="register" href="#!/register">Register</a>
+    <a class="register" href="#!/allBooks">allBooks</a>
+    <br>
+    <header>
+        <nav>
+            <ul id="mainMenu">
+                <li><a class="login" href="#!/login">Logout</a></li>
+                <li><a href="#!/allBooks">All Books</a></li>
+                <li><a href="#!/myProfile">My Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main ng-view>
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+</body>
+<!-- app router -->
+<script src="views/js/angRouter.js"></script>
+<!-- all Controllers -->
+<script src="views/login/loginController.js"></script>
+<script src="views/register/registerController.js"></script>
+<script src="views/home/homeControler.js"></script>
+<script src="views/allbooks/allBooksController.js"></script>
+<!-- all Services -->
+<script src="views/register/registerServices.js"></script>
+<script src="views/login/loginServices.js"></script>
+
+</html>

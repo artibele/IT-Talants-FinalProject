@@ -1,0 +1,264 @@
+#loginBox{
+    position: absolute;
+    top: 150px;
+    left: 35%;
+    width: 500px;
+    height: 600px;
+    background: rgb(165, 165, 165);
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+.classLoginInputs {
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid greenyellow;
+    margin: 1.5em;
+    background: rgb(165, 165, 165);
+    color: greenyellow;
+    font-size: 1em;
+}
+
+.classLoginInputs::placeholder {
+    color:rgb(23, 36, 1);;
+    opacity: 1; 
+    margin: 0 1em;
+}
+
+.classLoginInputs:focus{
+    background: rgb(197, 195, 195);
+    color: rgb(57, 87, 2);
+    font-weight: bold;
+    border: none;
+    /* border-bottom: 1px solid greenyellow; */
+    font-size: 1.2em;
+}
+
+.classLoginInputs:hover{
+    background: rgb(211, 229, 216);
+    opacity: 0.5;
+    padding: 5px;
+    /* border-radius: 20px; */
+}
+
+#login-btn{
+    position: relative;
+    top: 50px;
+    left: 75px;
+}
+#login-btn:hover{
+    background: greenyellow;
+    opacity: 0.6;
+    color: rgb(2, 65, 2);
+}
+
+
+.classButton{
+    width: 200px;
+    height: 45px;
+    background:none;
+    border-radius: 20px;
+    border-color: greenyellow;
+    color: greenyellow;
+}
+
+#miniLoginBox{
+    position: relative;
+    top: 40px;
+    left: 80px;
+}
+
+.backgroundLoginRegister{
+    width: 100%;
+    height: 70%;
+    opacity: 0.8;
+}
+.blur {
+    -webkit-filter: blur(4px);filter: blur(4px);
+}
+
+.logRegNav{
+    position: absolute;
+    top: 50px;
+    left: 40%;
+}
+.logRegNav > ul{
+    list-style-type: none;
+}
+
+#loginBox > h1 {
+    color: greenyellow;
+    position: relative;
+    top: 60px;
+    left: 40%;
+}
+
+.login{
+    float: left;
+}
+.register{
+    float: left;
+}
+
+#noAccount{
+    position: relative;
+    top: 80px;
+    left: 150px;
+}
+
+#noAccount > a {
+    color: white;
+}
+
+#noAccount > a:hover {
+    color: rgb(194, 240, 194);
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+#noAccount > p {
+    position: relative;
+    left: 10px;
+    color: white;
+}
+
+
+/* Registration  */
+#registerBox{
+    position: absolute;
+    top: 150px;
+    left: 35%;
+    width: 500px;
+    height: 800px;
+    background: rgb(165, 165, 165);
+    opacity: 0.75;
+}
+
+#miniRegisterBox{
+    position: relative;
+    top: 10px;
+    left: 15%;
+}
+
+#register-btn{
+    position: relative;
+    left: 60px;
+}
+
+#register-btn:hover{
+    background: greenyellow;
+    opacity: 0.6;
+    color: rgb(2, 65, 2);
+}
+
+#miniRegisterBox > a {
+    position: relative;
+    top: 50px;
+    left: -60px;
+    color: white;
+    text-decoration: none;
+}
+#miniRegisterBox > a:hover{
+    color: rgb(194, 240, 194);
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+#registerBox > h1 {
+    color: greenyellow;
+    position: relative;
+    top: 40px;
+    left: 35%;
+}
+
+/* ALL BOOKS PAGE */
+nav{
+    width: 100%;
+    height: 80px;
+    background: #333;
+}
+
+#mainMenu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+}
+
+#mainMenu > li {
+    float: right;
+}
+
+#mainMenu > li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 35px;
+    text-decoration: none;
+}
+
+#mainMenu > li a:hover {
+    background-color: #111;
+}
+
+#goodReadBackground{
+    width: 100%;
+    height: 500px;
+    background: rgb(128, 128, 128);
+}
+
+#imgWithBooks{
+    width: 100%;
+    position: relative;
+    top: 130px;
+    opacity: 0.7;
+}
+.shadow {
+    -webkit-filter: drop-shadow(8px 8px 20px rgb(208, 226, 208));
+    filter: drop-shadow(0px 0px 50px rgb(255, 255, 255));
+}
+#goodReadBackground > h1 {
+    color: rgb(255, 255, 255);
+    font-size: 11em;
+    font-weight: bold;
+    position: relative;
+    top: -25px;
+    left: 300px;
+}
+
+#diffrentKindOfBooks{
+    width: 100%;
+    height: 100px;
+    /* background: rgb(199, 197, 197); */
+}
+
+#genre > ul {
+    width: 80%;
+    height: 80px;
+    /* background: green; */
+    list-style-type: none;
+    margin: 0;
+    position: relative;
+    left: 150px;
+}
+
+#genre > ul > li {
+    float: left;
+}
+
+#genre > ul > li > a{
+    display: block;
+    color:green;
+    text-align: center;
+    padding: 30px 35px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#genre > ul > li > a:hover{
+    background-color: rgb(196, 191, 191);
+}
