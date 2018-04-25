@@ -53,8 +53,8 @@ app.use(function(req,res,next){
 // app.use('/login', loginRouter);
 //  --------------------------------------------------------- за да мога да използвам моя fron-end
 //TODO THIS BREAKS ALL API GET REQUESTS, RETURNS ONLY INDEX
-app.get("*",function(req, res){
-  res.sendfile(path.join(__dirname, 'public/views/index.html'))
+app.get("/",function(req, res){
+  res.sendfile(path.join(__dirname, 'public/views/index.html'));
 
 })
 
@@ -111,6 +111,7 @@ app.post('/loginUser',function(req,res,next){
       var user = arguments[1]
       res.status(200)
       req.session.user = user
+      user.password = "";      
       res.send(user)
       return
     }
@@ -118,7 +119,7 @@ app.post('/loginUser',function(req,res,next){
   UserModel.authenticate(uname,pass,authCallback)
 })
 
-app.post("/api/loggedIn",function(req,res,next){
+app.get("/api/loggedIn",function(req,res,next){
   if(req.session.user){
     res.status(200);
     var msg = {
@@ -131,6 +132,19 @@ app.post("/api/loggedIn",function(req,res,next){
       message:"Not logged"
     }
     res.send(msg);
+  }
+});
+
+app.get('/logout', function(req, res, next) {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(function(err) {
+      if(err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
   }
 });
 // ------------------------------------------------------- checked

@@ -2,30 +2,14 @@
         <img id="imgWithBooks" class="shadow" src="views/img/img1.png" alt="">
         <h1>Welcome To </h1>
 </div>
-<!-- <div id="diffrentKindOfBooks">
-    <div id="genre">
-        <ul >
-            <li><a href="#!/allB"> All books </a></li>
-            <li><a href="#!/romance"> Romance </a></li>
-            <li><a href="#!/science"> Science</a></li>
-            <li><a href="#!/history">History</a></li>
-            <li><a href="#!/cookbooks">Cookbooks</a></li>
-            <li><a href="#!/fantasy">Fantasy</a></li>
-            <li><a href="#!/biographies">Biographies</a></li>
-            <li><a href="#!/comics">Comics</a></li>
-            <li><a href="#!/travel">Travel</a></li>
-            <li><a href="#!/health">Health</a></li>
-            <li><a href="#!/drama">Drama</a></li>
-        </ul>
-    </div>
-</div> -->
 <br>
-<div class="container">
+<div class="container" >
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#!/allB"> Home </a></li>
-        <li ><a data-toggle="tab" href="#!/allB"> All books </a></li>
-        <li ><a data-toggle="tab" href="#!/romance"> Romance </a></li>
-        <li ><a data-toggle="tab" href="#!/science"> Science</a></li>
+        <!-- <li ng-class="{'active': isActive2}"><a ng-click="activeButtonAllBokks()" data-toggle="tab" href="#allBokksPage"> All books </a></li> -->
+        <li><a data-toggle="tab" href="#!/homePage"> Home </a></li>
+        <li><a data-toggle="tab" href="#!/allBooks"> All books </a></li>
+        <li><a data-toggle="tab" href="#!/romance"> Romance </a></li>
+        <li><a data-toggle="tab" href="#!/science"> Science</a></li>
         <li><a data-toggle="tab" href="#!/history">History</a></li>
         <li><a data-toggle="tab" href="#!/cookbooks">Cookbooks</a></li>
         <li><a data-toggle="tab" href="#!/fantasy">Fantasy</a></li>
@@ -36,22 +20,15 @@
         <li><a data-toggle="tab" href="#!/drama">Drama</a></li>
     </ul>
   
-    <div class="tab-content">
-      <div id="!/allB" class="tab-pane fade in active">
-        <h3>HOME</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-      <div id="!/romance" class="tab-pane fade">
-        <h3>Menu 1</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div id="science" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-      </div>
-      <div id="history" class="tab-pane fade">
-        <h3>Menu 3</h3>
-        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      </div>
-    </div>
+    <!-- <div  "home-directive" class="tab-content">
+     
+    </div> -->
+
+    <home-directive >
+        
+    </home-directive>
+
+
+
+
   </div>

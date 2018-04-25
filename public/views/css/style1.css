@@ -1,3 +1,11 @@
+.icon {
+    padding: 5px;
+    background: grey;
+    color: greenyellow;
+    min-width: 50px;
+    text-align: center;
+}
+
 #loginBox{
     position: absolute;
     top: 150px;
@@ -46,7 +54,7 @@
 #login-btn{
     position: relative;
     top: 50px;
-    left: 75px;
+    left: 150px;
 }
 #login-btn:hover{
     background: greenyellow;
@@ -66,8 +74,8 @@
 
 #miniLoginBox{
     position: relative;
-    top: 40px;
-    left: 80px;
+    top: 150px;
+    left: 10px;
 }
 
 .backgroundLoginRegister{
@@ -105,7 +113,7 @@
 #noAccount{
     position: relative;
     top: 80px;
-    left: 150px;
+    left: 225px;
 }
 
 #noAccount > a {
@@ -138,13 +146,13 @@
 
 #miniRegisterBox{
     position: relative;
-    top: 10px;
-    left: 15%;
+    top: 90px;
+    left: 10px;
 }
 
 #register-btn{
     position: relative;
-    left: 60px;
+    left: 150px;
 }
 
 #register-btn:hover{
@@ -156,7 +164,7 @@
 #miniRegisterBox > a {
     position: relative;
     top: 50px;
-    left: -60px;
+    left: 20px;
     color: white;
     text-decoration: none;
 }
@@ -262,3 +270,112 @@ nav{
 #genre > ul > li > a:hover{
     background-color: rgb(196, 191, 191);
 }
+
+.tab-content{
+    background: #e8e7e7;
+}
+
+/* bootstrap social media icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2em;
+    border-radius :50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+  }
+
+footer{
+    height: 100px;
+    background: #dcd8d8;
+    margin-top: 3em;
+}
+#socialMedia{
+    position: relative;
+    top:20px;
+    left: 200px;
+}
+
+#socialMedia > h1{
+    float: left;
+    color: white;
+    margin-right: 2em;
+}
+
+
+/* HOME */
+#addBooksInDB{
+    /* background: grey; */
+    margin: 2em auto;
+}
+
+#input1{
+    float: left;
+}
+#input2{
+    float: left;
+}
+#input3{
+    float: left;
+}
+#input4{
+    float: left;
+}
+#buttonAddBook{
+    float: left;
+}
+
+.classInputBook {
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid rgb(32, 51, 3);
+    margin: 1.5em;
+    /* background: rgb(247, 242, 242); */
+    color:rgb(32, 51, 3);
+    font-size: 1.4em;
+}
+
+
+/* -------------------------- */

@@ -11,8 +11,14 @@
 <div id="loginBox">
     <h1>Login</h1>
     <div id="miniLoginBox">
-        <input class="classLoginInputs"  type="text" placeholder="Enter username" ng-model="user.username">
-        <input class="classLoginInputs" type="password"  placeholder="Enter password" ng-model="user.password">
+        <div>
+            <i class="fa fa-envelope icon"></i>
+            <input class="classLoginInputs"  type="text" placeholder="Enter username" ng-model="user.username">
+        </div>
+        <div>
+            <i class="fa fa-key icon"></i>
+            <input class="classLoginInputs" type="password"  placeholder="Enter password" ng-model="user.password">
+        </div>
         <button id="login-btn" class="classButton" ng-click="login()">Login</button>
         <div id="noAccount">
             <p>or</p>

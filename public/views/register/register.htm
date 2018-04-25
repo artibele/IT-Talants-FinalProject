@@ -10,12 +10,35 @@
 <div id="registerBox">
     <h1>Register</h1>
     <div id="miniRegisterBox">
-        <input class="classLoginInputs" type="text" ng-model="user.firstName" placeholder="Enter First Name"/>
-        <input class="classLoginInputs" type="text" ng-model="user.secondName" placeholder="Enter Secoun Name"/>
-        <input class="classLoginInputs" type="text" ng-model="user.username" placeholder="Enter Username">
-        <input class="classLoginInputs" type="email" ng-model="user.email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"  placeholder="Enter Email">
-        <input class="classLoginInputs" type="password" ng-model="user.password" placeholder="Enter password">
-        <input class="classLoginInputs" type="text" ng-model="user.userImgUrl" placeholder="Enter picture url">
+        <div>
+            <i class="fa fa-user icon"></i>
+            <input class="classLoginInputs" type="text" ng-model="user.firstName" placeholder="Enter First Name"/>
+        </div>
+
+        <div>
+            <i class="fa fa-user icon"></i>
+            <input class="classLoginInputs" type="text" ng-model="user.secondName" placeholder="Enter Secoun Name"/>
+        </div>
+
+        <div>
+            <i class="fa fa-user icon"></i>
+            <input class="classLoginInputs" type="text" ng-model="user.username" placeholder="Enter Username">
+        </div>
+
+        <div>
+            <i class="fa fa-envelope icon"></i>
+            <input class="classLoginInputs" type="email" ng-model="user.email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"  placeholder="Enter Email">
+        </div>
+
+        <div>
+            <i class="fa fa-key icon"></i>
+            <input class="classLoginInputs" type="password" ng-model="user.password" placeholder="Enter password">
+        </div>
+        <div>
+                <i class="fa glyphicon glyphicon-picture icon"></i>
+            <input class="classLoginInputs" type="text" ng-model="user.userImgUrl" placeholder="Enter picture url">
+        </div>
+        
         <button id="register-btn" class="classButton"  ng-click="registration()">Register</button>
         <a href="#!/login">Back</a>
     </div>

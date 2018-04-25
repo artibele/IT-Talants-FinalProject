@@ -14,6 +14,10 @@ app.config(function($routeProvider){
             templateUrl: "views/allbooks/allBooks.htm",
             controller:"AllBooksController"
         })
+        .when("/homePage",{
+            templateUrl: "views/home/home.htm",
+            controller:"HomeController"
+        })
         // po definicq mi pokaji
         
 });
