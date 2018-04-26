@@ -7,7 +7,7 @@
     <ul class="nav nav-tabs">
         <!-- <li ng-class="{'active': isActive2}"><a ng-click="activeButtonAllBokks()" data-toggle="tab" href="#allBokksPage"> All books </a></li> -->
         <li><a data-toggle="tab" href="#!/homePage"> Home </a></li>
-        <li><a data-toggle="tab" href="#!/allBooks"> All books </a></li>
+        <li class='active'><a data-toggle="tab" href="#!/allBooks"> All books </a></li>
         <li><a data-toggle="tab" href="#!/romance"> Romance </a></li>
         <li><a data-toggle="tab" href="#!/science"> Science</a></li>
         <li><a data-toggle="tab" href="#!/history">History</a></li>
@@ -20,9 +20,22 @@
         <li><a data-toggle="tab" href="#!/drama">Drama</a></li>
     </ul>
   
-    <!-- <div  "home-directive" class="tab-content">
-     
-    </div> -->
+   <div id="templateForBooks">
+       <div>
+           <h4>Harry Potter</h4>
+            <img width="200px" src="http://www.az-deteto.bg/pic/chetene/book/125.jpg" alt="" title="Harry Potter"> </img>  
+            <button ng-click="moreInfo()" class="viewMoreInfo buttonViewAndAdd"> View </button> 
+            <button ng-click="moreInfo()" class="viewMoreInfo buttonViewAndAdd"> Add </button>   
+       </div>
+       <div>
+           <h4>Harry Potter 2</h4>
+            <img width="200px" src="http://www.az-deteto.bg/pic/chetene/book/125.jpg" alt="" title="Harry Potter"> 
+                <a href=""> 
+                    <button class="viewMoreInfo"> View </button> 
+                </a> 
+            </img>    
+       </div>
+   </div>
 
     <home-directive >
         

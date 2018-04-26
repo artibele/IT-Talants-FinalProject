@@ -101,11 +101,12 @@ app.post('/loginUser',function(req,res,next){
         res.send()
         return
       }
-      if(err.name=='NotFound'){
+      if(err.name=='NotFound' || err.name=='Password does not match'){
         res.status(401)
         res.send()
         return
-      } 
+      }
+      
     }
     if(arguments.length==2){
       var user = arguments[1]

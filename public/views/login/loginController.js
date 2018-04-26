@@ -1,5 +1,6 @@
 app.controller("LoginController",function($scope, $location , $http){
-    $scope.login = function (){
+    $scope.login = function ($event){
+        event.preventDefault()
         // var user = {
         //     username : $scope.user.username,
         //     password : $scope.user.password
@@ -22,7 +23,8 @@ app.controller("LoginController",function($scope, $location , $http){
             if(res.status == 401){
                 alert("Wrong user/password, try again")
             }
-            $scope.user = '';
+            $scope.user.username = ''
+            $scope.user.password = ''
             $location.path('/login');
         })
     }

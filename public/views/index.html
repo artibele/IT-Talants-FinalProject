@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- shrift -->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+    <!-- Stylee -->
     <link rel="stylesheet" type="text/css" href="views/css/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,14 +24,17 @@
     <a class="login" href="#!/login">Login</a>
     <a class="register" href="#!/register">Register</a>
     <a class="register" href="#!/allBooks">allBooks</a>
+    <a class="register" href="#!/moreInfo">allBooks</a>
     <br>
 
     <header>
         <nav>
             <ul id="mainMenu">
                 <li><a ng-controller="logoutController" ng-click="logout()" >Logout</a></li>
+                <li> <img width="80px" ng-controller="usernameAndPictureController as ctrl" src="{{ctrl.profPic}}" alt=""> </li>
+                <li><a ng-controller="usernameAndPictureController as ctrl" href="#!/myProfile"> <p> {{ctrl.uFname}}  {{ctrl.uSname}}  </p> </a></li>
                 <li><a href="#!/allBooks">All Books</a></li>
-                <li><a href="#!/myProfile">My Profile</a></li>
+                <li><a href="#!/myProfile">My Profile</a></li> 
             </ul>
         </nav>
     </header>
@@ -61,6 +68,8 @@
 <script src="views/allbooks/allBooksController.js"></script>
 <script src="views/home/homeControler.js"></script>
 <script src="views/logoutcontroller.js"></script>
+<script src="views/pictureAndNameOfUserController.js"></script>
+<script src="views/moreInfo/moreInfoController.js"></script>
 
 
 <!-- all Services -->

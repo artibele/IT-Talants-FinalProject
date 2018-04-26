@@ -18,6 +18,10 @@ app.config(function($routeProvider){
             templateUrl: "views/home/home.htm",
             controller:"HomeController"
         })
+        .when("/moreInfo",{
+            templateUrl: "views/moreinfo/moreinfo.htm",
+            controller:"MoreInfoController"
+        })
         // po definicq mi pokaji
         
 });

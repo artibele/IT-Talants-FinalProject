@@ -9,6 +9,10 @@ app.controller("AllBooksController",function($scope, $location , $http){
             $location.path('/login');
     }
     });
+    
+    $scope.moreInfo = function (){
+        $location.path('/moreInfo');
+    }
 
 }).directive("home-directive", function() {
     return {
