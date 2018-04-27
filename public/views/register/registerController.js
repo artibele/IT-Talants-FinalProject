@@ -16,15 +16,19 @@ app.controller("RegisterController",function($scope, $location , $http){
             return;
         }
         
-        var res = $http.post("/registerUser", sendUser); // post request from client => Server 
-       if(res.status == 200){
-        $scope.user = {};
-        $location.path('/login')
-       } else {
-        alert("Try again");
-        $scope.user = "";
-        $location.path('/register')
-       }
+        $http.post("/registerUser", sendUser).then(function(res) {
+            if(res.status == 200){
+                $scope.user = {};
+                $location.path('/login')
+               } else {
+                alert("Try again");
+                $scope.user = "";
+                $location.path('/register')
+               }
+        }) // post request from client => Server 
+        .catch(function(res){
+            
+        })
     }
     
 });

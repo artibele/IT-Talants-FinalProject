@@ -6,6 +6,7 @@ var logger = require('morgan');
 const session =  require('express-session') ;
 // ------------------------------------------- > MODELS
 var UserModel = require("./models/User")
+var BookModel = require("./models/Book")
 
 // var mongo = require('mongodb');
 // var monk = require('monk');
@@ -86,7 +87,61 @@ app.post('/registerUser',function(req,res,next){
   });
 
 })
+app.post("/addBookInList",function(req,res,next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  } 
+  var body = req.body;
+  console.log(body);
 
+  var date = new Date(body.published).toLocaleDateString()
+  console.log(date)
+  var bookData = {
+        title : body.title,
+        moreAboutBook : body.moreAboutBook,
+        author : body.author,
+        typeBook : body.typeOfBook,
+        publisher : body.publisher,
+        published : date,
+        pages : body.pages,
+        aboutAuthor : body.aboutAuthor,
+        price : body.price,
+        linkToBuy : body.linkToBuy,
+        pictureBook : body.pictureImg
+  }
+  BookModel.create(bookData,function(err,book){
+    if(err){
+      console.log(err);
+      res.status(500);
+      res.json(err);
+    } else {
+      console.log(book);
+      res.status(200);
+      res.send(book);
+    }
+  })
+});
+
+app.get("/getAllBooks",function(req,res,next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  }
+  BookModel.find({},function(err,books){
+    if(err){
+      console.log(err);
+      res.status(404);
+      res.json(err);
+    }else{
+      console.log(books);
+      res.status(200);
+      res.send(books);
+    }
+  })
+})
 // ----------------------------------------------------------------------- Post request for login  user
 app.post('/loginUser',function(req,res,next){
   var uname = req.body.username
@@ -148,6 +203,8 @@ app.get('/logout', function(req, res, next) {
     });
   }
 });
+
+
 // ------------------------------------------------------- checked
 // function checkLogin(req, res, next) {
 //   console.log(req.session);

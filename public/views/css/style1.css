@@ -1,6 +1,9 @@
 body{
     overflow-y: scroll;
     overflow-x: hidden;
+    /* background-image: url('./img/imgA.png'); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
 }
 .icon {
     padding: 5px;
@@ -398,7 +401,7 @@ footer{
 /* --------TEMPLATE FOR BOOKS  */
 #templateForBooks{
     height: 1000px;
-    /* background: rgb(238, 235, 235); */
+    background: rgb(238, 235, 235);
     margin: 1em auto;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -520,4 +523,20 @@ tr:hover {
     font-size: 1.6em;
 }
 
+#detailAboutBook > a {
+    color: rgb(4, 88, 4);
+    font-weight: bold;
+    position: relative;
+    top: 800px;
+    left: 450px;
+}
 
+#detailAboutBook > a:hover {
+    text-decoration: none;
+    color: rgb(5, 122, 5);
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    top: 800px;
+    left: 450px;
+}

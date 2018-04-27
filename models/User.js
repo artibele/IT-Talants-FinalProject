@@ -23,7 +23,7 @@ var UserSchema = new Schema({
     username : {
         type: String,
         unique: true,
-        required: true,
+        required: true, // zadyljitelno pole
         trim: true
       },
       email : {

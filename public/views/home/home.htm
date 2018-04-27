@@ -22,29 +22,29 @@
   <div id='addBooksInDB' >
         <h3>HOME </h3>
         <div id='input1'>
-            <input class='classInputBook' type="text" placeholder="Enter Title of Book">
-            <input class='classInputBook' type="text" placeholder="More About Book">
-            <input class='classInputBook' type="text" placeholder="Author">
+            <input class='classInputBook' type="text" placeholder="Enter Title of Book" ng-model="book.title">
+            <input class='classInputBook' type="text" placeholder="More About Book" ng-model="book.moreAboutBook">
+            <input class='classInputBook' type="text" placeholder="Author" ng-model="book.author"> 
         </div>
 
         <div id='input2'>
-            <input class='classInputBook' type="text" placeholder="Type">
-            <input class='classInputBook' type="text" placeholder="Publisher:">
-            <input class='classInputBook' type="text" placeholder="Published:">
+            <input class='classInputBook' type="text" placeholder="Type" ng-model="book.typeOfBook">
+            <input class='classInputBook' type="text" placeholder="Publisher:" ng-model="book.publisher">
+            <input class='classInputBook' type="date"  placeholder="Published:" ng-model="book.published">
         </div>
 
         <div id='input3'>
-            <input class='classInputBook' type="text" placeholder="Pages">
-            <input class='classInputBook' type="text" placeholder="About the author">
-            <input class='classInputBook' type="text" placeholder="Price">
+            <input class='classInputBook' type="number" placeholder="Pages" ng-model="book.pages">
+            <input class='classInputBook' type="text" placeholder="About the author" ng-model="book.aboutAuthor">
+            <input class='classInputBook' type="number" placeholder="Price" ng-model="book.price">
         </div>
        
        <div id='input4'>
-            <input class='classInputBook' type="text" placeholder="Link to buy">
-            <input class='classInputBook' type="text" placeholder="Picture">
+            <input class='classInputBook' type="text" placeholder="Link to buy" ng-model="book.linkToBuy">
+            <input class='classInputBook' type="text" placeholder="Picture" ng-model="book.pictureBook">
        </div>
        <div id='buttonAddBook'>
-            <button type="button" class="btn btn-default">Default</button>
+            <button type="button" class="btn btn-default" ng-click="addNewBook()">Add a New Book In List</button>
        </div>
   </div>
   
