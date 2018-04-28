@@ -22,21 +22,31 @@
   <div id='addBooksInDB' >
         <h3>HOME </h3>
         <div id='input1'>
-            <input class='classInputBook' type="text" placeholder="Enter Title of Book" ng-model="book.title">
-            <input class='classInputBook' type="text" placeholder="More About Book" ng-model="book.moreAboutBook">
-            <input class='classInputBook' type="text" placeholder="Author" ng-model="book.author"> 
+            <input class='classInputBook' type="text" minlength="2" maxlength="100" placeholder="Enter Title of Book" ng-model="book.title">
+            <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="More About Book" ng-model="book.moreAboutBook">
+            <input class='classInputBook' type="text" minlength="2" maxlength="50" placeholder="Author" ng-model="book.author"> 
         </div>
 
-        <div id='input2'>
-            <input class='classInputBook' type="text" placeholder="Type" ng-model="book.typeOfBook">
-            <input class='classInputBook' type="text" placeholder="Publisher:" ng-model="book.publisher">
+            <input class='classInputBook' list="typeOfBooks" type="text" placeholder="Type" ng-model="book.typeOfBook">
+            <datalist id="typeOfBooks">
+                    <option value="romance"/>
+                    <option value="science"/>
+                    <option value="cookbooks"/>
+                    <option value="fantasy"/>
+                    <option value="biographies"/>
+                    <option value="comics"/>
+                    <option value="travel"/>
+                    <option value="health"/>
+                    <option value="drama"/>
+            </datalist>
+            <input class='classInputBook' type="text" minlength="2" maxlength="50" placeholder="Publisher:" ng-model="book.publisher">
             <input class='classInputBook' type="date"  placeholder="Published:" ng-model="book.published">
         </div>
 
         <div id='input3'>
-            <input class='classInputBook' type="number" placeholder="Pages" ng-model="book.pages">
-            <input class='classInputBook' type="text" placeholder="About the author" ng-model="book.aboutAuthor">
-            <input class='classInputBook' type="number" placeholder="Price" ng-model="book.price">
+            <input class='classInputBook' type="number" min="0" placeholder="Pages" ng-model="book.pages">
+            <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="About the author" ng-model="book.aboutAuthor">
+            <input class='classInputBook' type="number" min="0" placeholder="Price" ng-model="book.price">
         </div>
        
        <div id='input4'>

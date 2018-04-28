@@ -25,24 +25,27 @@ app.controller("HomeController",function($scope, $location , $http){
                 }
 
                 $http.post("/addBookInList", sendBook).then(function(responseBook){
-
+                    $scope.book.title = "";
+                    $scope.book.moreAboutBook = "";
+                    $scope.book.author = "";
+                    $scope.book.typeOfBook = "";
+                    $scope.book.publisher = '';
+                    $scope.book.published = ""
+                    $scope.book.pages = "";
+                    $scope.book.aboutAuthor = "";
+                    $scope.book.price = "";
+                    $scope.book.linkToBuy = "";
+                    $scope.book.pictureBook  = "";
+                    
+                })
+                .catch(function(res){
+                    alert("Invalid Input")
                 })
                 
             } else {
                 $location.path('/login');
         }
-        });
+        })
     }
 
-    // $scope.book.title = "";
-    // $scope.book.moreAboutBook = "";
-    // $scope.book.author = "";
-    // $scope.book.typeOfBook = "";
-    // $scope.book.publisher = '';
-    // $scope.book.published = ""
-    // $scope.book.pages = "";
-    // $scope.book.aboutAuthor = "";
-    // $scope.book.price = "";
-    // $scope.book.linkToBuy = "";
-    // $scope.book.pictureBook  = "";
 });

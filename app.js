@@ -125,11 +125,11 @@ app.post("/addBookInList",function(req,res,next){
 });
 
 app.get("/getAllBooks",function(req,res,next){
-  if(req.session.user == null){
-    res.status(401);
-    res.send();
-    return;
-  }
+  // if(req.session.user == null){
+  //   res.status(401);
+  //   res.send();
+  //   return;
+  // }
   BookModel.find({},function(err,books){
     if(err){
       console.log(err);
@@ -141,6 +141,32 @@ app.get("/getAllBooks",function(req,res,next){
       res.send(books);
     }
   })
+})
+
+app.delete('/removeBook/:id',function(req,res,next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  }
+  ;console.log("parameters")
+  console.log(req.params.id)
+
+  var querry = BookModel.find().remove({_id : req.params.id})
+  querry.remove({_id : req.params.id},function(err){
+    if(err){
+      console.log(err)
+      res.status(404)
+      res.send(err)
+      return
+    }
+    else{
+      res.status(200)
+      res.send()
+      return
+    }
+  })
+  return
 })
 // ----------------------------------------------------------------------- Post request for login  user
 app.post('/loginUser',function(req,res,next){

@@ -3,6 +3,7 @@
         <h1>Welcome To </h1>
 </div>
 <br>
+
 <div class="container" >
     <ul class="nav nav-tabs">
         <!-- <li ng-class="{'active': isActive2}"><a ng-click="activeButtonAllBokks()" data-toggle="tab" href="#allBokksPage"> All books </a></li> -->
@@ -21,27 +22,20 @@
     </ul>
   
    <div id="templateForBooks">
-       <div>
-           <h4>Harry Potter</h4>
-            <img width="200px" src="http://www.az-deteto.bg/pic/chetene/book/125.jpg" alt="" title="Harry Potter"> </img>  
-            <button ng-click="moreInfo()" class="viewMoreInfo buttonViewAndAdd"> View </button> 
-            <button ng-click="moreInfo()" class="viewMoreInfo buttonViewAndAdd"> Add </button>   
+       <div id="templateForFullBooks">
+
+            <div class="bigBoxBookTempl" ng-repeat="book in books">
+                <img  src="{{book.pictureBook}}" alt="" title="Harry Potter"> </img> 
+                <div class="boxBookTempl" ng-click="moreInfo()" title='click to view more about book'>
+                    <h4> {{book.title}} </h4>
+                </div>
+                <button  class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                <button  class="viewMoreInfo buttonViewAndAdd" ng-click="deleteBook(book._id)" title="Delete book"> <span class="glyphicon glyphicon-floppy-remove"></span> </button>
+                <button  class="viewMoreInfo buttonViewAndAdd" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
+            </div>
+
        </div>
-       <div>
-           <h4>Harry Potter 2</h4>
-            <img width="200px" src="http://www.az-deteto.bg/pic/chetene/book/125.jpg" alt="" title="Harry Potter"> 
-                <a href=""> 
-                    <button class="viewMoreInfo"> View </button> 
-                </a> 
-            </img>    
-       </div>
-   </div>
 
-    <home-directive >
-        
-    </home-directive>
-
-
-
+    </div>
 
   </div>

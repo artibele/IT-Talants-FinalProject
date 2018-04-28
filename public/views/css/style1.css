@@ -399,28 +399,61 @@ footer{
 
 
 /* --------TEMPLATE FOR BOOKS  */
+
 #templateForBooks{
     height: 1000px;
     background: rgb(238, 235, 235);
     margin: 1em auto;
     overflow-y: scroll;
     overflow-x: hidden;
+    border-radius: 10px;
+}
+#templateForFullBooks{
+    height: 970px;
+    /* background: rgb(168, 157, 157); */
+    width: 97%;
+    margin: 1em auto;
 }
 
+.bigBoxBookTempl{
+    float: left;
+    margin: 2px;
+}
 
+.bigBoxBookTempl > img {
+    width: 200px;
+    height: 280px;
+}
+
+.boxBookTempl{
+    width: 200px;
+    opacity: 0.8;
+    height: 280px;
+    position: relative;
+    top: -290px;
+}
+.boxBookTempl:hover{
+     background: black;
+     opacity: 0.8;
+     color: rgb(255, 255, 255);
+}
+
+.boxBookTempl > h4 {
+    text-align: center;
+    position: relative;
+    top: 240px;
+}
 
 ::-webkit-scrollbar {
     width: 10px;
 }
  
-/* Track */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
     -webkit-border-radius: 10px;
     border-radius: 12px;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -431,39 +464,39 @@ footer{
 	background: rgba(195, 243, 199, 0.8); 
 }
 
-#templateForBooks> div > img:hover{
-    width: 205px;
-   
-}
-#templateForBooks> div {
-    float: left;
+.viewMoreInfo{
+    /* margin: 0 1px; */
+    position: relative;
+    left:30px;
+    top: -280px;
 }
 
-#templateForBooks> div > h4 {
-    font-family: 'Indie Flower', cursive;
-    font-family: 'Shadows Into Light', cursive;
-    font-weight: bold;
-}
-.viewMoreInfo{
-    margin: 0 0.5em;
-    position: relative;
-    left: -200px;
-    top: 180px;
-}
 .buttonViewAndAdd {
-    width: 80px;
-    height: 35px;
-    /* background: none; */
+    width: 40px;
+    height: 40px;
+    background: none;
     opacity: 0.5;
-    color: rgb(31, 44, 3);
+    color: rgb(102, 145, 9);
     font-weight: bold;
+    border-radius: 50%;
+    border-color: rgb(72, 116, 3);
+
+}
+.buttonViewAndAdd:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgb(218, 238, 187);
 }
 
 /* DETAILS ABOUT BOOK */
 
 #detailAboutBook{
     width: 1400px;
-    height: 1200px;
+    height: 800px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
     background: rgb(230, 228, 228);
     margin: 0 auto;
 }
@@ -491,7 +524,7 @@ th, td {
 
 tr:hover {
     background-color:#f5f5f5;
-    font-size: 1.4em;
+    font-size: 1.1em;
 }
 
 #detailAboutBook > h2{
@@ -499,7 +532,7 @@ tr:hover {
     font-family: 'Shadows Into Light', cursive;
     font-family: 'Covered By Your Grace', cursive;
     position: relative;
-    top: 50px;
+    top: 80px;
     left: 50px;
 }
 
@@ -523,20 +556,59 @@ tr:hover {
     font-size: 1.6em;
 }
 
-#detailAboutBook > a {
+#detailAboutBook > span {
     color: rgb(4, 88, 4);
-    font-weight: bold;
     position: relative;
-    top: 800px;
-    left: 450px;
+    top: -70px;
+    left: -100px;
+}
+#detailAboutBook > span > a {
+    color: rgb(3, 94, 3);
+    font-weight: bold;
+    font-size: 1.4em;
+    text-decoration: none;
 }
 
-#detailAboutBook > a:hover {
-    text-decoration: none;
-    color: rgb(5, 122, 5);
-    font-size: 1.5em;
+#detailAboutBook > span > a:hover {
+    color: rgb(6, 163, 6);
     font-weight: bold;
+    font-size: 1.7em;
+    text-decoration: none;
+}
+
+
+
+#buttonsInMoreInfoForBook{
     position: relative;
-    top: 800px;
-    left: 450px;
+    top: 445px;
+    left: 65px;
+}
+
+
+
+.buttonsInMoreInfoForBook {
+    width: 40px;
+    height: 40px;
+    background: none;
+    opacity: 0.5;
+    color: rgb(102, 145, 9);
+    font-weight: bold;
+    border-radius: 50%;
+    border-color: rgb(72, 116, 3);
+
+}
+
+/* .buttonsInMoreInfoForBook:hover {
+    width: 60px;
+    height: 60px;
+} */
+
+#commentsforBook{
+    width: 1400px;
+    margin: 2em auto;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
+    background: rgb(238, 235, 235);
 }
