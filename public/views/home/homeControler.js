@@ -1,7 +1,38 @@
 app.controller("HomeController",function($scope, $location , $http){
+    $scope.types = [
+        {
+            type:"romance"
+        },
+        {
+            type:"science"
+        },
+        {
+            type:"cookbooks"
+        },
+        {
+            type:"fantasy"
+        },
+        {
+            type:"biographies"
+        },
+        {
+            type:"comics"
+        },
+        {
+            type:"travel"
+        },
+        {
+            type:"health"
+        },
+        {
+            type:"drama"
+        }
+    ]
     $scope.addNewBook = function () {
         $http.get("/api/loggedIn").then(function(res){
             if(res.data.message == "Logged"){
+                
+                
 
                 var title = $scope.book.title;
                 var moreAboutbook = $scope.book.moreAboutBook;

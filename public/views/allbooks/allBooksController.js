@@ -35,6 +35,39 @@ app.controller("AllBooksController",function($scope, $location , $http){
         })
     }
 
+    $scope.sortAZ = function(){
+        $scope.books.sort(function(a,b){
+            var bookA =  a.title;
+            var bookB = b.title;
+            if(bookA < bookB){
+                return -1;
+            }
+            if(bookA > bookB){
+                return 1;
+            }
+            if(bookA = bookB){
+                return 0;
+            }
+            
+        })
+    }
+
+    $scope.sortZA = function (){
+        $scope.books.sort(function(a,b){
+            var bookA =  a.author;
+            var bookB = b.author;
+            if(bookB < bookA){
+                return -1;
+            }
+            if(bookB > bookA){
+                return 1;
+            }
+            if(bookB = bookA){
+                return 0;
+            }
+        })
+    }
+
 
 })
 // .directive("home-directive", function() {
