@@ -168,6 +168,32 @@ app.delete('/removeBook/:id',function(req,res,next){
   })
   return
 })
+
+app.get("/getInfoForAbook/:id",function(req, res, next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  }
+  BookModel.findOne({_id: req.params.id},function(err,book){
+    if(err){
+      res.status(404);
+      res.send();
+      return;
+    } else {
+      if(book != null){
+        res.status(200);
+        res.send(book);
+        return;
+      } else {
+        res.status(404);
+        res.send();
+        return;
+      }
+    }
+  });
+
+})
 // ----------------------------------------------------------------------- Post request for login  user
 app.post('/loginUser',function(req,res,next){
   var uname = req.body.username

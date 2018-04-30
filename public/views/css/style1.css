@@ -1,9 +1,6 @@
 body{
     overflow-y: scroll;
     overflow-x: hidden;
-    /* background-image: url('./img/imgA.png'); */
-    /* background-size: cover;
-    background-repeat: no-repeat; */
 }
 .icon {
     padding: 5px;
@@ -189,6 +186,9 @@ body{
 }
 
 /* ALL BOOKS PAGE */
+
+
+
 nav{
     width: 100%;
     height: 80px;
@@ -217,38 +217,74 @@ nav{
     text-decoration: none;
 }
 
-#mainMenu > li > img {
-    /* border-top-right-radius: 100%;
-    border-top-left-radius: 100%; */
+/* #mainMenu > li > img {
+   
     border:2px solid yellowgreen;
     position: relative;
     top: 12px;
     margin: 0 1em;
 
-}
-
-
+} */
 
 #mainMenu > li a:hover {
     background-color: #111;
 }
 
 #goodReadBackground{
+    background: rgb(192, 190, 190);
     width: 100%;
-    height: 500px;
-    background: rgb(128, 128, 128);
+    height: 600px;
+    box-sizing: border-box;
+    /* background: rgb(128, 128, 128); */
 }
 
 #imgWithBooks{
     width: 100%;
     position: relative;
-    top: 130px;
+    top: 230px;
     opacity: 0.7;
 }
-.shadow {
-    -webkit-filter: drop-shadow(8px 8px 20px rgb(208, 226, 208));
-    filter: drop-shadow(0px 0px 50px rgb(255, 255, 255));
+
+
+.slide {
+    float: left;
+    width: 100%;
+    height: 600px;
+    background: grey;
+    position: relative;
+    left: 50px;
+    
 }
+
+.slider {
+    width: 50%;
+    height: 601px;
+    /* background: grey; */
+    position: relative;
+    left: 400px;
+    box-sizing: border-box;
+}
+
+.slide > img {
+    text-align: center;
+    width: 100%; 
+    height: 100%; 
+}
+
+.arrowsLeft {
+    position: relative;
+    top: -400px;
+    left: -200px;
+
+}
+
+.arrowsRight {
+    position: relative;
+    top: -400px;
+    left: 1100px;
+} 
+
+
 #goodReadBackground > h1 {
     color: rgb(255, 255, 255);
     font-size: 11em;
@@ -267,7 +303,7 @@ nav{
 #genre > ul {
     width: 80%;
     height: 80px;
-    /* background: green; */
+    background: green;
     list-style-type: none;
     margin: 0;
     position: relative;
@@ -286,13 +322,23 @@ nav{
     text-decoration: none;
     font-weight: bold;
 }
+.active{
+    opacity: 0.3;
+}
+
+#backgroundContainer{
+    width: 100%;
+    background-image: url('https://i.pinimg.com/originals/c5/76/c1/c576c1352e7abda639789374b20369ad.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 #genre > ul > li > a:hover{
-    background-color: rgb(196, 191, 191);
+    opacity: 0.5;
 }
 
 .tab-content{
-    background: #e8e7e7;
+    background: #521f1f;
 }
 
 /* bootstrap social media icons */
@@ -432,6 +478,7 @@ footer{
     border:none;
     border-bottom: 2px solid black;
     margin: 1.5em;
+    background: none;
 }
 
 #buttonsAndSerach{
@@ -465,6 +512,9 @@ footer{
     overflow-x: hidden;
     border-radius: 10px;
     padding: 0 2.6em;
+    /* background-image: url('https://i.pinimg.com/originals/c5/76/c1/c576c1352e7abda639789374b20369ad.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
 }
 #templateForFullBooks{
     height: 970px;
@@ -544,18 +594,18 @@ footer{
     border-color: rgb(72, 116, 3);
 
 }
-/* .buttonViewAndAdd:hover{
+.buttonViewAndAdd:hover{
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background: rgb(218, 238, 187);
-} */
+}
 
 /* DETAILS ABOUT BOOK */
 
 #detailAboutBook{
     width: 1400px;
-    height: 800px;
+    height: 650px;
     overflow-y: scroll;
     overflow-x: hidden;
 
@@ -569,6 +619,7 @@ table {
     float: right;
     position: relative;
     top: 100px;
+    left: 50px;
     margin-right: 1em;
 }
 
@@ -605,7 +656,7 @@ tr:hover {
     left: 50px;
 }
 #detailAboutBook > img:hover {
-    width: 200px;
+    width: 220px;
     float: left;
     position: relative;
     top: 100px;
@@ -621,8 +672,8 @@ tr:hover {
 #detailAboutBook > span {
     color: rgb(4, 88, 4);
     position: relative;
-    top: -70px;
     left: -100px;
+    top: -270px;
 }
 #detailAboutBook > span > a {
     color: rgb(3, 94, 3);
@@ -642,7 +693,7 @@ tr:hover {
 
 #buttonsInMoreInfoForBook{
     position: relative;
-    top: 445px;
+    top: 475px;
     left: 65px;
 }
 
@@ -668,9 +719,152 @@ tr:hover {
 #commentsforBook{
     width: 1400px;
     margin: 2em auto;
-    height: 500px;
+    /* height: 500px; */
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
     background: rgb(238, 235, 235);
 }
+
+#moreInforNav {
+    width: 1400px;
+    height: 500px;
+    /* position: relative;
+    left: 250px; */
+    
+    background: rgb(252, 238, 238);
+    margin: 2em auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#infoForAuthor > h1 {
+    position: relative;
+    top:70px;
+    left: 650px;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 1.6em;
+    font-style: italic;
+    font-weight: bold;
+    
+}
+
+#infoForAuthor > p {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 1.6em;
+}
+.userComment {
+    float: left;
+    margin: 1em 0;
+}
+.userComment > img {
+    float: left;
+   
+}
+
+.userComment > p {
+    float: left;
+   width: 80%;
+   font-family: 'Indie Flower', cursive;
+   font-family: 'Shadows Into Light', cursive;
+   font-family: 'Covered By Your Grace', cursive;
+   font-size: 1.6em;
+}
+
+#inputUserComments {
+    position: relative;
+    left: 200px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 2.5em 0;
+   
+}
+
+#infoForBook > h1 {
+    position: relative;
+    left: 550px;
+    top: 60px;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 1.6em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#infoForBook > p {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 1.6em;
+}
+
+
+/* MAIN PAGE */
+#conatainerOne {
+    width: 100%;
+    height: 400px;
+    background: grey;
+}
+
+#containerTwo{
+    width: 100%;
+    height: 300px;
+    background: rgb(224, 214, 214);
+    float: left;
+}
+
+/* ANIMATE SLIDESHOW */
+/* .slide.ng-hide-add,
+.slide.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block!important;
+}
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+  opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+} */
+
+/* .slider {
+    position: relative;
+    padding: 5px;
+    width: 100%;
+    height:400px;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 15px #999;
+  }
+  .arrows {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  .arrows img {
+    height: 32px;
+  } */
+  

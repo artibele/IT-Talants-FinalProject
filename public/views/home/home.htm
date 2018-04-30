@@ -24,11 +24,11 @@
         <div id='input1'>
             <input class='classInputBook classHoverInput'  type="text" minlength="2" maxlength="100" placeholder="Enter Title of Book" ng-model="book.title">  <span class="glyphicon glyphicon-subtitles"></span> </input>
             <input class='classInputBook classHoverInput' type="number" min="0" placeholder="Pages" ng-model="book.pages"> <span class="glyphicon glyphicon-book"></span> </input>
-            <input class='classInputBook classHoverInput' type="text" minlength="2" maxlength="50" placeholder="Author" ng-model="book.author">  <span class="glyphicon glyphicon-user"></span> </input>
+            <input class='classInputBook classHoverInput' type="text" minlength="2" maxlength="60" placeholder="Author" ng-model="book.author">  <span class="glyphicon glyphicon-user"></span> </input>
         </div>
 
         <div id='input2'>
-            <input class='classInputBook classHoverInput' list="typeOfBooks" type="text" placeholder="Type" ng-model="book.typeOfBook">  <span class="glyphicon glyphicon-hand-up"></span> </input>
+            <input class='classInputBook classHoverInput' list="typeOfBooks" maxlength="20" type="text" placeholder="Type" ng-model="book.typeOfBook">  <span class="glyphicon glyphicon-hand-up"></span> </input>
             <datalist id="typeOfBooks">
                     <option ng-repeat="type in types" value="{{type.type}}"/>
             </datalist>
@@ -37,7 +37,7 @@
         </div>
 
         <div id='input3'>
-            <input class='classInputBook classHoverInput' type="text" placeholder="Link to buy" ng-model="book.linkToBuy">  <span class="glyphicon glyphicon-share"></span> </input>
+            <input class='classInputBook classHoverInput' type="text" minlength="10" maxlength="100" placeholder="Link to buy" ng-model="book.linkToBuy">  <span class="glyphicon glyphicon-share"></span> </input>
             <input class='classInputBook classHoverInput' type="text" placeholder="Picture" ng-model="book.pictureBook">  <span class="glyphicon glyphicon-picture"></span> </input>
             <input class='classInputBook classHoverInput' type="number" min="0" placeholder="Price" ng-model="book.price">  <span class="glyphicon glyphicon-piggy-bank"></span> </input>
         </div>
@@ -45,7 +45,7 @@
        <div id='input4'>
             <!-- <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="More About Book" ng-model="book.moreAboutBook">
             <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="About the author" ng-model="book.aboutAuthor"> -->
-                <textarea class="textareaInput classHoverInput"  cols="100"  maxlength="500" rows="3" ng-model="book.moreAboutBook" placeholder="Write something here..."> </span>  </textarea> 
+                <textarea class="textareaInput classHoverInput"  cols="100"  maxlength="500" maxlength="500" rows="3" ng-model="book.moreAboutBook" placeholder="Write something here..."> </span>  </textarea> 
                 <textarea class="textareaInput classHoverInput"  cols="100" maxlength="500" rows="3" ng-model="book.aboutAuthor" placeholder="Write something here..."> </textarea> 
         </div>
 

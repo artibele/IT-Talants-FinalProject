@@ -1,0 +1,17 @@
+<div class="slider">
+   
+    <div class="slide" ng-repeat="image in images" ng-show="image.visible" >
+        <img width="400px" ng-src="{{image.src}}" />
+    </div>
+
+    <div class="arrows" >
+        <a class="arrowsLeft"   ng-click="prev()">
+            <img width="100px" src="https://www.onefineart.com/assets/img/arrowprev.png" />
+        </a>
+        <a class="arrowsRight"  ng-click="next()">
+            <img width="100px" src="https://www.onefineart.com/assets/img/arrownext.png" />
+        </a>
+    </div>
+</div>
+
+

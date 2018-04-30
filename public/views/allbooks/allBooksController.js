@@ -1,4 +1,19 @@
 app.controller("AllBooksController",function($scope, $location , $http){
+    $scope.imagess = [{
+        src: 'views/img/wall1.jpg',
+        title: 'Pic 1'
+      }, {
+        src: 'views/img/wall2.jpg',
+        title: 'Pic 2'
+      }, {
+        src: 'views/img/wall3.jpg',
+        title: 'Pic 3'
+      }, {
+        src: 'views/img/wall4.jpg',
+        title: 'Pic 4'
+      }
+    ];
+    
     
     $http.get("/api/loggedIn").then(function(res){
         console.log(res)
@@ -19,8 +34,9 @@ app.controller("AllBooksController",function($scope, $location , $http){
     }
     });
     
-    $scope.moreInfo = function (){
-        $location.path('/moreInfo');
+    $scope.moreInfo = function (_id){
+        $location.path('/moreInfo/').search({id:_id});    
+        
     }
 
     $scope.deleteBook = function (id){
@@ -67,12 +83,4 @@ app.controller("AllBooksController",function($scope, $location , $http){
             }
         })
     }
-
-
 })
-// .directive("home-directive", function() {
-//     return {
-//         restrict : "E",
-//         template: "<h1> Opaaaaa </h1>"
-//     };
-// });

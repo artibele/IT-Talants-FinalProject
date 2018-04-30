@@ -1,63 +1,96 @@
 
-
 <div id="detailAboutBook">
-    <h2>Title of Book</h2>
+    <h2> {{book.title}} </h2>
     <div id="buttonsInMoreInfoForBook">
         <button class="buttonsInMoreInfoForBook"  title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
         <button class="buttonsInMoreInfoForBook" title="Delete book"> <span class="glyphicon glyphicon-floppy-remove"></span> </button>
         <button class="buttonsInMoreInfoForBook"  title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
     </div>
-    <img src="https://ia.media-imdb.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="">
+    <img width="200px" src=" {{book.pictureBook}} " alt="">
     <table>
         <thead>
             
         </thead>
         <tbody>
-             <tr>
-                <td class="first">More About Book</td>
-                <td class="second">Religious texts (also known as scripture, or scriptures, from the Latin scriptura, meaning "writing") are texts which religious traditions consider to be central to their practice or beliefs. Religious texts may be used to provide meaning and purpose, evoke a deeper connection with the divine, convey religious truths, promote religious experience, foster communal identity, a</td>
-            </tr>
             <tr>
                 <td class="first">Author</td>
-                <td class="second">asasasas</td>
+                <td class="second"> {{book.author}} </td>
             </tr>
             <tr>
                 <td class="first">Type</td>
-                <td class="second">Fantacy</td>
+                <td class="second"> {{book.typeBook}} </td>
             </tr>
             <tr>
                 <td class="first">Publisher</td>
-                <td class="second">Amazon</td>
+                <td class="second"> {{book.publisher}} </td>
             </tr>
              <tr>
                 <td class="first">Published</td>
-                <td class="second">12.12.2013</td>
+                <td class="second"> {{book.published}} </td>
             </tr>
             <tr>
                 <td class="first">Pages</td>
-                <td class="second">200</td>
-            </tr>
-            <tr>
-                <td class="first">About the author</td>
-                <td class="second">Religious texts (also known as scripture, or scriptures, from the Latin scriptura, meaning "writing") are texts which religious traditions consider to be central to their practice or beliefs. Religious texts may be used to provide meaning and purpose, evoke a deeper connection with the divine, convey religious truths, promote religious experience, foster communal identity, a</td>
+                <td class="second"> {{book.pages}} </td>
             </tr>
             <tr>
                 <td class="first">Price</td>
-                <td class="second">20</td>
+                <td class="second"> {{book.price  | currency }} </td>
             </tr>
             <tr>
                 <td class="first">Link to buy</td>
+                <td> {{book.linkToBuy}} </td>
             </tr>
         </tbody>
     </table>
+
     <span class="glyphicon glyphicon-step-backward">  <a  href="#!/allBooks">Back</a> </span>
 </div>
 
-<div id="commentsforBook">
-    <div>
-        <form action="">
-            <textarea name="" id="" cols="100" rows="3"></textarea >
-        </form>
-    </div>
+<div id="moreInforNav">
+        <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" ng-click="templAboutBook()"> About Book </a></li>
+                <li><a data-toggle="tab" ng-click="templAboutAuthor()"> About author </a></li>
+                <li><a data-toggle="tab" ng-click="userComments()" > User comments </a></li>
+        </ul>
+        
+        <div id="infoForBook" ng-show="one">
+           <h1> {{book.title}} </h1>
+           <p>Author: {{book.author}}</p>
+           <p> {{book.moreAboutBook}} </p>
+            <p>link to buy : {{book.linkToBuy}} </p>
+        </div>
 
+        <div id="infoForAuthor" ng-show="two">
+            <h1> {{book.author}} </h1>
+            <p> {{book.aboutAuthor}} </p>
+        </div>
+
+        <div id="commentsforBook" ng-show="three">
+             <div >
+                <form action="">
+                    <textarea  cols="100" rows="2" id="inputUserComments"></textarea >
+                </form>
+            </div>
+            <div class="userComment">
+                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            </div>
+            <div class="userComment">
+                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            </div>
+             <div class="userComment">
+                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            </div>
+             <div class="userComment">
+                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            </div>
+             <div class="userComment">
+                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            </div>
+        </div>
 </div>
+
