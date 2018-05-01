@@ -14,6 +14,17 @@ app.controller("AllBooksController",function($scope, $location , $http){
       }
     ];
     
+    $scope.addToFavorite = function(bookId){
+        var userEmail =  JSON.parse(sessionStorage.getItem("user")).email;
+        
+        $http.post("/addToFavorite", {email : userEmail, bookId : bookId }).then(function (res) {
+            if (res.status == 200) {
+                console.log("added");
+            }
+        }).catch(function (res) {
+            console.log("Book is not added")
+        })
+    }
     
     $http.get("/api/loggedIn").then(function(res){
         console.log(res)

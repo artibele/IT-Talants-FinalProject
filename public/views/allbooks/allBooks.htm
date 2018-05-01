@@ -48,7 +48,7 @@
                             <div class="boxBookTempl" ng-click="moreInfo(book._id)" title='click to view more about book'>
                                 <h4> {{book.title}} </h4>
                             </div>
-                            <button  class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                            <button  ng-click="addToFavorite(book._id)" class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
                             <button  class="viewMoreInfo buttonViewAndAdd" ng-click="deleteBook(book._id)" title="Delete book"> <span class="glyphicon glyphicon-trash"></span> </button>
                             <button  class="viewMoreInfo buttonViewAndAdd" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
                         </div>

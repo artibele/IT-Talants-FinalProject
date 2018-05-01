@@ -1,0 +1,37 @@
+<div id="books" ng-controller="MyBooksController">
+    <table id="booksTable">
+        <thead>
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Avg Rating</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="mybooks" ng-repeat="book in books">
+
+                <!-- <td>{{book.cover}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.rating}}</td>
+            <td><a href="">More</a></td>
+            <td><img src="" alt=""></td> -->
+                <td>
+                    <img width="100px" ng-src="{{book.flag}}" alt="">
+                </td>
+                <td>{{book.name}}</td>
+                <td>{{book.region}}</td>
+                <td>{{book.gini}}</td>
+                <td>
+                    <a href="">More</a>
+                </td>
+                <td ng-click="deleteFovoriteBook(book)" class="x">X</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

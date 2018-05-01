@@ -26,6 +26,10 @@ app.config(function($routeProvider){
             templateUrl: "views/main/mainPage.htm",
             controller:"MainController"
         })
+        .when("/myProfile",{
+            templateUrl: "views/myBooks/myBooks.htm",
+            controller:"MyBooksController"
+        })
         // .otherwise("/main")
         // po definicq mi pokaji
         

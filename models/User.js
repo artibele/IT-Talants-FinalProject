@@ -42,7 +42,10 @@ var UserSchema = new Schema({
       profilePic : {
         type: String,
         required : true
-    }
+      },
+      favoriteBooks : {
+        type : Array
+      }
 });
 
 UserSchema.statics.authenticate = function (uname, password, callback) {
