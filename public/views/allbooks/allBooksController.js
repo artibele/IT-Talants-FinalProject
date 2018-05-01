@@ -1,23 +1,23 @@
-app.controller("AllBooksController",function($scope, $location , $http){
+app.controller("AllBooksController", function ($scope, $location, $http) {
     $scope.imagess = [{
         src: 'views/img/wall1.jpg',
         title: 'Pic 1'
-      }, {
+    }, {
         src: 'views/img/wall2.jpg',
         title: 'Pic 2'
-      }, {
+    }, {
         src: 'views/img/wall3.jpg',
         title: 'Pic 3'
-      }, {
+    }, {
         src: 'views/img/wall4.jpg',
         title: 'Pic 4'
-      }
+    }
     ];
-    
-    $scope.addToFavorite = function(bookId){
-        var userEmail =  JSON.parse(sessionStorage.getItem("user")).email;
-        
-        $http.post("/addToFavorite", {email : userEmail, bookId : bookId }).then(function (res) {
+
+    $scope.addToFavorite = function (bookId) {
+        var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
+
+        $http.post("/addToFavorite", { email: userEmail, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
                 console.log("added");
             }
@@ -25,71 +25,71 @@ app.controller("AllBooksController",function($scope, $location , $http){
             console.log("Book is not added")
         })
     }
-    
-    $http.get("/api/loggedIn").then(function(res){
+
+    $http.get("/api/loggedIn").then(function (res) {
         console.log(res)
-        
-        if(res.data.message == "Logged"){
-            $http.get("/getAllBooks").then(function(response){
+
+        if (res.data.message == "Logged") {
+            $http.get("/getAllBooks").then(function (response) {
                 console.log(response.data);
-                if(response.status == 200){
+                if (response.status == 200) {
                     $scope.books = response.data;
-    
+
                 }
-            }).catch(function(err){
+            }).catch(function (err) {
                 console.log("noo response")
             })
 
         } else {
             $location.path('/login');
-    }
+        }
     });
-    
-    $scope.moreInfo = function (_id){
-        $location.path('/moreInfo/').search({id:_id});    
-        
+
+    $scope.moreInfo = function (_id) {
+        $location.path('/moreInfo/').search({ id: _id });
+
     }
 
-    $scope.deleteBook = function (id){
+    $scope.deleteBook = function (id) {
         console.log(id);
-        $http.delete("/removeBook/" + id).then(function(){
-            var index = $scope.books.findIndex(function(book){
+        $http.delete("/removeBook/" + id).then(function () {
+            var index = $scope.books.findIndex(function (book) {
                 return book._id == id;
             })
             console.log(index);
-            $scope.books.splice(index,1)
+            $scope.books.splice(index, 1)
             console.log($scope.books)
         })
     }
 
-    $scope.sortAZ = function(){
-        $scope.books.sort(function(a,b){
-            var bookA =  a.title;
+    $scope.sortAZ = function () {
+        $scope.books.sort(function (a, b) {
+            var bookA = a.title;
             var bookB = b.title;
-            if(bookA < bookB){
+            if (bookA < bookB) {
                 return -1;
             }
-            if(bookA > bookB){
+            if (bookA > bookB) {
                 return 1;
             }
-            if(bookA = bookB){
+            if (bookA = bookB) {
                 return 0;
             }
-            
+
         })
     }
 
-    $scope.sortZA = function (){
-        $scope.books.sort(function(a,b){
-            var bookA =  a.author;
+    $scope.sortZA = function () {
+        $scope.books.sort(function (a, b) {
+            var bookA = a.author;
             var bookB = b.author;
-            if(bookB < bookA){
+            if (bookB < bookA) {
                 return -1;
             }
-            if(bookB > bookA){
+            if (bookB > bookA) {
                 return 1;
             }
-            if(bookB = bookA){
+            if (bookB = bookA) {
                 return 0;
             }
         })

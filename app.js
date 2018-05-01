@@ -177,13 +177,33 @@ app.get("/getAllBooks", function (req, res, next) {
   })
 })
 
+
+app.post("/getFavorite", function (req, res) {
+    var email = req.body.userEmail;
+    console.log(email)
+    console.log("here")
+    UserModel.findOne({email : email }, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.status(404);
+      res.json(err);
+      
+    } else {
+      console.log(user.favoriteBooks);
+      res.status(200);
+      res.send({books: user.favoriteBooks});
+    }
+  })
+})
+
+
 app.delete('/removeBook/:id', function (req, res, next) {
   if (req.session.user == null) {
     res.status(401);
     res.send();
     return;
-  }
-  ; console.log("parameters")
+  }; 
+  console.log("parameters")
   console.log(req.params.id)
 
   var querry = BookModel.find().remove({ _id: req.params.id })
@@ -230,8 +250,8 @@ app.get("/getInfoForAbook/:id", function (req, res, next) {
 })
 // ----------------------------------------------------------------------- Post request for login  user
 app.post('/loginUser', function (req, res, next) {
-  var uname = req.body.username
-  var pass = req.body.password
+  var uname = req.body.username;
+  var pass = req.body.password;
 
   function authCallback() {
     if (arguments.length == 1) {
