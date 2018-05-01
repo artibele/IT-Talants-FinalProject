@@ -75,34 +75,32 @@ var userStorageRegister = (function () {
     }
 
     User.prototype.showUser = function (firstName, secondName, username, email, password, userImgUrl) {
-        //     if((typeof firstName == "string") && (firstName.length > 1) && (checkToUpperFirstLetter(firstName)) ){
-        //         if((typeof secondName == "string") && (secondName.length > 3) && (checkToUpperFirstLetter(secondName))){
-        //             if((typeof username == "string") && (username.length > 5)){
-        //                 if((typeof email == "string") && (email.length > 4) && (email.indexOf('@') > 0)){
-        //                     if((typeof password == "string") &&  (testPassword(password))){
-        //                         if(typeof userImgUrl == "string"){
-        //                             var user = new User(firstName, secondName, username, email , password, userImgUrl);
-        //                             return user;
-        //                     } else {
-        //                         console.log("Problem with password - registerServices");
-        //                     }
-        //                     } else {
-        //                         console.log("Problem with password - registerServices");
-        //                     }
-        //                 } else {
-        //                     console.log("Problem with email - registerServices");
-        //                 }
-        //             } else {
-        //                 console.log("Problem with username - registerServices");
-        //             }
-        //         } else {
-        //             console.log("Problem with secondName - registerServices");
-        //         }
-        //     } else {
-        //         console.log("Problem with firstName - registerServices")
-        //     }
-        var user = new User(firstName, secondName, username, email, password, userImgUrl);
-        return user;
+            if((typeof firstName == "string") && (firstName.length > 1) && (checkToUpperFirstLetter(firstName)) ){
+                if((typeof secondName == "string") && (secondName.length > 3) && (checkToUpperFirstLetter(secondName))){
+                    if((typeof username == "string") && (username.length > 5)){
+                        if((typeof email == "string") && (email.length > 4) && (email.indexOf('@') > 0)){
+                            if((typeof password == "string") &&  (testPassword(password))){
+                                if(typeof userImgUrl == "string"){
+                                    var user = new User(firstName, secondName, username, email , password, userImgUrl);
+                                    return user;
+                            } else {
+                                console.log("Problem with password - registerServices");
+                            }
+                            } else {
+                                console.log("Problem with password - registerServices");
+                            }
+                        } else {
+                            console.log("Problem with email - registerServices");
+                        }
+                    } else {
+                        console.log("Problem with username - registerServices");
+                    }
+                } else {
+                    console.log("Problem with secondName - registerServices");
+                }
+            } else {
+                console.log("Problem with firstName - registerServices")
+            }
     }
 
 

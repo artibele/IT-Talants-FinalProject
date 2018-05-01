@@ -45,8 +45,6 @@ app.controller("HomeController",function($scope, $location , $http){
                 var price = $scope.book.price;
                 var linkToBuy = $scope.book.linkToBuy;
                 var picture = $scope.book.pictureBook;
-                console.log(published)
-                console.log(aboutAuthor);
 
                 var sendBook = userStorageAllBooks.showBook(title,moreAboutbook,author,typeBook,publisher,published,pages,aboutAuthor,price,linkToBuy,picture );
                 if(sendBook == null){

@@ -765,19 +765,45 @@ tr:hover {
 .userComment {
     float: left;
     margin: 1em 0;
+    
 }
 .userComment > img {
+    width:50px;
+    height: 50px;
     float: left;
-   
+    margin-right: 2em;
+    border-radius: 50%;
 }
 
 .userComment > p {
     float: left;
-   width: 80%;
-   font-family: 'Indie Flower', cursive;
-   font-family: 'Shadows Into Light', cursive;
-   font-family: 'Covered By Your Grace', cursive;
+    width: 80%;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
    font-size: 1.6em;
+}
+
+.userComment > h3 {
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-style: italic;
+}
+
+.userComment > button {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0 3px;
+    border-radius: 50%;
+    background: none;
+    opacity: 0.5;
+    color: rgb(102, 145, 9);
+    font-weight: bold;
+    border-radius: 50%;
+    border-color: rgb(72, 116, 3);
 }
 
 #inputUserComments {
@@ -810,6 +836,20 @@ tr:hover {
     font-family: 'Shadows Into Light', cursive;
     font-family: 'Covered By Your Grace', cursive;
     font-size: 1.6em;
+}
+
+#commentsInput > form {
+    float: left;
+}
+
+#commentsInput > button{
+    float: left;
+    position: relative;
+    top: 50px;
+    left: 240px;
+}
+#allusersComments {
+    margin-left: 4em;
 }
 
 
@@ -893,4 +933,11 @@ tr:hover {
     font-size: 1.2em;
     cursor: pointer;
     font-weight: bold;
+}
+#profilePicture { 
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    position: relative;
+    top:7epx;
 }

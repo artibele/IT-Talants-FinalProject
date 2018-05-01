@@ -35,7 +35,7 @@
         <nav>
             <ul id="mainMenu">
                 <li><a ng-controller="logoutController" ng-click="logout()" >Logout</a></li>
-                <li> <img width="80px" ng-controller="usernameAndPictureController as ctrl" src="{{ctrl.profPic}}" alt=""> </li>
+                <li> <img width="80px" id="profilePicture" ng-controller="usernameAndPictureController as ctrl" src="{{ctrl.profPic}}" alt=""> </li>
                 <li><a ng-controller="usernameAndPictureController as ctrl" href="#!/myProfile"> <p> {{ctrl.uFname}}  {{ctrl.uSname}}  </p> </a></li>
                 <li><a href="#!/allBooks">All Books</a></li>
                 <li><a href="#!/myProfile">My Profile</a></li> 

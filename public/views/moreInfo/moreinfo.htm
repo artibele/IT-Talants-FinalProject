@@ -50,7 +50,7 @@
         <ul class="nav nav-tabs">
                 <li><a data-toggle="tab" ng-click="templAboutBook()"> About Book </a></li>
                 <li><a data-toggle="tab" ng-click="templAboutAuthor()"> About author </a></li>
-                <li><a data-toggle="tab" ng-click="userComments()" > User comments </a></li>
+                <li><a data-toggle="tab" ng-click="userComments(book._id)" > User comments </a></li>
         </ul>
         
         <div id="infoForBook" ng-show="one">
@@ -66,30 +66,22 @@
         </div>
 
         <div id="commentsforBook" ng-show="three">
-             <div >
+             <div id="commentsInput">
                 <form action="">
-                    <textarea  cols="100" rows="2" id="inputUserComments"></textarea >
+                    <textarea  cols="100" rows="2" id="inputUserComments" ng-model="userAddComments"></textarea >
                 </form>
+                <button ng-click="addComment(book._id)"> <span class="glyphicon glyphicon glyphicon-comment"></span> </button>
             </div>
-            <div class="userComment">
-                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
-            </div>
-            <div class="userComment">
-                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
-            </div>
-             <div class="userComment">
-                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
-            </div>
-             <div class="userComment">
-                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
-            </div>
-             <div class="userComment">
-                <img width="30px" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam adipisci quidem magni fugiat? Rerum fugiat, id soluta, repellat veniam alias accusantium, quasi amet necessitatibus quam deleniti maiores debitis ipsum neque.</p>
+            <div id="allusersComments">
+
+                <div class="userComment" ng-repeat="comment in comments">
+                    <h3> {{comment.userId.username}} </h3>
+                    <img width="30px" src="{{comment.userId.profilePic}}" alt="">
+                    <p> {{comment.text}} </p>
+                    <button> <span class="glyphicon glyphicon glyphicon-trash"></span> </button>
+                    <button> <span class="glyphicon glyphicon glyphicon-edit"></span> </button>
+                </div>
+                
             </div>
         </div>
 </div>

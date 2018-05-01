@@ -1,6 +1,8 @@
-app.controller("MoreInfoController", function ($scope, $location, $http) {
 
-    var params = $location.search();
+
+app.controller("MoreInfoController",function($scope, $location , $http){
+   
+    var params = $location.search(); // return object with id 
 
     $http.get("/getInfoForAbook/" + params.id).then(function (response) {
         console.log(response.data);
@@ -42,11 +44,35 @@ app.controller("MoreInfoController", function ($scope, $location, $http) {
         $scope.three = false;
     }
 
-    $scope.userComments = function () {
+    $scope.userComments = function (id) {
         $scope.one = false;
         $scope.two = false;
         $scope.three = true;
+
+
+        $http.get("/getAllCommentsforBook/" + id).then(function(res){
+            // console.log(res.data); // return full object 
+            $scope.comments = res.data;
+        }).catch(function(err){
+            console.log("nqma komentari")
+            console.log(err);
+        })
+
     }
 
+    $scope.addComment = function (id){
+        var data = {
+            text : $scope.userAddComments,
+            bookId : id
+        }
+        // var comment = userStorageMoreInfoForBook.showComment(text,bookId);
+       
+        $http.post("/inserComments",data).then(function(res){
+            console.log(res.data);
+            $scope.comments.unshift(res.data);
 
+        }).catch(function(err){
+            console.log(err);
+        })
+    }
 })

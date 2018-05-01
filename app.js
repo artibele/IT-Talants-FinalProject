@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 // ------------------------------------------- > MODELS
-var UserModel = require("./models/User")
-var BookModel = require("./models/Book")
+var UserModel = require("./models/User");
+var BookModel = require("./models/Book");
+var CommentModel =  require("./models/Comment");
 
 // var mongo = require('mongodb');
 // var monk = require('monk');
@@ -158,7 +159,70 @@ app.post("/addBookInList", function (req, res, next) {
   })
 });
 
-app.get("/getAllBooks", function (req, res, next) {
+
+app.post("/inserComments",function(req, res, next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  } 
+  var datePostComm = new Date().toLocaleDateString()
+  var body = req.body;
+
+  var userComment = {
+    text: body.text,
+    userId: req.session.user._id,
+    bookId: body.bookId,
+    datePost: datePostComm
+  }
+
+  CommentModel.create(userComment,function(err,comment){
+    if(err){
+      console.log(err);
+      res.status(500);
+      res.json(err);
+    } else {
+      // join comment with username nad profile pic
+      CommentModel.populate(comment,{path:"userId",select:["username","profilePic"]},function(err,comment){
+       if(err){
+        res.status(500);
+        res.json(err);
+
+       } else {
+        res.status(200);
+        res.send(comment);
+       }
+      })
+    }
+  })
+
+})
+
+app.get("/getAllCommentsforBook/:id", function(req, res,  next){
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
+
+  var bookID = req.params.id;
+  console.log(bookID);
+  CommentModel.find({bookId:bookID})
+  .populate({path:"userId",select:["username","profilePic"]})
+  .exec(function(err,comments){
+    if(err){
+      res.status(500);
+      res.json(err);
+
+     } else {
+      res.status(200);
+      res.send(comments);
+     }
+  })
+});
+
+app.get("/getAllBooks",function(req,res,next){
+
   // if(req.session.user == null){
   //   res.status(401);
   //   res.send();

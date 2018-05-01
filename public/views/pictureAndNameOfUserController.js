@@ -37,10 +37,9 @@ app.controller("usernameAndPictureController",function($scope, $window){
 
 
     });
+    
     user.update = function(value){
         $window.sessionStorage.setItem("user",value);
-
-
     }
 
 });
