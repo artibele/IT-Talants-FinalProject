@@ -10,16 +10,15 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
     data: { userEmail: userEmail }
   }).then(function (res) {
     $scope.books = res.data.books;
-    console.log($scope.books);
 
   }, function (err) {
     console.log(err);
   })
 
 
-  // $scope.moreInfo = function (_id) {
-  //   $location.path('/moreInfo/').search({ id: _id });
-  // }
+  $scope.moreInfo = function (_id) {
+    $location.path('/moreInfo/').search({ id: _id });
+  }
 
 
 
