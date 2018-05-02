@@ -7,7 +7,7 @@ const session = require('express-session');
 // ------------------------------------------- > MODELS
 var UserModel = require("./models/User");
 var BookModel = require("./models/Book");
-var CommentModel =  require("./models/Comment");
+var CommentModel = require("./models/Comment");
 
 // var mongo = require('mongodb');
 // var monk = require('monk');
@@ -103,20 +103,159 @@ app.post("/addToFavorite", function (req, res, next) {
     else {
       if (book != null) {
         UserModel.update(
-          { "email": body.email},
+          { "email": body.email },
           { "$addToSet": { "favoriteBooks": book } },
           function (err, raw) {
-              if (err) return handleError(err);
-              if(raw.nModified == 0 ){
-                res.status(500)
-              }
-              console.log('The raw response from Mongo was ', raw);
+            if (err) return handleError(err);
+            if (raw.nModified == 0) {
+              res.status(500)
+            }
+            console.log('The raw response from Mongo was ', raw);
           }
-       );
+        );
       }
     }
   });
 
+  res.status(200);
+  res.send("ok");
+
+});
+
+
+app.post("/saveBookToUser", function (req, res, next) {
+  var body = req.body;
+
+  console.log(body);
+
+  BookModel.findOne({ _id: body.bookId }, function (err, book) {
+    console.log("here")
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (book != null) {
+        UserModel.update(
+          { "email": body.email },
+          { "$addToSet": { "ratedBooks": book.title }, },
+          function (err, raw) {
+            if (err) return handleError(err);
+            if (raw.nModified == 0) {
+              res.status(500)
+
+              return;
+            }
+            console.log('The raw response from Mongo was ', raw);
+          }
+        );
+      }
+    }
+  });
+  res.status(200);
+  res.send("ok");
+
+});
+
+
+app.post("/saveUserRating", function (req, res, next) {
+  var body = req.body;
+
+  console.log(body);
+
+  BookModel.findOne({ _id: body.bookId }, function (err, book) {
+    console.log("here")
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (book != null) {
+        BookModel.findByIdAndUpdate(
+          body.bookId,
+          { $push: { "ratingNumbers": body.rating } },
+          function (err, model) {
+            console.log(err);
+          }
+        );
+      }
+    }
+  });
+  res.status(200);
+  res.send("ok");
+
+});
+
+
+app.post("/voted", function (req, res, next) {
+  var body = req.body;
+
+  console.log(body);
+
+  BookModel.findOne({ _id: body.bookId }, function (err, book) {
+    var bookL = 1 + book.ratingNumbers.length + "";
+    console.log(bookL)
+    console.log("here")
+    console.log(bookL)
+    console.log(bookL)
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      console.log(bookL)
+      if (book != null) {
+        BookModel.update(
+          {"_id": body.bookId}, 
+          { "$set": { "voted": bookL } },
+          function (err, book){
+            console.log(book)
+          }
+      );
+      }
+    }
+  });
+  res.status(200);
+  res.send("ok");
+
+});
+
+
+app.post("/newRating", function (req, res, next) {
+  var body = req.body;
+  console.log(body);
+
+  BookModel.findOne({ _id: body.bookId }, function (err, book) {
+    var sum = 0
+    var voted = book.voted
+
+    for(var count = 0; count < book.ratingNumbers; count++){
+      sum += book.ratingNumbers[count]
+    }
+    var avgSum = sum / voted 
+    avgSum += ""
+    console.log(avgSum)
+   
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (book != null) {
+        BookModel.update(
+          {"_id": body.bookId}, 
+          { "$set": { "avgRating": avgSum } },
+          function (err, book){
+            console.log(book)
+          }
+      );
+      }
+    }
+  });
   res.status(200);
   res.send("ok");
 
@@ -160,12 +299,12 @@ app.post("/addBookInList", function (req, res, next) {
 });
 
 
-app.post("/inserComments",function(req, res, next){
-  if(req.session.user == null){
+app.post("/inserComments", function (req, res, next) {
+  if (req.session.user == null) {
     res.status(401);
     res.send();
     return;
-  } 
+  }
   var datePostComm = new Date().toLocaleDateString()
   var body = req.body;
 
@@ -176,52 +315,52 @@ app.post("/inserComments",function(req, res, next){
     datePost: datePostComm
   }
 
-  CommentModel.create(userComment,function(err,comment){
-    if(err){
+  CommentModel.create(userComment, function (err, comment) {
+    if (err) {
       console.log(err);
       res.status(500);
       res.json(err);
     } else {
       // join comment with username nad profile pic
-      CommentModel.populate(comment,{path:"userId",select:["username","profilePic"]},function(err,comment){
-       if(err){
-        res.status(500);
-        res.json(err);
+      CommentModel.populate(comment, { path: "userId", select: ["username", "profilePic"] }, function (err, comment) {
+        if (err) {
+          res.status(500);
+          res.json(err);
 
-       } else {
-        res.status(200);
-        res.send(comment);
-       }
+        } else {
+          res.status(200);
+          res.send(comment);
+        }
       })
     }
   })
 
 })
 
-app.get("/getAllCommentsforBook/:id", function(req, res,  next){
+app.get("/getAllCommentsforBook/:id", function (req, res, next) {
   if (req.session.user == null) {
     res.status(401);
     res.send();
     return;
-  }; 
+  };
 
   var bookID = req.params.id;
   console.log(bookID);
-  CommentModel.find({bookId:bookID})
-  .populate({path:"userId",select:["username","profilePic"]})
-  .exec(function(err,comments){
-    if(err){
-      res.status(500);
-      res.json(err);
+  CommentModel.find({ bookId: bookID })
+    .populate({ path: "userId", select: ["username", "profilePic"] })
+    .exec(function (err, comments) {
+      if (err) {
+        res.status(500);
+        res.json(err);
 
-     } else {
-      res.status(200);
-      res.send(comments);
-     }
-  })
+      } else {
+        res.status(200);
+        res.send(comments);
+      }
+    })
 });
 
-app.get("/getAllBooks",function(req,res,next){
+app.get("/getAllBooks", function (req, res, next) {
 
   // if(req.session.user == null){
   //   res.status(401);
@@ -243,19 +382,19 @@ app.get("/getAllBooks",function(req,res,next){
 
 
 app.post("/getFavorite", function (req, res) {
-    var email = req.body.userEmail;
-    console.log(email)
-    console.log("here")
-    UserModel.findOne({email : email }, function (err, user) {
+  var email = req.body.userEmail;
+  console.log(email)
+  console.log("here")
+  UserModel.findOne({ email: email }, function (err, user) {
     if (err) {
       console.log(err);
       res.status(404);
       res.json(err);
-      
+
     } else {
       console.log(user.favoriteBooks);
       res.status(200);
-      res.send({books: user.favoriteBooks});
+      res.send({ books: user.favoriteBooks });
     }
   })
 })
@@ -266,7 +405,7 @@ app.delete('/removeBook/:id', function (req, res, next) {
     res.status(401);
     res.send();
     return;
-  }; 
+  };
   console.log("parameters")
   console.log(req.params.id)
 
