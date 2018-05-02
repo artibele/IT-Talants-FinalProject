@@ -10,6 +10,7 @@
     <!-- shrift -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
     <!-- Stylee -->
     <link rel="stylesheet" type="text/css" href="views/css/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,20 +40,24 @@
                 <li><a ng-controller="usernameAndPictureController as ctrl" href="#!/myProfile"> <p> {{ctrl.uFname}}  {{ctrl.uSname}}  </p> </a></li>
                 <li><a href="#!/allBooks">All Books</a></li>
                 <li><a href="#!/myProfile">My Profile</a></li> 
+                <li><a ng-controller="contactWithUsController" ng-click="contactWithUs()">Contact with us</a></li> 
             </ul>
         </nav>
     </header>
-    <script>
 
-    </script>
     
     <main ng-view>
         
     </main>
 
+    <div id="contactBox" ng-controller="contactWithUsController" ng-show="isVisible">
+        <h2>Opaaaaa</h2>
+        <h3>Mopaaaaa</h3>
+    </div>
+
     <footer>
         <div id='socialMedia'>
-            <h1>Contact With Us:</h1>
+            <h1> Follow Us on:</h1>
             <a href="#" class="fa fa-facebook" title="Facebook"></a>
             <a href="#" class="fa fa-twitter" title="Twitter"></a>
             <a href="#" class="fa fa-google" title="Google"></a>
@@ -76,6 +81,7 @@
 <script src="views/moreInfo/moreInfoController.js"></script>
 <script src="viewa/main/mainController.js"></script>
 <script src="views/myBooks/myBooksController.js"></script>
+<script src="views/contactWithUsController.js"></script>
 
 <!-- all Services -->
 <script src="views/register/registerServices.js"></script>

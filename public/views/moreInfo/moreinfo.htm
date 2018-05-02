@@ -3,8 +3,6 @@
     <h2> {{book.title}} </h2>
     <div id="buttonsInMoreInfoForBook">
         <button class="buttonsInMoreInfoForBook"  title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
-        <button class="buttonsInMoreInfoForBook" title="Delete book"> <span class="glyphicon glyphicon-floppy-remove"></span> </button>
-        <button class="buttonsInMoreInfoForBook"  title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
     </div>
     <img width="200px" src=" {{book.pictureBook}} " alt="">
     <table>
@@ -38,7 +36,7 @@
             </tr>
             <tr>
                 <td class="first">Link to buy</td>
-                <td> {{book.linkToBuy}} </td>
+                <td> <a class="second" href="{{book.linkToBuy}}"> {{book.linkToBuy}}  </a></td>
             </tr>
         </tbody>
     </table>
@@ -54,10 +52,10 @@
         </ul>
         
         <div id="infoForBook" ng-show="one">
-           <h1> {{book.title}} </h1>
-           <p>Author: {{book.author}}</p>
+           <h1> Title:  {{book.title}} </h1>
+           <p>Author:  {{book.author}}</p>
            <p> {{book.moreAboutBook}} </p>
-            <p>link to buy : {{book.linkToBuy}} </p>
+                <p>link to buy : <a href="{{book.linkToBuy}}"> {{book.linkToBuy}} </a> </p>
         </div>
 
         <div id="infoForAuthor" ng-show="two">
@@ -72,14 +70,25 @@
                 </form>
                 <button ng-click="addComment(book._id)"> <span class="glyphicon glyphicon glyphicon-comment"></span> </button>
             </div>
+
             <div id="allusersComments">
 
                 <div class="userComment" ng-repeat="comment in comments">
-                    <h3> {{comment.userId.username}} </h3>
-                    <img width="30px" src="{{comment.userId.profilePic}}" alt="">
-                    <p> {{comment.text}} </p>
-                    <button> <span class="glyphicon glyphicon glyphicon-trash"></span> </button>
-                    <button> <span class="glyphicon glyphicon glyphicon-edit"></span> </button>
+
+                    <div class="commentPartUp">
+                        <img  src="{{comment.userId.profilePic}}" alt="">
+                        <p class="usernamePost"> {{comment.userId.username}} </p>
+                        <p class="datePost"> {{comment.datePost}} </p>
+                        <button ng-click="deleteComment(comment._id)"> <span class="glyphicon glyphicon glyphicon-trash"></span> </button>
+                        <button> <span class="glyphicon glyphicon glyphicon-edit"></span> </button>
+                    </div>
+
+                    <div class="commentPartDown">
+                        <p> {{comment.text}} </p>
+                        
+                        </div>
+                    </div>
+                    
                 </div>
                 
             </div>

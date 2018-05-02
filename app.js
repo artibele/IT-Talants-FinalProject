@@ -72,7 +72,8 @@ app.post('/registerUser', function (req, res, next) {
     username: body.username,
     email: body.email,
     password: body.password,
-    profilePic: body.userImgUrl
+    profilePic: body.userImgUrl,
+    role: "user"
   }
 
   UserModel.create(userData, function (err, user) {
@@ -127,6 +128,12 @@ app.post("/addBookInList", function (req, res, next) {
     res.status(401);
     res.send();
     return;
+  } else {
+    if(req.session.user.role == "user"){
+      res.status(401);
+      res.send();
+      return;
+    }
   }
   var body = req.body;
   console.log(body);
@@ -182,7 +189,7 @@ app.post("/inserComments",function(req, res, next){
       res.status(500);
       res.json(err);
     } else {
-      // join comment with username nad profile pic
+      // populate -> join comment with username nad profile pic
       CommentModel.populate(comment,{path:"userId",select:["username","profilePic"]},function(err,comment){
        if(err){
         res.status(500);
@@ -208,8 +215,9 @@ app.get("/getAllCommentsforBook/:id", function(req, res,  next){
   var bookID = req.params.id;
   console.log(bookID);
   CommentModel.find({bookId:bookID})
-  .populate({path:"userId",select:["username","profilePic"]})
-  .exec(function(err,comments){
+  // join inner - >
+  .populate({path:"userId",select:["username","profilePic"]}) // removeBook
+  .exec(function(err,comments){ // да ч изпълни .. 
     if(err){
       res.status(500);
       res.json(err);
@@ -223,11 +231,12 @@ app.get("/getAllCommentsforBook/:id", function(req, res,  next){
 
 app.get("/getAllBooks",function(req,res,next){
 
-  // if(req.session.user == null){
-  //   res.status(401);
-  //   res.send();
-  //   return;
-  // }
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  }
+
   BookModel.find({}, function (err, books) {
     if (err) {
       console.log(err);
@@ -241,6 +250,24 @@ app.get("/getAllBooks",function(req,res,next){
   })
 })
 
+app.get("/gettAllBookByGanre/:type", function(req , res , next){
+  if(req.session.user == null){
+    res.status(401);
+    res.send();
+    return;
+  }
+  BookModel.find({typeBook:req.params.type},function(err, books){
+    if (err) {
+      console.log(err);
+      res.status(404);
+      res.json(err);
+    } else {
+      console.log(books);
+      res.status(200);
+      res.send(books);
+    }
+  })
+})
 
 app.post("/getFavorite", function (req, res) {
     var email = req.body.userEmail;
@@ -261,12 +288,73 @@ app.post("/getFavorite", function (req, res) {
 })
 
 
-app.delete('/removeBook/:id', function (req, res, next) {
+app.delete("/deleteComment/:id", function(req, res, next){
   if (req.session.user == null) {
     res.status(401);
     res.send();
     return;
   }; 
+
+  CommentModel.findOne({_id:req.params.id},function(err, comment){
+    if(err){
+      res.status(500);
+      res.json();
+      return;
+    } else {
+      
+      if(comment){
+      
+        if(comment.userId == req.session.user._id){
+          console.log("user identified")
+          CommentModel.find(comment) // query -> object.remove .. request to server 
+          .remove(function(err,removed){ // true / false
+            console.log("remove callback")
+            if(err){
+              console.log("remove error")
+              res.status(500); // error in server
+              res.send();
+              return;
+            } else {
+              if(removed){
+                console.log("comment remove .. ")
+                res.status(200);
+                res.send();
+                return;
+              }else{
+                res.status(500)
+                res.json({error:"failed to remove comment"})
+              }
+              
+            }
+          })
+
+        }else{
+          res.status(401);
+          res.send({error: "not your comment"});
+          return;
+        }
+      } else {
+        res.status(404); // not found
+        res.send();
+        return;
+      }
+    }
+  })
+
+});
+
+app.delete('/removeBook/:id', function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  } else {
+    if(req.session.user.role == "user"){
+      res.status(401);
+      res.send();
+      return;
+    }
+  }
   console.log("parameters")
   console.log(req.params.id)
 
@@ -284,7 +372,7 @@ app.delete('/removeBook/:id', function (req, res, next) {
       return
     }
   })
-  return
+  return;
 })
 
 app.get("/getInfoForAbook/:id", function (req, res, next) {

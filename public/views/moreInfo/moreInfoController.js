@@ -52,7 +52,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
 
         $http.get("/getAllCommentsforBook/" + id).then(function(res){
             // console.log(res.data); // return full object 
-            $scope.comments = res.data;
+            $scope.comments = res.data.slice().reverse();
         }).catch(function(err){
             console.log("nqma komentari")
             console.log(err);
@@ -70,9 +70,42 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         $http.post("/inserComments",data).then(function(res){
             console.log(res.data);
             $scope.comments.unshift(res.data);
+            $scope.userAddComments = "";
 
-        }).catch(function(err){
-            console.log(err);
+        }).catch(function(res){
+            if(res.status == 401){
+               alert("You neeet to be logged")
+            }            
+            if(res.status == 500){
+                alert("An error occured , please try again later")
+            }
+        })
+    }
+
+    $scope.deleteComment = function (id){
+        $http.delete("/deleteComment/" + id).then(function(res){
+            var index = $scope.comments.findIndex(function(comment){
+                return comment._id == id;
+            })
+            if(index >= 0){
+                $scope.comments.splice(index,1);
+            } else {
+                console.log("nooo comment")
+            }
+        }).catch(function(res){
+            if(res.status == 401){
+                if(res.data.error == "not your comment"){
+                    alert("This comment is not yours to delete!")
+                }else{
+                    alert("You need to be logged in to delete a comment!")
+                }
+            }
+            if(res.status == 404){
+                alert("comment was not found")
+            }
+            if(res.status == 500){
+                alert("An error occured , please try again later")
+            }
         })
     }
 })

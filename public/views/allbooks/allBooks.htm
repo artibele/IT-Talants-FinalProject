@@ -1,30 +1,25 @@
-<!-- <div id="goodReadBackground">
-       
-        <slider images="imagess" id="imgWithBooks" />
-        <h1>Welcome To </h1>
-</div> -->
-
 <div id="backgroundContainer">
         <div id="">
                 <!-- <img id="imgWithBooks" class="shadow" src="views/img/img1.png" alt=""> -->
                 <slider images="imagess"/>
                 <h1>Welcome To </h1>
         </div>
+        
         <div class="container" >
                 <ul class="nav nav-tabs">
                     <!-- <li ng-class="{'active': isActive2}"><a ng-click="activeButtonAllBokks()" data-toggle="tab" href="#allBokksPage"> All books </a></li> -->
-                    <li><a data-toggle="tab" href="#!/homePage"> Home </a></li>
-                    <li class='active'><a data-toggle="tab" href="#!/allBooks"> All books </a></li>
-                    <li><a data-toggle="tab" href="#!/romance"> Romance </a></li>
-                    <li><a data-toggle="tab" href="#!/science"> Science</a></li>
-                    <li><a data-toggle="tab" href="#!/history">History</a></li>
-                    <li><a data-toggle="tab" href="#!/cookbooks">Cookbooks</a></li>
-                    <li><a data-toggle="tab" href="#!/fantasy">Fantasy</a></li>
-                    <li><a data-toggle="tab" href="#!/biographies">Biographies</a></li>
-                    <li><a data-toggle="tab" href="#!/comics">Comics</a></li>
-                    <li><a data-toggle="tab" href="#!/travel">Travel</a></li>
-                    <li><a data-toggle="tab" href="#!/health">Health</a></li>
-                    <li><a data-toggle="tab" href="#!/drama">Drama</a></li>
+                    <li ng-show="isAdmin"><a data-toggle="tab"  href="#!/homePage" data-target="#homePage"> Home </a></li>
+                    <li><a data-toggle="tab" data-target="#allBooks"  ng-click="allBook()" href="#!/allBooks"> All books </a></li>
+                    <li><a data-toggle="tab" ng-click="romanceBook()"> Romance </a></li>
+                    <li><a data-toggle="tab" ng-click="science()"> Science</a></li>
+                    <li><a data-toggle="tab" ng-click="historyB()">History</a></li>
+                    <li><a data-toggle="tab" ng-click="cookbooks()">Cookbooks</a></li>
+                    <li><a data-toggle="tab" ng-click="fantasy()">Fantasy</a></li>
+                    <li><a data-toggle="tab" ng-click="biographies()">Biographies</a></li>
+                    <li><a data-toggle="tab" ng-click="comics()">Comics</a></li>
+                    <li><a data-toggle="tab" ng-click="travel()">Travel</a></li>
+                    <li><a data-toggle="tab" ng-click="health()">Health</a></li>
+                    <li><a data-toggle="tab" ng-click="drama()">Drama</a></li>
                 </ul>
                <div id="buttonsAndSerach">
                    <div id="buttonsPosstions">
@@ -40,22 +35,84 @@
                         <input  type="text" class="searchInput" placeholder="Search by like " >
                    </div>
                 </div>
-               <div id="templateForBooks">
-                   <div id="templateForFullBooks">
-            
-                        <div class="bigBoxBookTempl" ng-repeat="book in books  | filter: { title: bookTitle, author: bookAuthor  }">
-                            <img  src="{{book.pictureBook}}" alt="" title="Harry Potter"> </img> 
-                            <div class="boxBookTempl" ng-click="moreInfo(book._id)" title='click to view more about book'>
-                                <h4> {{book.title}} </h4>
+                
+                    <div class="templateForBooks" ng-show="allBooks">
+                        <div class="templateForFullBooks">
+                
+                            <div class="bigBoxBookTempl" ng-repeat="book in books  | filter: { title: bookTitle, author: bookAuthor  }">
+                                <img  src="{{book.pictureBook}}" alt="" title="Harry Potter"> </img> 
+                                <div class="boxBookTempl" ng-click="moreInfo(book._id)" title='click to view more about book'>
+                                    <h4> {{book.title}} </h4>
+                                </div>
+                                <button  ng-click="addToFavorite(book._id)" class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" ng-click="deleteBook(book._id)" title="Delete book"> <span class="glyphicon glyphicon-trash"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
                             </div>
-                            <button  ng-click="addToFavorite(book._id)" class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
-                            <button  class="viewMoreInfo buttonViewAndAdd" ng-click="deleteBook(book._id)" title="Delete book"> <span class="glyphicon glyphicon-trash"></span> </button>
-                            <button  class="viewMoreInfo buttonViewAndAdd" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
+                
                         </div>
-            
-                   </div>
-            
-                </div>
-            
-              </div>
+                
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="raomanceBook">
+                        <div class="templateForFullBooks">
+                
+                            <div class="bigBoxBookTempl" ng-repeat="romanceBook in romanceBooks  | filter: { title: bookTitle, author: bookAuthor  }">
+                                <img  src="{{romanceBook.pictureBook}}" alt="" title="Harry Potter"> </img> 
+                                <div class="boxBookTempl" ng-click="moreInfo(romanceBook._id)" title='click to view more about book'>
+                                    <h4> {{romanceBook.title}} </h4>
+                                </div>
+                                <button  ng-click="addToFavorite(romanceBook._id)" class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" ng-click="deleteBook(romanceBook._id)" title="Delete book"> <span class="glyphicon glyphicon-trash"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="scienceBook">
+                        <h1>Mopaaaaaaaaaaa</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="historyBook">
+                        <h1>Mopaaaaaaaaaaa 1</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="cookbooksBook">
+                        <h1>Mopaaaaaaaaaaa 2</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="fantasyBook">
+                        <div class="templateForFullBooks">
+                            <div class="bigBoxBookTempl" ng-repeat="fantasyBook in fantasyBooks  | filter: { title: bookTitle, author: bookAuthor  }">
+                                <img  src="{{fantasyBook.pictureBook}}" alt="" title="Harry Potter"> </img> 
+                                <div class="boxBookTempl" ng-click="moreInfo(fantasyBook._id)" title='click to view more about book'>
+                                    <h4> {{fantasyBooks.title}} </h4>
+                                </div>
+                                <button  ng-click="addToFavorite(fantasyBook._id)" class="viewMoreInfo buttonViewAndAdd" title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" ng-click="deleteBook(fantasyBook._id)" title="Delete book"> <span class="glyphicon glyphicon-trash"></span> </button>
+                                <button  class="viewMoreInfo buttonViewAndAdd" ng-show="isAdmin" title="Edit info for book"> <span class="glyphicon glyphicon-edit"></span> </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="biographiesBoook">
+                        <h1>Mopaaaaaaaaaaa 4</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="comicsBook">
+                        <h1>Mopaaaaaaaaaaa 5</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="travelBook">
+                        <h1>Mopaaaaaaaaaaa 6</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="healthBook">
+                        <h1>Mopaaaaaaaaaaa 7</h1>
+                    </div>
+
+                    <div class="templateForBooks"  ng-show="dramaBook">
+                        <h1>Mopaaaaaaaaaaa 8</h1>
+                    </div>
+        </div>
 </div>

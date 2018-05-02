@@ -1,4 +1,18 @@
 app.controller("HomeController",function($scope, $location , $http){
+    
+    $http.get("/api/loggedIn").then(function (res) {
+        
+        if (res.data.message == "Logged") {
+
+            var user = JSON.parse(sessionStorage.getItem("user"));
+            if(user.role == "user"){
+                $location.path('/allBooks');
+            } 
+        } else {
+            $location.path('/login');
+        }
+    });
+
     $scope.types = [
         {
             type:"romance"
@@ -76,5 +90,6 @@ app.controller("HomeController",function($scope, $location , $http){
         }
         })
     }
+
 
 });

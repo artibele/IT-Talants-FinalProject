@@ -45,6 +45,11 @@ var UserSchema = new Schema({
       },
       favoriteBooks : {
         type : Array
+      },
+      role: {
+        type : String,
+        enum: ["admin","user"],
+        required: true
       }
 });
 

@@ -11,10 +11,9 @@ app.controller("LoginController", function ($scope, $location, $http) {
         var user = userStorageLogin.showLogedUser(username, pass);
         var res = $http.post("/loginUser", user).then(function (res) {
 
-            // console.log(res.status);
             if (res.status == 200) {
                 // TODO LOCALSTORAGE 
-                // $sessionStorage.setItam("user", res.data);
+                
                 sessionStorage.user = JSON.stringify(res.data);
                 $scope.user = JSON.parse(sessionStorage.user);
                 $location.path('/allBooks')

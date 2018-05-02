@@ -30,7 +30,7 @@ app.config(function($routeProvider){
             templateUrl: "views/myBooks/myBooks.htm",
             controller:"MyBooksController"
         })
-        // .otherwise("/main")
+        .otherwise("/login")
         // po definicq mi pokaji
         
 })

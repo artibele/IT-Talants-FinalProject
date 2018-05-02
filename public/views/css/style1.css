@@ -392,9 +392,9 @@ nav{
   }
 
 footer{
-    height: 100px;
+    height: 120px;
     background: #dcd8d8;
-    margin-top: 3em;
+    /* margin-top: 3em; */
 }
 #socialMedia{
     position: relative;
@@ -404,8 +404,10 @@ footer{
 
 #socialMedia > h1{
     float: left;
-    color: white;
+    color: rgb(15, 48, 2);
     margin-right: 2em;
+    font-weight: bold;
+    font-style: italic;
 }
 
 
@@ -413,6 +415,8 @@ footer{
 #addBooksInDB{
     /* background: grey; */
     margin: 2em auto;
+    width: 100%;
+    height: 700px;
 }
 
 #input1{
@@ -429,6 +433,9 @@ footer{
 }
 #buttonAddBook{
     float: left;
+    position: relative;
+    top:10px;
+    left: 450px;
 }
 
 .classInputBook {
@@ -504,7 +511,7 @@ footer{
 
 /* --------TEMPLATE FOR BOOKS  */
 
-#templateForBooks{
+.templateForBooks{
     height: 1000px;
     background: rgb(238, 235, 235);
     margin: 1em auto;
@@ -516,7 +523,7 @@ footer{
     background-size: cover;
     background-repeat: no-repeat; */
 }
-#templateForFullBooks{
+.templateForFullBooks{
     height: 970px;
     /* background: rgb(168, 157, 157); */
     width: 97%;
@@ -529,6 +536,18 @@ footer{
     float: left;
     margin: 2px;
 }
+
+
+.bigBoxBookTempl.ng-leave {
+    -webkit-transition:0.1s linear all;
+    transition:0.1s linear all;
+
+    opacity: 1;
+}
+.bigBoxBookTempl.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
 
 .bigBoxBookTempl > img {
     width: 200px;
@@ -723,15 +742,15 @@ tr:hover {
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
-    background: rgb(238, 235, 235);
+  
 }
+
 
 #moreInforNav {
     width: 1400px;
     height: 500px;
     /* position: relative;
     left: 250px; */
-    
     background: rgb(252, 238, 238);
     margin: 2em auto;
     overflow-y: scroll;
@@ -762,49 +781,86 @@ tr:hover {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 1.6em;
 }
-.userComment {
-    float: left;
-    margin: 1em 0;
-    
+
+.commentPartUp{
+    width: 100%;
 }
-.userComment > img {
-    width:50px;
+.commentPartUp > img {
+    width: 50px;
     height: 50px;
-    float: left;
-    margin-right: 2em;
     border-radius: 50%;
-}
-
-.userComment > p {
     float: left;
-    width: 80%;
-    font-family: 'Indie Flower', cursive;
-    font-family: 'Shadows Into Light', cursive;
-    font-family: 'Covered By Your Grace', cursive;
-   font-size: 1.6em;
+    position: relative;
+    top: 7px;
+    left:7px;
 }
 
-.userComment > h3 {
+.commentPartUp > .usernamePost {
     font-weight: bold;
-    font-family: 'Indie Flower', cursive;
-    font-family: 'Shadows Into Light', cursive;
-    font-family: 'Covered By Your Grace', cursive;
-    font-style: italic;
+    float: left;
+    margin: 0 1em;
+    font-family: 'Lemon', cursive;
+    position: relative;
+    top:10px;
 }
 
-.userComment > button {
+.commentPartUp > .datePost {
+    position: relative;
+    top:12px;
+    margin: 0 10px;
+    float: left;
+    font-style: italic;
+    font-size: 12px;
+   
+}
+
+.commentPartUp > button {
+    float: left;
+    position: relative;
+    top:5px;
+    margin:  0 5px;
+    background: none;
     width: 30px;
     height: 30px;
-    float: left;
-    margin: 0 3px;
     border-radius: 50%;
     background: none;
     opacity: 0.5;
     color: rgb(102, 145, 9);
-    font-weight: bold;
     border-radius: 50%;
     border-color: rgb(72, 116, 3);
 }
+
+.commentPartDown {
+    width: 100%;
+    float: left;
+    margin: 0 5em;
+}
+
+.commentPartDown > p {
+    float: left;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 20px;
+   
+}
+
+
+
+.userComment {
+    width: 100%;
+    height: 100px;
+    margin: 2em 0;
+    background: rgb(233, 215, 215);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;   
+}
+
+.userComment:hover {
+    background: rgb(240, 226, 226);
+}    
+
 
 #inputUserComments {
     position: relative;
@@ -814,6 +870,11 @@ tr:hover {
     border-bottom: 2px solid black;
     margin: 2.5em 0;
    
+}
+
+infoForBook {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #infoForBook > h1 {
@@ -838,18 +899,33 @@ tr:hover {
     font-size: 1.6em;
 }
 
+#commentsInput{
+    float: left;
+    width: 100%;
+}
+
 #commentsInput > form {
+    width: 100%;
     float: left;
 }
 
 #commentsInput > button{
-    float: left;
+    float: right;
     position: relative;
-    top: 50px;
-    left: 240px;
+    top: -100px;
+    left: -340px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: none;
+    color: green;
+    border-color:rgb(64, 102, 2);
 }
+
 #allusersComments {
-    margin-left: 4em;
+    width: 96%;
+   float: left;
+   margin: 0 2em;
 }
 
 
@@ -934,10 +1010,11 @@ tr:hover {
     cursor: pointer;
     font-weight: bold;
 }
+
 #profilePicture { 
     width: 65px;
     height: 65px;
     border-radius: 50%;
     position: relative;
-    top:7epx;
+    top:7px;
 }
