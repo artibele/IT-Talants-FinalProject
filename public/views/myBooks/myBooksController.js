@@ -20,6 +20,9 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
     $location.path('/moreInfo/').search({ id: _id });
   }
 
+  $scope.deleteFavoriteBook = function(id){
+    
+  }
 
 
   // $location.search('centre', hash).replace();

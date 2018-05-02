@@ -50,6 +50,9 @@ var UserSchema = new Schema({
         type : String,
         enum: ["admin","user"],
         required: true
+      },
+      ratedBooks: {
+        tupe : Array
       }
 });
 

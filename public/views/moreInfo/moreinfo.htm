@@ -27,6 +27,10 @@
                 <td class="second"> {{book.published}} </td>
             </tr>
             <tr>
+                <td class="first">Avg.Rating</td>
+                <td class="second"> {{book.avgRating}} </td>
+            </tr>
+            <tr>
                 <td class="first">Pages</td>
                 <td class="second"> {{book.pages}} </td>
             </tr>
@@ -42,6 +46,35 @@
     </table>
 
     <span class="glyphicon glyphicon-step-backward">  <a  href="#!/allBooks">Back</a> </span>
+    
+
+    <!-- demo stars......... -->
+
+    <div id="stars" ng-controller="StarCtrl"> 
+        <div class=col-md-12>
+            <div ng-repeat="rating in ratings">
+            <!-- <h2>{{rating.current}} /
+                {{rating.max}}</h2> -->
+                <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+            </div>
+        </div>
+        <div class="col-md-12 clear">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" data-ng-click="setMinrate()">Min Rate</button>
+              <button type="button" class="btn btn-default" data-ng-click="setMaxrate()">Max Rate</button>
+            </div>
+            <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" ng-click="sendRating()">Send</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+ <!-- demo stars......... -->
+
+
+    
 </div>
 
 <div id="moreInforNav">
