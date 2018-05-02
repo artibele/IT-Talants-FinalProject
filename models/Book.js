@@ -3,73 +3,83 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var BookSchema = new Schema(
-   {
-       title: {
+    {
+        title: {
             type: String,
             required: true,
             trim: true,
             unique: true,
-       },
-       moreAboutBook: {
+        },
+        moreAboutBook: {
             type: String,
             required: true,
             trim: true,
             minlength: [3, 'Too few symbols'],
             maxlength: 1000
-       },
-       author : {
+        },
+        author: {
             type: String,
             required: true,
             trim: true,
             minlength: [3, 'Too few symbols'],
-       },
-       typeBook :{
+        },
+        typeBook: {
             type: String,
             required: true,
             trim: true
-       },
-       publisher :{
+        },
+        publisher: {
             type: String,
             required: true,
             trim: true,
             minlength: [3, 'Too few symbols']
-       },
-       published  :{
+        },
+        published: {
             type: Date,
             required: true,
             trim: true
-       },
-       pages :{
+        },
+        pages: {
             type: String,
             required: true,
             trim: true,
             min: [0, 'Too few pages']
-       },
-       aboutAuthor :{
+        },
+        aboutAuthor: {
             type: String,
             required: true,
             trim: true,
             minlength: [3, 'Too few symbols'],
             maxlength: 1000
-       },
-       price:{
+        },
+        price: {
             type: String,
             required: true,
             trim: true
-       },
-       linkToBuy:{
+        },
+        linkToBuy: {
             type: String,
             required: true,
             trim: true,
             minlength: [3, 'Too few symbols'],
-       },
-       pictureBook:{
+        },
+        pictureBook: {
             type: String,
             required: true,
-            
-       }
-   }
+
+        },
+        avgRating: {
+            type: String,
+            default: "3"
+        },
+        voted: {
+            type: String
+        },
+        ratingNumbers: {
+            type: [Number]
+        }
+    }
 );
 
-var Book = mongoose.model('Book', BookSchema );
+var Book = mongoose.model('Book', BookSchema);
 module.exports = Book;

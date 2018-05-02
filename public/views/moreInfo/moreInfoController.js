@@ -8,6 +8,8 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         console.log(response.data);
         $scope.book = response.data;
         console.log("here");
+        var book = JSON.stringify(response.data)
+        sessionStorage.setItem("book", book);
     });
 
 

@@ -941,3 +941,34 @@ tr:hover {
     position: relative;
     top:7epx;
 }
+
+/* .................Stars  */
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+  }
+  ul.rating {
+    display: inline-block;
+  }
+  .rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size:25px;
+  }
+  .rating .filled {
+    color: orangered;
+  }
+  .clear{
+  margin-top:20px;
+  }
+  #stars{
+    position: relative;
+    top: 12%;
+    left: 2.4%;
+  }
