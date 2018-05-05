@@ -8,6 +8,8 @@
 
 
     <!-- shrift -->
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Indie+Flower|Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
@@ -27,12 +29,11 @@
     <title>ReadBook</title>
 </head>
 <body  ng-app="bookApp" >        
-    <a class="login" href="#!/login">Login</a>
+    <!-- <a class="login" href="#!/login">Login</a>
     <a class="register" href="#!/register">Register</a>
     <a class="register" href="#!/allBooks">allBooks</a>
     <a class="register" href="#!/moreInfo">allBooks</a>
-    <br>
-
+    <a  href="#!/helloPage">HelloPage</a> -->
     <header>
         <nav>
             <ul id="mainMenu">
@@ -40,8 +41,10 @@
                 <li> <img width="80px" id="profilePicture" ng-controller="usernameAndPictureController as ctrl" src="{{ctrl.profPic}}" alt=""> </li>
                 <li><a ng-controller="usernameAndPictureController as ctrl" href="#!/myProfile"> <p> {{ctrl.uFname}}  {{ctrl.uSname}}  </p> </a></li>
                 <li><a href="#!/allBooks">All Books</a></li>
-                <li><a href="#!/myProfile">My Profile</a></li> 
-                <li><a ng-controller="contactWithUsController" ng-click="contactWithUs()">Contact with us</a></li> 
+                <li><a href="#!/homePage"> Home </a></li>
+                <li><a href="#!/contactList">Contact with Us</a></li>
+                <li id="logoLi"><a href="#!/helloPage"><p id="logoText">Readers' Guide</p> </a></li>
+                <li id="logoLi"><a href="#!/helloPage"> <img src="views/img/icons8-book-shelf-80 (1).png" alt=""/> </a></li>
             </ul>
         </nav>
     </header>
@@ -51,10 +54,10 @@
         
     </main>
 
-    <div id="contactBox" ng-controller="contactWithUsController" ng-show="isVisible">
+    <!-- <div id="contactBox" ng-controller="contactWithUsController" ng-show="isVisible">
         <h2>Opaaaaa</h2>
         <h3>Mopaaaaa</h3>
-    </div>
+    </div> -->
 
     <footer>
         <div id='socialMedia'>
@@ -73,6 +76,7 @@
 <script src="views/js/angRouter.js"></script>
 
 <!-- all Controllers -->
+<script src="viewa/main/mainController.js"></script>
 <script src="views/login/loginController.js"></script>
 <script src="views/register/registerController.js"></script>
 <script src="views/allbooks/allBooksController.js"></script>
@@ -80,11 +84,11 @@
 <script src="views/logoutcontroller.js"></script>
 <script src="views/pictureAndNameOfUserController.js"></script>
 <script src="views/moreInfo/moreInfoController.js"></script>
-<script src="viewa/main/mainController.js"></script>
 <script src="views/myBooks/myBooksController.js"></script>
 <script src="views/contactWithUsController.js"></script>
 <script src="views/moreInfo/starsController.js"></script>
-
+<script src="views/contactList/contactListController.js"></script>
+<script src="views/helloPage/helloPageController.js"></script>
 
 <!-- all Services -->
 <script src="views/register/registerServices.js"></script>

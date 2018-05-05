@@ -52,7 +52,7 @@ var UserSchema = new Schema({
         required: true
       },
       ratedBooks: {
-        tupe : Array
+        type : Array
       }
 });
 

@@ -56,25 +56,36 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         })
     }
 
-    $http.get("/api/loggedIn").then(function (res) {
-        console.log(res)
+    // $http.get("/api/loggedIn").then(function (res) {
+    //     console.log(res)
 
-        if (res.data.message == "Logged") {
-            $http.get("/getAllBooks").then(function (response) {
-                console.log(response.data);
-                if (response.status == 200) {
-                    $scope.books = response.data;
+    //     if (res.data.message == "Logged") {
+    //         $http.get("/getAllBooks").then(function (response) {
+    //             console.log(response.data);
+    //             if (response.status == 200) {
+    //                 $scope.books = response.data;
 
-                }
-            }).catch(function (err) {
-                console.log("noo response")
-            })
+    //             }
+    //         }).catch(function (err) {
+    //             console.log("noo response")
+    //         })
 
-        } else {
-            $location.path('/login');
+    //     } else {
+    //         $location.path('/login');
+    //     }
+    // });
+
+    $http.get("/getAllBooks").then(function (response) {
+        console.log(response.data);
+        if (response.status == 200) {
+            $scope.books = response.data;
+
         }
-    });
+    }).catch(function (err) {
+        console.log("noo response")
+    })
 
+    
     $scope.moreInfo = function (_id) {
         $location.path('/moreInfo/').search({ id: _id });
 
@@ -133,6 +144,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
             }
         })
     }
+
     $scope.allBook = function () {
         $scope.allBooks = true;
         $scope.raomanceBook = false;
@@ -159,8 +171,8 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
 
     }
     
-    
     $scope.romanceBook = function (){
+       
         $scope.allBooks = false;
         $scope.raomanceBook = true;
         $scope.scienceBook = false;
@@ -230,14 +242,14 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.biographiesBoook  = false;
         $scope.comicsBook  = false;
         $scope.travelBook  = false;
-        $scope.healthBook  = false;
+        $scope.healthBook = false;
         $scope.dramaBook = false;
 
         $http.get("/gettAllBookByGanre/" + "fantasy").then(function(res){
             $scope.fantasyBooks = res.data;
         })
-
     }
+
     $scope.comics = function(){
         $scope.allBooks = false;
         $scope.raomanceBook = false;
@@ -263,6 +275,20 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.biographiesBoook  = false;
         $scope.comicsBook  = false;
         $scope.travelBook  = true;
+        $scope.healthBook  = false;
+        $scope.dramaBook = false;
+    }
+
+    $scope.biographies = function(){
+        $scope.allBooks = false;
+        $scope.raomanceBook = false;
+        $scope.scienceBook = false;
+        $scope.historyBook = false;
+        $scope.cookbooksBook  = false;
+        $scope.fantasyBook  = false;
+        $scope.biographiesBoook  = true;
+        $scope.comicsBook  = false;
+        $scope.travelBook  = false;
         $scope.healthBook  = false;
         $scope.dramaBook = false;
     }

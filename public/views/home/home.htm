@@ -1,23 +1,39 @@
 <div id="goodReadBackground">
-        <img id="imgWithBooks" class="shadow" src="views/img/img1.png" alt="">
-        <h1>Welcome To </h1>
+    <img id="imgWithBooks" src="http://southbeachlanguages.com/wp-content/uploads/2013/06/page-heading-background-contact-us.jpg" alt=""/>
+    <div id="homeblackBackground">
+        <div>
+            <h3>“The most beautiful things in the world cannot be seen or touched, </h3>
+            <h3 id="textLeft">they are felt with the heart. " </h3>
+            <p>- Antoine de Saint-Exupéry, The Little Prince</p>
+        </div>
+    </div>    
 </div>
-<br>
+
 <div class="container" >
-    <ul class="nav nav-tabs">
-        <li class='active'><a data-toggle="tab"  data-target="#homePage" href="#!/homePage" > Home </a></li>
-        <li><a data-toggle="tab" data-target="#allBooks" href="#!/allBooks"> All books </a></li>
-        <li><a data-toggle="tab" data-target="#romance" href="#!/romance"> Romance </a></li>
-        <li><a data-toggle="tab" href="#!/science"> Science</a></li>
-        <li><a data-toggle="tab" href="#!/history">History</a></li>
-        <li><a data-toggle="tab" href="#!/cookbooks">Cookbooks</a></li>
-        <li><a data-toggle="tab" href="#!/fantasy">Fantasy</a></li>
-        <li><a data-toggle="tab" href="#!/biographies">Biographies</a></li>
-        <li><a data-toggle="tab" href="#!/comics">Comics</a></li>
-        <li><a data-toggle="tab" href="#!/travel">Travel</a></li>
-        <li><a data-toggle="tab" href="#!/health">Health</a></li>
-        <li><a data-toggle="tab" href="#!/drama">Drama</a></li>
-    </ul>
+    <!-- <ul class="nav nav-tabs">
+        <li class='active'><a data-toggle="tab"  data-target="#homePage" href="#!/homePage" class="colorMenuBooks"> Home </a></li>
+        <li>
+            <div class="dropdown">
+                <a class="dropbtn btn colorMenuBooks">Dropdown</a>
+                <div class="dropdown-content">
+                    <a ng-click="sortAZ()" class="btn btn-2"> Sort From A to Z</a>
+                    <a ng-click="sortZA()" class="btn btn-2">Sort From Z to A</a>
+                    <a ng-click="sortLike()" class="btn btn-2">Sort by like</a>
+                </div>
+            </div>
+            </li>
+        <li><a data-toggle="tab" data-target="#allBooks" href="#!/allBooks"class="colorMenuBooks"> All books </a></li>
+        <li><a data-toggle="tab" data-target="#romance" href="#!/romance"class="colorMenuBooks"> Romance </a></li>
+        <li><a data-toggle="tab" href="#!/science" class="colorMenuBooks"> Science</a></li>
+        <li><a data-toggle="tab" href="#!/history" class="colorMenuBooks">History</a></li>
+        <li><a data-toggle="tab" href="#!/cookbooks" class="colorMenuBooks">Cookbooks</a></li>
+        <li><a data-toggle="tab" href="#!/fantasy" class="colorMenuBooks">Fantasy</a></li>
+        <li><a data-toggle="tab" href="#!/biographies" class="colorMenuBooks">Biographies</a></li>
+        <li><a data-toggle="tab" href="#!/comics" class="colorMenuBooks">Comics</a></li>
+        <li><a data-toggle="tab" href="#!/travel" class="colorMenuBooks">Travel</a></li>
+        <li><a data-toggle="tab" href="#!/health" class="colorMenuBooks">Health</a></li>
+        <li><a data-toggle="tab" href="#!/drama" class="colorMenuBooks">Drama</a></li>
+    </ul> -->
 
   <div id='addBooksInDB' >
         <h3>HOME </h3>
@@ -45,8 +61,8 @@
        <div id='input4'>
             <!-- <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="More About Book" ng-model="book.moreAboutBook">
             <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="About the author" ng-model="book.aboutAuthor"> -->
-                <textarea class="textareaInput classHoverInput"  cols="100"  maxlength="500" maxlength="500" rows="3" ng-model="book.moreAboutBook" placeholder="Write something here..."> </span>  </textarea> 
-                <textarea class="textareaInput classHoverInput"  cols="100" maxlength="500" rows="3" ng-model="book.aboutAuthor" placeholder="Write something here..."> </textarea> 
+                <textarea class="textareaInput classHoverInput"  cols="100"  maxlength="500" maxlength="500" rows="3" ng-model="book.moreAboutBook" placeholder="Write something about author"> </span>  </textarea> 
+                <textarea class="textareaInput classHoverInput"  cols="100" maxlength="500" rows="3" ng-model="book.aboutAuthor" placeholder="Write something about book"> </textarea> 
         </div>
 
        <div id='buttonAddBook'>

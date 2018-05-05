@@ -42,6 +42,7 @@ app.controller("HomeController",function($scope, $location , $http){
             type:"drama"
         }
     ]
+    
     $scope.addNewBook = function () {
         $http.get("/api/loggedIn").then(function(res){
             if(res.data.message == "Logged"){

@@ -91,6 +91,11 @@ app.post('/registerUser', function (req, res, next) {
 })
 
 app.post("/addToFavorite", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
   var body = req.body;
   console.log(body);
 
@@ -125,6 +130,11 @@ app.post("/addToFavorite", function (req, res, next) {
 
 
 app.post("/saveBookToUser", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
   var body = req.body;
 
   console.log(body);
@@ -143,6 +153,7 @@ app.post("/saveBookToUser", function (req, res, next) {
           { "$addToSet": { "ratedBooks": book.title }, },
           function (err, raw) {
             if (err) return handleError(err);
+
             if (raw.nModified == 0) {
               res.status(500)
 
@@ -161,6 +172,12 @@ app.post("/saveBookToUser", function (req, res, next) {
 
 
 app.post("/saveUserRating", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
+
   var body = req.body;
 
   console.log(body);
@@ -191,6 +208,12 @@ app.post("/saveUserRating", function (req, res, next) {
 
 
 app.post("/voted", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
+
   var body = req.body;
 
   console.log(body);
@@ -226,6 +249,12 @@ app.post("/voted", function (req, res, next) {
 
 
 app.post("/newRating", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
+
   var body = req.body;
   console.log(body);
 
@@ -233,10 +262,11 @@ app.post("/newRating", function (req, res, next) {
     var sum = 0
     var voted = book.voted
 
-    for(var count = 0; count < book.ratingNumbers; count++){
+    for(var count = 0; count < book.ratingNumbers.length; count++){
       sum += book.ratingNumbers[count]
     }
     var avgSum = sum / voted 
+    avgSum = avgSum.toFixed(2)
     avgSum += ""
     console.log(avgSum)
    
@@ -370,11 +400,11 @@ app.get("/getAllCommentsforBook/:id", function (req, res, next) {
 
 app.get("/getAllBooks", function (req, res, next) {
 
-  if(req.session.user == null){
-    res.status(401);
-    res.send();
-    return;
-  }
+  // if(req.session.user == null){
+  //   res.status(401);
+  //   res.send();
+  //   return;
+  // }
 
   BookModel.find({}, function (err, books) {
     if (err) {
@@ -390,11 +420,11 @@ app.get("/getAllBooks", function (req, res, next) {
 })
 
 app.get("/gettAllBookByGanre/:type", function(req , res , next){
-  if(req.session.user == null){
-    res.status(401);
-    res.send();
-    return;
-  }
+  // if(req.session.user == null){
+  //   res.status(401);
+  //   res.send();
+  //   return;
+  // }
   BookModel.find({typeBook:req.params.type},function(err, books){
     if (err) {
       console.log(err);

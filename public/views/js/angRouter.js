@@ -22,15 +22,20 @@ app.config(function($routeProvider){
             templateUrl: "views/moreinfo/moreinfo.htm",
             controller:"MoreInfoController"
         })
-        .when("/main",{
-            templateUrl: "views/main/mainPage.htm",
-            controller:"MainController"
+        .when("/contactList",{
+            templateUrl: "views/contactList/contactList.htm",
+            controller:"ContactListController"
+        })
+        .when("/helloPage",{
+            templateUrl: "views/helloPage/helloPage.htm",
+            controller:"HelloPageController"
         })
         .when("/myProfile",{
             templateUrl: "views/myBooks/myBooks.htm",
             controller:"MyBooksController"
         })
-        .otherwise("/login")
+       
+        .otherwise("/helloPage")
         // po definicq mi pokaji
         
 })
@@ -59,24 +64,24 @@ app.directive('slider', function($timeout) {
           
             scope.images[scope.currentIndex].visible = true; // make the current image visible
           });
-
-          // var timer;
-          // var sliderFunc = function() {
-          //   timer = $timeout(function() {
-          //     scope.next();
-          //     timer = $timeout(sliderFunc, 5000);
-          //   }, 5000);
-          // };
+        //   var timer;
+        //   var sliderFunc = function() {
+        //     timer = $timeout(function() {
+        //       scope.next();
+        //       timer = $timeout(sliderFunc, 3000);
+        //     }, 5000);
+        //   };
           
-          // sliderFunc();
+        //   sliderFunc();
           
-          // scope.$on('$destroy', function() {
-          //   $timeout.cancel(timer); // when the scope is getting destroyed, cancel the timer
-          // });
+        //   scope.$on('$destroy', function() {
+        //     $timeout.cancel(timer); // when the scope is getting destroyed, cancel the timer
+        //   });
       },
       templateUrl: 'views/allbooks/sliderTemplate.htm'
     };
   });
+
 
   app.directive('starRating', function () {
     return {

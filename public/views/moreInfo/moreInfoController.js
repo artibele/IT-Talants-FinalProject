@@ -1,36 +1,21 @@
 
-
 app.controller("MoreInfoController",function($scope, $location , $http){
    
     var params = $location.search(); // return object with id 
 
     $http.get("/getInfoForAbook/" + params.id).then(function (response) {
-        console.log(response.data);
         $scope.book = response.data;
-        console.log("here");
         var book = JSON.stringify(response.data)
         sessionStorage.setItem("book", book);
     });
 
-
     $http.get("/api/loggedIn").then(function (res) {
-        console.log(res)
 
         if (res.data.message == "Logged") {
-            $http.get("/getAllBooks").then(function (response) {
-                console.log(response.data);
-                if (response.status == 200) {
-                    $scope.books = response.data;
-
-                }
-
-                
-            }).catch(function (err) {
-                console.log("noo response")
-            })
-
+           
         } else {
             $location.path('/login');
+            alert("you musto to be logged .. ")
         }
     });
 
