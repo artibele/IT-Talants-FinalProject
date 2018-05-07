@@ -31,12 +31,12 @@
             <h1>Send Us A Message</h1>
             <div id="contactInputs">
                 <form action="">
-                    <input type="text" class="classContactInputs" placeholder="Tell us your name .. ">
-                    <input type="text" class="classContactInputs" placeholder="Tell us your mobile phone .. ">
-                    <input type="text" class="classContactInputs" placeholder="Enter your meil:">
-                    <textarea cols="50" rows="3" class="classTextareContactInput" placeholder="Enter massege .. "></textarea>
+                    <input type="text" class="classContactInputs" placeholder="Tell us your name .. " ng-model="userName">
+                    <input type="text" class="classContactInputs" placeholder="Tell us your mobile phone .. " ng-model="userPhone">
+                    <input type="text" class="classContactInputs" placeholder="Enter your meil:" ng-model="userEmail">
+                    <textarea cols="50" rows="3" class="classTextareContactInput" placeholder="Enter massege .. " ng-model="userText"></textarea>
                 </form>
-               <button title="Send Message"> <img src="views/img/icons8-secured-letter-48 (2).png" alt=""> </button>
+               <button title="Send Message" ng-click="sendMail()"> <img src="views/img/icons8-secured-letter-48 (2).png" alt=""> </button>
             </div>
         </div>
     </div>

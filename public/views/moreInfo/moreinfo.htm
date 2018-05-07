@@ -1,126 +1,141 @@
 
-<div id="detailAboutBook">
-    <h2> {{book.title}} </h2>
-    <div id="buttonsInMoreInfoForBook">
-        <button class="buttonsInMoreInfoForBook"  title="Add to my favorite"> <span class="glyphicon glyphicon-floppy-saved"></span> </button>
-    </div>
-    <img width="200px" src=" {{book.pictureBook}} " alt="">
-    <table>
-        <thead>
-            
-        </thead>
-        <tbody>
-            <tr>
-                <td class="first">Author</td>
-                <td class="second"> {{book.author}} </td>
-            </tr>
-            <tr>
-                <td class="first">Type</td>
-                <td class="second"> {{book.typeBook}} </td>
-            </tr>
-            <tr>
-                <td class="first">Publisher</td>
-                <td class="second"> {{book.publisher}} </td>
-            </tr>
-             <tr>
-                <td class="first">Published</td>
-                <td class="second"> {{book.published}} </td>
-            </tr>
-            <tr>
-                <td class="first">Avg.Rating</td>
-                <td class="second"> {{book.avgRating}} </td>
-            </tr>
-            <tr>
-                <td class="first">Pages</td>
-                <td class="second"> {{book.pages}} </td>
-            </tr>
-            <tr>
-                <td class="first">Price</td>
-                <td class="second"> {{book.price  | currency }} </td>
-            </tr>
-            <tr>
-                <td class="first">Link to buy</td>
-                <td> <a class="second" href="{{book.linkToBuy}}"> {{book.linkToBuy}}  </a></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- demo stars......... -->
-
-    <div id="stars" ng-controller="StarCtrl"> 
-        <div class=col-md-12>
-            <div ng-repeat="rating in ratings">
-            <!-- <h2>{{rating.current}} /
-                {{rating.max}}</h2> -->
-                <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+<div id="backgroundMoreInfoPage">
+    <div id="bigBoxMoreInfoPage">
+        <div id="smallBoxOne">
+            <div id="littleBox">
+                <div class="blackCover">
+                    <p id="textOne">Details about book .. </p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12 clear">
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" data-ng-click="setMinrate()">Min Rate</button>
-              <button type="button" class="btn btn-default" data-ng-click="setMaxrate()">Max Rate</button>
-            </div>
-            <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" ng-click="sendRating()">Send</button>
-            </div>
-        </div>
-      </div>
-    </div>
+            <div id="boxWithInfo">
+                <p> {{book.title}} </p>
+                <div id="buttonsForLikeAddEditInMoreInfo">
+                        <button  ng-click="addToFavorite(book._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                        <button   ng-click="deleteBook(book._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                        <button   class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                </div>
+                <img width="150px" src=" {{book.pictureBook}} " alt="">
+                 <table>
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="first">Author</td>
+                            <td class="second"> {{book.author}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Type</td>
+                            <td class="second"> {{book.typeBook}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Publisher</td>
+                            <td class="second"> {{book.publisher}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Published</td>
+                            <td class="second"> {{book.published}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Avg.Rating</td>
+                            <td class="second"> {{book.avgRating}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Pages</td>
+                            <td class="second"> {{book.pages}} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Price</td>
+                            <td class="second"> {{book.price  | currency }} </td>
+                        </tr>
+                        <tr>
+                            <td class="first">Link to buy</td>
+                            <td class="scroll"> <a class="second" href="{{book.linkToBuy}}"> {{book.linkToBuy}}  </a></td>
+                        </tr>
+                    </tbody>
+                </table>
 
- <!-- demo stars......... -->
-
-
-    
-</div>
-
-<div id="moreInforNav">
-        <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" ng-click="templAboutBook()"> About Book </a></li>
-                <li><a data-toggle="tab" ng-click="templAboutAuthor()"> About author </a></li>
-                <li><a data-toggle="tab" ng-click="userComments(book._id)" > User comments </a></li>
-        </ul>
-        
-        <div id="infoForBook" ng-show="one">
-           <h1> Title:  {{book.title}} </h1>
-           <p>Author:  {{book.author}}</p>
-           <p> {{book.moreAboutBook}} </p>
-                <p>link to buy : <a href="{{book.linkToBuy}}"> {{book.linkToBuy}} </a> </p>
-        </div>
-
-        <div id="infoForAuthor" ng-show="two">
-            <h1> {{book.author}} </h1>
-            <p> {{book.aboutAuthor}} </p>
-        </div>
-
-        <div id="commentsforBook" ng-show="three">
-             <div id="commentsInput">
-                <form action="">
-                    <textarea  cols="100" rows="2" id="inputUserComments" ng-model="userAddComments"></textarea >
-                </form>
-                <button ng-click="addComment(book._id)"> <span class="glyphicon glyphicon glyphicon-comment"></span> </button>
-            </div>
-
-            <div id="allusersComments">
-
-                <div class="userComment" ng-repeat="comment in comments">
-
-                    <div class="commentPartUp">
-                        <img  src="{{comment.userId.profilePic}}" alt="">
-                        <p class="usernamePost"> {{comment.userId.username}} </p>
-                        <p class="datePost"> {{comment.datePost}} </p>
-                        <button ng-click="deleteComment(comment._id)"> <span class="glyphicon glyphicon glyphicon-trash"></span> </button>
-                        <button> <span class="glyphicon glyphicon glyphicon-edit"></span> </button>
-                    </div>
-
-                    <div class="commentPartDown">
-                        <p> {{comment.text}} </p>
-                        
+                <div id="stars" ng-controller="StarCtrl"> 
+                    <div class=col-md-12>
+                        <div ng-repeat="rating in ratings">
+                    
+                            <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
                         </div>
                     </div>
-                    
+                    <div class="col-md-12 clear">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-ng-click="setMinrate()">Min Rate</button>
+                        <button type="button" class="btn btn-default" data-ng-click="setMaxrate()">Max Rate</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary" ng-click="sendRating()">Send</button>
+                        </div>
+                    </div>
                 </div>
-                
+                </div>
+   
             </div>
         </div>
+        
+         <div id="smallBoxTwo">
+             <div id="littleBox2">
+
+                <div id="moreInfoNav">
+                    <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" class="colorNavMoreInfo" ng-click="templAboutBook()"> About Book </a></li>
+                            <li><a data-toggle="tab" class="colorNavMoreInfo" ng-click="templAboutAuthor()"> About author </a></li>
+                            <li><a data-toggle="tab" class="colorNavMoreInfo" ng-click="userComments(book._id)" > User comments </a></li>
+                    </ul>
+                </div>
+
+                <div id="infoForBook" ng-show="one">
+                        <p class="shrift">link to buy : <a href="{{book.linkToBuy}}"> {{book.linkToBuy}} </a> </p>
+                        <h1 class="shrift"> Title:  {{book.title}} </h1>
+                        <p class="shrift">Author:  {{book.author}}</p>
+                        <p class="shrift textBook"> {{book.moreAboutBook}} </p>
+                </div>
+    
+    
+                <div id="infoForAuthor" ng-show="two">
+                        <h1 class="shrift"> {{book.author}} </h1>
+                        <p class="shrift"> {{book.aboutAuthor}} </p>
+                </div>
+    
+                <div id="boxWithAllComments"  ng-show="three">
+                        <div id="userSendComments">
+                            <form action="">
+                                <textarea  cols="100" rows="2"  ng-model="userAddComments"></textarea >
+                            </form>
+                            <button ng-click="addComment(book._id)"> <img src="views/img/icons8-chat-48.png" alt=""> </button>
+                        </div>
+                       
+                        <div id="boxWithUserComments">
+
+                            <div class="oneCommentUser"  ng-repeat="comment in comments">
+                                <div class="userData">
+                                    <img  src="{{comment.userId.profilePic}}" alt="">
+                                    <p class="usernamePost"> {{comment.userId.username}} </p>
+                                    <p class="datePost"> {{comment.datePost}} </p>
+                                    <button ng-click="deleteComment(comment._id)"> <span class="glyphicon glyphicon glyphicon-trash"></span> </button>
+                                    <button> <span class="glyphicon glyphicon glyphicon-edit"></span> </button>
+                                </div>
+
+                                <div class="aComment">
+                                    <p>{{comment.text}} </p>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+            <div id="boxWithInfo2">
+                <div class="blackCover">
+                    <p id="textTwo">More information .. </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

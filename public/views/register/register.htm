@@ -1,4 +1,4 @@
-<img class="backgroundLoginRegister blur" src="https://kahvekitapcay.files.wordpress.com/2014/07/large.jpg" alt=""/>
+<!-- <img class="backgroundLoginRegister blur" src="https://kahvekitapcay.files.wordpress.com/2014/07/large.jpg" alt=""/> -->
 <!-- <nav class="logRegNav">
         <ul class="logRegUl">
             <li><a class="login" href="#!/login">Login</a></li>
@@ -7,7 +7,7 @@
         </ul>
 </nav>  -->
 
-<div id="registerBox">
+<!-- <div id="registerBox">
     <h1>Register</h1>
     <div id="miniRegisterBox">
         <div>
@@ -41,5 +41,51 @@
         
         <button id="register-btn" class="classButton"  ng-click="registration()">Register</button>
         <a href="#!/login">Back</a>
+    </div>
+</div> -->
+
+<div id="backgroundRegister">
+    <div id="bigBoxRegister">
+        <div id="smallBoxRegisterOne">
+            <h1> Register  </h1>
+            <div id="registerForm">
+                 <div>
+                    <img src="views/img/icons8-person-32.png" alt="">
+                    <input class="classInputRegister" type="text" ng-model="user.firstName" placeholder="Enter First Name"/>
+                </div>
+
+                <div>
+                    <img src="views/img/icons8-person-32.png" alt="">
+                    <input class="classInputRegister" type="text" ng-model="user.secondName" placeholder="Enter Secoun Name"/>
+                </div>
+
+                <div>
+                    <img src="views/img/icons8-person-32.png" alt="">
+                    <input class="classInputRegister" type="text" ng-model="user.username" placeholder="Enter Username">
+                </div>
+
+                <div>
+                    <img src="views/img/icons8-email-26.png" alt="">
+                    <input class="classInputRegister" type="email" ng-model="user.email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"  placeholder="Enter Email">
+                </div>
+
+                <div>
+                    <img src="views/img/icons8-key-32.png" alt="">
+                    <input class="classInputRegister" type="password" ng-model="user.password" placeholder="Enter password">
+                </div>
+                <div>
+                    <img src="views/img/icons8-photo-gallery-26.png" alt="">
+                    <input class="classInputRegister" type="text" ng-model="user.userImgUrl" placeholder="Enter picture url">
+                </div>
+            </div>
+
+            <a href="" ng-click="registration()"> Register</a>
+        </div>
+        
+        <div id="smallBoxRegisterTwo">
+             <div id="blackBackgroundRegister">
+
+            </div>
+        </div>
     </div>
 </div>

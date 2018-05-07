@@ -145,6 +145,18 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         })
     }
 
+    $scope.allBooks = true;
+    $scope.raomanceBook = false;
+    $scope.scienceBook = false;
+    $scope.historyBook = false;
+    $scope.cookbooksBook  = false;
+    $scope.fantasyBook  = false;
+    $scope.biographiesBoook  = false;
+    $scope.comicsBook  = false;
+    $scope.travelBook  = false;
+    $scope.healthBook  = false;
+    $scope.dramaBook = false;
+
     $scope.allBook = function () {
         $scope.allBooks = true;
         $scope.raomanceBook = false;

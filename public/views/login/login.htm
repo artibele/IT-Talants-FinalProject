@@ -1,4 +1,4 @@
-<img class="backgroundLoginRegister blur" src="https://kahvekitapcay.files.wordpress.com/2014/07/large.jpg" alt="">
+<!-- <img class="backgroundLoginRegister blur" src="https://kahvekitapcay.files.wordpress.com/2014/07/large.jpg" alt=""> -->
 
 <!-- <nav class="logRegNav">
         <ul class="logRegUl">
@@ -8,7 +8,7 @@
         </ul>
 </nav>  -->
 
-<div id="loginBox">
+<!-- <div id="loginBox">
     <h1>Login</h1>
     <div id="miniLoginBox">
         <form action="">
@@ -30,4 +30,38 @@
     </div>
 </div>
 
-<h1> {{objct.name}} </h1>
+<h1> {{objct.name}} </h1> -->
+
+<div id="bigLoginBox">
+    <div id="backgroundLogin">
+
+        <div id="smallLoginBoxOne">
+            <div id="blackBackgroundLogin">
+
+            </div>
+        </div>
+
+        <div id="smallLoginBoxTwo">
+            <h1>Account Login </h1>
+            <div id="loginForm">
+                 <form action="">
+                    <div id="usernameLog">
+                        <img src="views/img/icons8-person-32.png" alt="">
+                        <input class="classInput" type="text" placeholder="Enter username" ng-model="user.username">
+                    </div>
+                    <div id="passwordLog">
+                        <img src="views/img/icons8-key-64.png" alt="">
+                        <input class="classInput"  type="password"  placeholder="Enter password"  minlength="5" maxlength="12" required autocomplete="off" ng-model="user.password">
+                    </div>
+                    <!-- <button id="login-btn"  class="classInputLogReg" ng-click="login($event)">Login</button> -->
+                    <a href="" id="logedButton" ng-click="login($event)"> Login </a>
+                    <div id="noAccount">
+                        <p class="noAccountText">no account: </p>
+                        <p><a class="noAccountLink" href="#!/register"> make account</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

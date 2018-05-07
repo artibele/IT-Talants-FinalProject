@@ -1,8 +1,12 @@
 <div class="slider">
    
     <div class="slide" ng-repeat="image in images" ng-show="image.visible" >
-        <img width="400px" ng-src="{{image.src}}" />
+        <img ng-src="{{image.src}}" />
     </div>
+
+    <!-- <div class="slide" ng-repeat="book in images" ng-show="book.visible" >
+        <img ng-src="{{book.pictureBook}}" />
+    </div> -->
 
     <div class="arrows" >
         <a class="arrowsLeft"   ng-click="prev()">

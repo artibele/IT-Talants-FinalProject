@@ -19,6 +19,10 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         }
     });
 
+    $scope.one = true;
+    $scope.two = false;
+    $scope.three = false;
+
     $scope.templAboutBook = function () {
         $scope.one = true;
         $scope.two = false;
