@@ -1,4 +1,20 @@
-app.controller("logoutController",function($scope, $http, $location){
+app.controller("logoutController",function($scope, $http, $location, $window){
+
+    var user = JSON.parse(sessionStorage.getItem("user"));
+    
+        $scope.$watch(function(){
+            return $window.sessionStorage.getItem("user");
+        }, function(value){
+                var user = JSON.parse(value);
+                if(!user){
+                    $scope.isLogged = false;
+                } else {
+                    $scope.isLogged = true;
+                }
+                console.log($scope.isLogged);
+        })
+        
+
     $scope.logout = function (){
 
         $http.get("/api/loggedIn").then(function(res){

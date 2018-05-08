@@ -10,40 +10,16 @@
 </div>
 
 <div class="container" >
-    <!-- <ul class="nav nav-tabs">
-        <li class='active'><a data-toggle="tab"  data-target="#homePage" href="#!/homePage" class="colorMenuBooks"> Home </a></li>
-        <li>
-            <div class="dropdown">
-                <a class="dropbtn btn colorMenuBooks">Dropdown</a>
-                <div class="dropdown-content">
-                    <a ng-click="sortAZ()" class="btn btn-2"> Sort From A to Z</a>
-                    <a ng-click="sortZA()" class="btn btn-2">Sort From Z to A</a>
-                    <a ng-click="sortLike()" class="btn btn-2">Sort by like</a>
-                </div>
-            </div>
-            </li>
-        <li><a data-toggle="tab" data-target="#allBooks" href="#!/allBooks"class="colorMenuBooks"> All books </a></li>
-        <li><a data-toggle="tab" data-target="#romance" href="#!/romance"class="colorMenuBooks"> Romance </a></li>
-        <li><a data-toggle="tab" href="#!/science" class="colorMenuBooks"> Science</a></li>
-        <li><a data-toggle="tab" href="#!/history" class="colorMenuBooks">History</a></li>
-        <li><a data-toggle="tab" href="#!/cookbooks" class="colorMenuBooks">Cookbooks</a></li>
-        <li><a data-toggle="tab" href="#!/fantasy" class="colorMenuBooks">Fantasy</a></li>
-        <li><a data-toggle="tab" href="#!/biographies" class="colorMenuBooks">Biographies</a></li>
-        <li><a data-toggle="tab" href="#!/comics" class="colorMenuBooks">Comics</a></li>
-        <li><a data-toggle="tab" href="#!/travel" class="colorMenuBooks">Travel</a></li>
-        <li><a data-toggle="tab" href="#!/health" class="colorMenuBooks">Health</a></li>
-        <li><a data-toggle="tab" href="#!/drama" class="colorMenuBooks">Drama</a></li>
-    </ul> -->
 
-  <div id='addBooksInDB' >
+    <div id='addBooksInDB' >
         <h3>HOME </h3>
-        <div id='input1'>
+        <div class="rowInputs">
             <input class='classInputBook classHoverInput'  type="text" minlength="2" maxlength="100" placeholder="Enter Title of Book" ng-model="book.title">  <span class="glyphicon glyphicon-subtitles"></span> </input>
             <input class='classInputBook classHoverInput' type="number" min="0" placeholder="Pages" ng-model="book.pages"> <span class="glyphicon glyphicon-book"></span> </input>
             <input class='classInputBook classHoverInput' type="text" minlength="2" maxlength="60" placeholder="Author" ng-model="book.author">  <span class="glyphicon glyphicon-user"></span> </input>
         </div>
 
-        <div id='input2'>
+        <div class="rowInputs">
             <input class='classInputBook classHoverInput' list="typeOfBooks" maxlength="20" type="text" placeholder="Type" ng-model="book.typeOfBook">  <span class="glyphicon glyphicon-hand-up"></span> </input>
             <datalist id="typeOfBooks">
                     <option ng-repeat="type in types" value="{{type.type}}"/>
@@ -52,22 +28,23 @@
             <input class='classInputBook classHoverInput' type="date"  placeholder="Published:" ng-model="book.published">  <span class="glyphicon glyphicon-calendar"></span> </input>
         </div>
 
-        <div id='input3'>
+        <div class="rowInputs">
             <input class='classInputBook classHoverInput' type="text" minlength="10" maxlength="100" placeholder="Link to buy" ng-model="book.linkToBuy">  <span class="glyphicon glyphicon-share"></span> </input>
             <input class='classInputBook classHoverInput' type="text" placeholder="Picture" ng-model="book.pictureBook">  <span class="glyphicon glyphicon-picture"></span> </input>
+            <!-- <input class='classHoverInput' type="file" placeholder="Picture" ng-model="book.pictureBook"  accept=".jpg, .jpeg, .png" > <span class="glyphicon glyphicon-picture"></span> </input> -->
             <input class='classInputBook classHoverInput' type="number" min="0" placeholder="Price" ng-model="book.price">  <span class="glyphicon glyphicon-piggy-bank"></span> </input>
         </div>
        
-       <div id='input4'>
-            <!-- <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="More About Book" ng-model="book.moreAboutBook">
-            <input class='classInputBook' type="text" minlength="5" maxlength="200" placeholder="About the author" ng-model="book.aboutAuthor"> -->
-                <textarea class="textareaInput classHoverInput"  cols="100"  maxlength="500" maxlength="500" rows="3" ng-model="book.moreAboutBook" placeholder="Write something about author"> </span>  </textarea> 
-                <textarea class="textareaInput classHoverInput"  cols="100" maxlength="500" rows="3" ng-model="book.aboutAuthor" placeholder="Write something about book"> </textarea> 
+       <div class="rowInputs">
+            <textarea class="textareaInput classHoverInput"  cols="106"  maxlength="500" maxlength="10000" rows="3" ng-model="book.moreAboutBook" placeholder="Write something about author"> </span>  </textarea> 
+        </div>
+        <div class="rowInputs">
+            <textarea class="textareaInput classHoverInput"  cols="106" maxlength="10000" rows="3" ng-model="book.aboutAuthor" placeholder="Write something about book"> </textarea> 
         </div>
 
        <div id='buttonAddBook'>
             <button type="button" class="btn btn-default" ng-click="addNewBook()">Add a New Book In List</button>
        </div>
-  </div>
+    </div>
 
   

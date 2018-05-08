@@ -187,7 +187,7 @@
                             <img  src="{{book.pictureBook}}" alt="" title="Harry Potter"> </img> 
                             <div class="boxBookTempl">
                                <div class="dropdown-contentImg">
-                                    <img src="{{book.pictureBook}}" ng-click="moreInfo(book._id)" title='click to view more about book'  width="280" height="400">
+                                    <img src="{{book.pictureBook}}" ng-click="moreInfo(book._id)" title='click to view more about book'  width="260" height="380">
                                     <div class="desc">{{book.title}}</div>
                                     <div id="buttonsForLikeAddEdit">
                                         <button  ng-click="addToFavorite(book._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
@@ -235,35 +235,139 @@
             </div>
 
             <div class="templallbooks"  ng-show="scienceBook">
-                <h1>Mopaaaaaaaaaaa</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="scienceBook in scienceBooks | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{scienceBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{scienceBook.pictureBook}}" ng-click="moreInfo(scienceBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{scienceBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(scienceBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(scienceBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="historyBook">
-                <h1>Mopaaaaaaaaaaa 1</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="historyBook in historyBooks | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{historyBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{historyBook.pictureBook}}" ng-click="moreInfo(historyBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{historyBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(historyBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(historyBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="cookbooksBook">
-                <h1>Mopaaaaaaaaaaa 2</h1>
+                 <div class="bigBoxBookTempl"  ng-repeat="cookbooksBook in cookbooksBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{cookbooksBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{cookbooksBook.pictureBook}}" ng-click="moreInfo(cookbooksBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{cookbooksBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(cookbooksBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(cookbooksBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="biographiesBoook">
-                <h1>Mopaaaaaaaaaaa 4</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="biographiesBook in biographiesBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{biographiesBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{biographiesBook.pictureBook}}" ng-click="moreInfo(biographiesBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{biographiesBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(biographiesBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(biographiesBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="comicsBook">
-                <h1>Mopaaaaaaaaaaa 5</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="comicsBook in comicsBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{comicsBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{comicsBook.pictureBook}}" ng-click="moreInfo(comicsBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{comicsBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(comicsBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(comicsBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="travelBook">
-                <h1>Mopaaaaaaaaaaa 6</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="trevalBook in trevalBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{trevalBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{trevalBook.pictureBook}}" ng-click="moreInfo(trevalBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{trevalBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(trevalBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(trevalBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="healthBook">
-                <h1>Mopaaaaaaaaaaa 7</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="healthBook in healthBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{healthBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{healthBook.pictureBook}}" ng-click="moreInfo(healthBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{healthBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(healthBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(healthBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
             <div class="templallbooks"  ng-show="dramaBook">
-                <h1>Mopaaaaaaaaaaa 8</h1>
+                    <div class="bigBoxBookTempl"  ng-repeat="dramaBook in dramaBooks   | filter: { title: bookTitle, author: bookAuthor  }">
+                            <img  src="{{dramaBook.pictureBook}}" alt=""  > </img> 
+                            <div class="boxBookTempl">
+                               <div class="dropdown-contentImg">
+                                    <img src="{{dramaBook.pictureBook}}" ng-click="moreInfo(dramaBook._id)" title='click to view more about book'  width="280" height="400">
+                                    <div class="desc">{{dramaBook.title}}</div>
+                                    <div id="buttonsForLikeAddEdit">
+                                        <button  ng-click="addToFavorite(dramaBook._id)" class="classButtonsBook" title="Add to my favorite"> <img src="views/img/icons8-romance-48.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" ng-click="deleteBook(dramaBook._id)" class="classButtonsBook" title="Delete book"> <img src="views/img/icons8-trash-can-40.png" alt=""> </button>
+                                        <button  ng-show="isAdmin" class="classButtonsBook" title="Edit info for book"> <img src="views/img/icons8-eraser-48.png" alt=""> </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
 
         </div>

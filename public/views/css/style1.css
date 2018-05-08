@@ -563,18 +563,19 @@ footer{
     height: 700px;
 }
 
-#input1{
-    float: left;
+.rowInputs{
+    width: 100%;
+    height: 13%;
+    /* background: pink; */
+    margin: 10px auto;
 }
-#input2{
-    float: left;
-}
-#input3{
-    float: left;
-}
-#input4{
-    float: left;
-}
+ .rowInputs > input {
+     width: 30%;
+     height: 80%;
+     /* background: greenyellow; */
+     margin: 0 2px;
+ }
+
 #buttonAddBook{
     float: left;
     position: relative;
@@ -584,12 +585,11 @@ footer{
 
 .classInputBook {
     width: 300px;
-    height: 40px;
+    height: 30px;
     padding: 5px;
     border: none;
     border-bottom: 2px solid rgb(32, 51, 3);
     margin:  1.5em 0.5em 1.5em 1.5em;
-    /* background: rgb(247, 242, 242); */
     color:rgb(32, 51, 3);
     font-size: 1.4em;
 }
@@ -598,7 +598,7 @@ footer{
     border:none;
     border-bottom: 2px solid rgb(32, 51, 3);
     font-size: 1.4em;
-    margin:  1.5em 1em 1.5em 1.5em;
+    margin: 10px 0;
     color:rgb(32, 51, 3);
 }
 .classHoverInput:hover{
@@ -833,13 +833,13 @@ footer{
 }
 
 table {
+    width: 80%;
+    /* height: 80%; */
     border-collapse: collapse;
-    width: 65%;
-    float: right;
     position: relative;
-    top:-70px;
-    left:-30px;
-    margin-right: 1em;
+    top:70px;
+    left:50px;
+
 }
 
 th, td {
@@ -860,18 +860,8 @@ tr:hover {
     font-size: 1.1em;
 } 
 
-#boxWithInfo > p {
-    float:left;
-    font-size: 3em;
-    font-family: 'Indie Flower', cursive;
-    font-family: 'Shadows Into Light', cursive;
-    font-family: 'Covered By Your Grace', cursive;
-    position: relative;
-    top: 40px;
-    left: 50px;
-}
 
-#boxWithInfo > img {
+/* #boxWithInfo > img {
     position: relative;
     top:170px;
     left: -500px;
@@ -879,26 +869,89 @@ tr:hover {
 
 #boxWithInfo > img:hover {
     width: 170px;
-}
+}  */
 
 .second{
-    font-family: 'Indie Flower', cursive;
-    font-family: 'Shadows Into Light', cursive;
-    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Patua One', cursive;
     font-size: 1.6em;
 }
 
 .shrift {
-    font-family: 'Indie Flower', cursive;
+    /* font-family: 'Indie Flower', cursive;
     font-family: 'Shadows Into Light', cursive;
-    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Covered By Your Grace', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Patua One', cursive;
 }
 
-#buttonsForLikeAddEditInMoreInfo {
-    float:left;
+#boxWithInfoTitle {
+    width: 100%;
+    height: 20%;
+}
+
+.bookTitle {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+
+.bookTitle > p {
     position: relative;
-    top:40px;
-    left:100px;
+    top:20px;
+    left: 40px;
+    font-size: 2em;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Patua One', cursive;
+}
+
+.bookButtons {
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+.buttonsForLikeAddEditInMoreInfo {
+    position: relative;
+    top:25px;
+    left: 10px;
+}
+
+#boxWithFullInfo {
+    width: 100%;
+    height: 80%;
+}
+.boxWithbookImg {
+    width: 100%;
+    height: 70%;
+}
+
+.boxwithStars {
+    width: 100%;
+    height: 30%;
+}
+
+.boxWithbookImg > img {
+    position: relative;
+    top:80px;
+    left:50px;
+}
+
+.boxWithbookImg > img:hover {
+    width: 170px;
+}
+
+#boxWithFullInfo > .boxOne {
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+#boxWithFullInfo > .boxTwo {
+    float: left;
+    width: 70%;
+    height: 100%;
 }
 
 #infoForBook {
@@ -907,6 +960,8 @@ tr:hover {
     margin:0 auto;
     position: relative;
     top:50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #infoForBook > h1 {
@@ -917,20 +972,23 @@ tr:hover {
 #infoForBook > p {
     float: left;
     width: 100%;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 1em 0;
+    position: relative;
 }
 
 .textBook {
-    text-align: center;
+    text-align: left;
     font-weight: bold;
 }
 #infoForAuthor {
     width: 80%;
-    height: 80%;
+    height: 70%;
     margin: 0 auto;
     position: relative;
     top:100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 #infoForAuthor > h1 {
     text-align: center;
@@ -964,7 +1022,7 @@ tr:hover {
 
 .oneCommentUser {
     width: 90%;
-    height: 15%;
+    height: 25%;
     background: rgb(233, 233, 231);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -1018,7 +1076,8 @@ tr:hover {
 }
 
 .scroll {
-    height: 2px;
+    width: 100%;
+    height: 10%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -1155,10 +1214,14 @@ tr:hover {
   }
   #stars{
     position: relative;
-    top:-80px;
-    left: 2.4%;
+    left:30px;
   }
 
+  .size {
+      width: 70px;
+      height: 30px;
+      margin: 0 5px;
+  }
 
 /* Contact Form  */
  #contactform {

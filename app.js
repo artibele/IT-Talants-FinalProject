@@ -409,6 +409,90 @@ app.post("/sendMeilToAdmin",function(req, res,next){
   
 });
 
+app.post("/editUserComment",function(req, res, next){
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }
+var comment = req.body;
+  if(comment.userId._id != req.session.user._id){
+    res.status(401);
+    res.json();
+    return;
+  } 
+  CommentModel.findById(comment._id , function(err, comm){
+    if(err){
+      res.status(500);
+      res.send();
+    } else {
+      comm.text = comment.text;
+      comm.datePost =  new Date().toLocaleDateString();
+      comm.save(function(err, updatedComment){
+        if(err){
+          res.status(500);
+          res.json(err);
+        } else {
+          // res.status(200);
+          // res.json(updatedComment);
+          CommentModel.populate(updatedComment,{path:"userId",select:["username","profilePic"]},function(err,comment2){
+            if(err){
+             res.status(500);
+             res.json(err);
+     
+            } else {
+             res.status(200);
+             res.send(comment2);
+            }
+           })
+          
+        }
+      });
+    }
+  })
+    
+})
+
+app.post("/editInfoForBook",function(req, res, next){
+  if (req.session.user == null && req.session.user.role != "admin") {
+    res.status(401);
+    res.send();
+    return;
+  }
+  var book = req.body;
+    BookModel.findById(book._id,function(err,bookFound){
+      if(err){
+        res.status(500);
+        res.send();
+      } else {
+        console.log(bookFound);
+        console.log(book);
+        bookFound.title = book.title
+        bookFound.moreAboutBook = book.moreAboutBook
+        bookFound.author = book.author
+        bookFound.typeBook = book.typeOfBook
+        bookFound.publisher = book.publisher
+        bookFound.published = book.published;
+        bookFound.pages = book.pages
+        bookFound.aboutAuthor= book.aboutAuthor
+        bookFound.price= book.price
+        bookFound.linkToBuy= book.linkToBuy
+        bookFound.pictureBook= book.pictureImg
+
+        bookFound.save(function(err,updatedBook){
+          if(err){
+            res.status(500);
+            res.send();
+          } else {
+            res.status(200);
+            res.send(updatedBook);
+          }
+        })
+      }
+
+    })
+})
+
 app.post("/inserComments", function (req, res, next) {
   if (req.session.user == null) {
     res.status(401);

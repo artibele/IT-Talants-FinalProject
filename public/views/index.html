@@ -37,11 +37,11 @@
     <header>
         <nav>
             <ul id="mainMenu">
-                <li><a ng-controller="logoutController" ng-click="logout()" >Logout</a></li>
+                <li><a ng-controller="logoutController" ng-show="isLogged" ng-click="logout()">Logout</a></li>
                 <li> <img width="80px" id="profilePicture" ng-controller="usernameAndPictureController as ctrl" src="{{ctrl.profPic}}" alt=""> </li>
                 <li><a ng-controller="usernameAndPictureController as ctrl" href="#!/myProfile"> <p> {{ctrl.uFname}}  {{ctrl.uSname}}  </p> </a></li>
                 <li><a href="#!/allBooks">All Books</a></li>
-                <li><a href="#!/homePage"> Home </a></li>
+                <li><a ng-controller="isAdminController" ng-show="isAdmin" href="#!/homePage"> Home </a></li>
                 <li><a href="#!/contactList">Contact with Us</a></li>
                 <li id="logoLi"><a href="#!/helloPage"><p id="logoText">Readers' Guide</p> </a></li>
                 <li id="logoLi"><img src="views/img/icons8-book-shelf-80 (1).png" alt=""/></li>
@@ -89,6 +89,7 @@
 <script src="views/moreInfo/starsController.js"></script>
 <script src="views/contactList/contactListController.js"></script>
 <script src="views/helloPage/helloPageController.js"></script>
+<script src="views/isAdminController.js"></script>
 
 <!-- all Services -->
 <script src="views/register/registerServices.js"></script>

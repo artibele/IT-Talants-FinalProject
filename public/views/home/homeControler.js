@@ -21,6 +21,9 @@ app.controller("HomeController",function($scope, $location , $http){
             type:"science"
         },
         {
+            type:"history"
+        },
+        {
             type:"cookbooks"
         },
         {

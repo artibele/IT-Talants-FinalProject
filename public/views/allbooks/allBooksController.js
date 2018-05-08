@@ -1,4 +1,5 @@
 app.controller("AllBooksController", function ($scope, $location, $http, $window) {
+
     var user = JSON.parse(sessionStorage.getItem("user"));
 
     $scope.$watch(function(){
@@ -237,6 +238,10 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook  = false;
         $scope.dramaBook = false;
+
+        $http.get("/gettAllBookByGanre/" + "science").then(function(res){
+            $scope.scienceBooks = res.data;
+        })
     }
 
     $scope.historyB = function(){
@@ -251,6 +256,11 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook  = false;
         $scope.dramaBook = false;
+
+        
+        $http.get("/gettAllBookByGanre/" + "history").then(function(res){
+            $scope.historyBooks = res.data;
+        })
     }
 
     $scope.cookbooks = function(){
@@ -265,6 +275,10 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook = false;
         $scope.dramaBook = false;
+
+        $http.get("/gettAllBookByGanre/" + "cookbooks").then(function(res){
+            $scope.cookbooksBooks = res.data;
+        })
     }
 
     $scope.fantasy = function(){
@@ -298,6 +312,11 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = false;
 
+        
+        $http.get("/gettAllBookByGanre/" + "comics").then(function(res){
+            $scope.comicsBooks = res.data;
+        })
+
     }
 
     $scope.travel = function(){
@@ -312,6 +331,11 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = true;
         $scope.healthBook  = false;
         $scope.dramaBook = false;
+
+        
+        $http.get("/gettAllBookByGanre/" + "travel").then(function(res){
+            $scope.trevalBooks = res.data;
+        })
     }
 
     $scope.biographies = function(){
@@ -326,6 +350,10 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook  = false;
         $scope.dramaBook = false;
+
+        $http.get("/gettAllBookByGanre/" + "biographies").then(function(res){
+            $scope.biographiesBooks = res.data;
+        })
     }
 
     $scope.health = function(){
@@ -340,6 +368,11 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook  = true;
         $scope.dramaBook = false;
+
+        
+        $http.get("/gettAllBookByGanre/" + "health").then(function(res){
+            $scope.healthBooks = res.data;
+        })
     }
 
     $scope.drama = function (){
@@ -354,6 +387,10 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.travelBook  = false;
         $scope.healthBook  = false;
         $scope.dramaBook = true;
+
+        $http.get("/gettAllBookByGanre/" + "drama").then(function(res){
+            $scope.dramaBooks = res.data;
+        })
 
     }
 
