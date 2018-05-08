@@ -76,8 +76,10 @@ var BookSchema = new Schema(
             type: String
         },
         ratingNumbers: {
-            type: [Number]
-        }
+            type: [Number],
+            default : 3
+        },
+        
     }
 );
 

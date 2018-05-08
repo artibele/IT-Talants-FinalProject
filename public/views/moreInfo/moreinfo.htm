@@ -54,7 +54,7 @@
                     </tbody>
                 </table>
 
-                <div id="stars" ng-controller="StarCtrl"> 
+                <div id="stars"  ng-controller="StarCtrl"> 
                     <div class=col-md-12>
                         <div ng-repeat="rating in ratings">
                     
@@ -64,11 +64,7 @@
                     <div class="col-md-12 clear">
                     <div class="btn-toolbar" role="toolbar">
                         <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-ng-click="setMinrate()">Min Rate</button>
-                        <button type="button" class="btn btn-default" data-ng-click="setMaxrate()">Max Rate</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary" ng-click="sendRating()">Send</button>
+                        <button type="button" class="btn btn-primary" ng-click="sendRating()">Send Rating</button>
                         </div>
                     </div>
                 </div>

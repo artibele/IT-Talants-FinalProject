@@ -45,7 +45,7 @@ app.use(session({
   cookie: { maxAge: 600000000 }
 }));
 
-// Mongo BG ---------------------------------------------------------------------- mongo db
+// Mongo BG ------------------------------------------------------------------- mongo db
 app.use(function (req, res, next) {
   req.db = db;
   next();
@@ -112,6 +112,45 @@ app.post("/addToFavorite", function (req, res, next) {
         UserModel.update(
           { "email": body.email },
           { "$addToSet": { "favoriteBooks": book } },
+          function (err, raw) {
+            if (err) return handleError(err);
+            if (raw.nModified == 0) {
+              res.status(500)
+            }
+            console.log('The raw response from Mongo was ', raw);
+          }
+        );
+      }
+    }
+  });
+
+  res.status(200);
+  res.send("ok");
+
+});
+
+
+app.post("/addIdToFavorites", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  }; 
+  var body = req.body;
+  console.log(body);
+
+  BookModel.findOne({ _id: body.bookId }, function (err, book) {
+    console.log("here")
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (book != null) {
+        UserModel.update(
+          { "email": body.email },
+          { "$addToSet": { "favoritesId": body.bookId } },
           function (err, raw) {
             if (err) return handleError(err);
             if (raw.nModified == 0) {
@@ -663,6 +702,90 @@ app.get('/logout', function (req, res, next) {
       }
     });
   }
+});
+
+
+app.post("/deleteFavoriteBook", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  };
+  var body = req.body;
+
+  console.log(body);
+
+  UserModel.findOne({ email: body.userEmail }, function (err, user) {
+    for (var index = 0; index < user.favoriteBooks.length; index++) {
+      console.log(user.favoriteBooks[index]._id)
+      if (user.favoriteBooks[index]._id == body.bookId) {
+        var bookIndex = index;
+      }
+    }
+    var removeBook = user.favoriteBooks.splice(bookIndex, 1);
+    var newBooks = user.favoriteBooks
+    console.log(newBooks)
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (user != null) {
+        UserModel.update(
+          { "email": body.userEmail },
+          { "$set": { "favoriteBooks": newBooks } },
+          function (err, book) {
+            console.log(book)
+          })
+      }
+    }
+  });
+  res.status(200);
+  res.send("Ok");
+
+});
+
+
+app.post("/deleteIdFromFavorites", function (req, res, next) {
+  if (req.session.user == null) {
+    res.status(401);
+    res.send();
+    return;
+  };
+  var body = req.body;
+
+  console.log(body);
+
+  UserModel.findOne({ email: body.userEmail }, function (err, user) {
+    for (var index = 0; index < user.favoritesId.length; index++) {
+      console.log(user.favoritesId[index])
+      if (user.favoritesId[index] == body.bookId) {
+        var bookIndex = index;
+      }
+    }
+    var removeBook = user.favoritesId.splice(bookIndex, 1);
+    var newBooks = user.favoritesId
+    console.log(newBooks)
+    if (err) {
+      res.status(404);
+      res.send();
+      return;
+    }
+    else {
+      if (user != null) {
+        UserModel.update(
+          { "email": body.userEmail },
+          { "$set": { "favoritesId": newBooks } },
+          function (err, book) {
+            console.log(book)
+          })
+      }
+    }
+  });
+  res.status(200);
+  res.send("Ok");
+
 });
 
 

@@ -53,6 +53,9 @@ var UserSchema = new Schema({
       },
       ratedBooks: {
         type : Array
+      },
+      favoritesId: {
+       type : Array
       }
 });
 

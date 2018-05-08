@@ -13,8 +13,8 @@
         </thead>
         <tbody>
 
-            <tr class="mybooks" ng-repeat="book in books">
-                <td>
+            <tr id="myBooks1" class="mybooks" ng-repeat="book in books">
+                <td >
                     <img width="100px" ng-src="{{book.pictureBook}}" alt="">
                 </td>
                 <td>{{book.title}}</td>
@@ -24,7 +24,7 @@
                 <td>
                     <a ng-click="moreInfo(book._id)" href="">More</a>
                 </td>
-                <td ng-click="deleteFavoriteBook(book._id)" class="x">X</td>
+                <td ng-click="deleteFavoriteBook(book._id, $index)" class="x">X</td>
             </tr>
 
         </tbody>

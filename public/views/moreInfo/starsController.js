@@ -29,10 +29,23 @@ app.controller('StarCtrl', function ($scope, $http) {
     }
 
     $scope.sendRating = function () {
-       
+
         var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
         var bookId = JSON.parse(sessionStorage.getItem("book"))._id;
+        var bookTitle = JSON.parse(sessionStorage.getItem("book")).title;
         var rating = $scope.ratings[0].current
+        var user = JSON.parse(sessionStorage.getItem("user"));
+        var isRated = false;
+        for (var index = 0; index < user.ratedBooks.length; index++) {
+            if (bookTitle == user.ratedBooks[index]) {
+                isRated = true;
+                break;
+            }
+        }
+        if (isRated) {
+            alert("You already rated that book");
+            return;
+        }
 
         $http.post("/saveBookToUser", { email: userEmail, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
@@ -51,23 +64,27 @@ app.controller('StarCtrl', function ($scope, $http) {
             console.log(res)
         })
 
-        $http.post("/voted", {bookId: bookId }).then(function (res) {
+        $http.post("/voted", { bookId: bookId }).then(function (res) {
             if (res.status == 200) {
-                
+
             }
         }).catch(function (res) {
             console.log(res)
         })
 
-        $http.post("/newRating", {bookId: bookId }).then(function (res) {
+        $http.post("/newRating", { bookId: bookId }).then(function (res) {
             if (res.status == 200) {
-                
+
             }
         }).catch(function (res) {
             console.log(res)
         })
+
+        user.ratedBooks.push(bookTitle);
+        sessionStorage.setItem("user", JSON.stringify(user));
 
     }
+
 
 });
 

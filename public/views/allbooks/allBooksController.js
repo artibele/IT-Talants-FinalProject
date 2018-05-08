@@ -46,6 +46,26 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
 
     $scope.addToFavorite = function (bookId) {
         var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
+        var user = JSON.parse(sessionStorage.getItem("user"));
+        var isFavorite = false;
+        for (var index = 0; index < user.favoritesId.length; index++) {
+            if (bookId == user.favoritesId[index]) {
+                isFavorite = true;
+                break;
+            }
+        }
+        if (isFavorite) {
+            alert("This book is already added to favourites!");
+            return;
+        }
+
+        $http.post("/addIdToFavorites", { email: userEmail, bookId: bookId }).then(function (res) {
+            if (res.status == 200) {
+                console.log("added id");
+            }
+        }).catch(function (res) {
+            console.log("Book is not added")
+        })
 
         $http.post("/addToFavorite", { email: userEmail, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
@@ -54,6 +74,9 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         }).catch(function (res) {
             console.log("Book is not added")
         })
+
+        user.favoritesId.push(bookId);
+        sessionStorage.setItem("user", JSON.stringify(user));
     }
 
     // $http.get("/api/loggedIn").then(function (res) {

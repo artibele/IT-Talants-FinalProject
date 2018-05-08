@@ -843,7 +843,7 @@ table {
 }
 
 th, td {
-    width: 100%;
+    width: 0;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -1085,12 +1085,13 @@ tr:hover {
     margin-bottom: 10px;
 }
 #books{
-    display: inline-block;
-    width: 91%;
-    height: 100%;
-    margin: 0 5%;
-    margin-bottom: 89px;
-    margin-top: -75px;
+        display: inline-block;
+        width: 91%;
+        min-height: -webkit-fill-available;
+        height: 100%;
+        margin: 0 5%;
+        margin-bottom: 153px;
+        margin-top: -100px;  
 }
 #booksTable{
     border-collapse: separate;
@@ -1116,6 +1117,16 @@ tr:hover {
     position: relative;
     top:7px;
 }
+
+/* .mybooks > td{
+    width: 0;
+} */
+
+#myBooks1 > tr > td {
+    width: 0%;
+}
+
+
 
 /* .................Stars  */
 
