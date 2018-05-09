@@ -1,22 +1,16 @@
 app.controller("RegisterController",function($scope, $location , $http){
 
     $scope.registration = function () {
-        //$scope.user = {};
-        var fName = $scope.user.firstName;
-        var sName = $scope.user.secondName;
-        var username = $scope.user.username;
-        var email = $scope.user.email;
-        var password = $scope.user.password;
-        var pic = $scope.user.userImgUrl;
-
-        var sendUser = userStorageRegister.showUser(fName,sName,username,email,password,pic);
+       
+        var sendUser = userStorageRegister.showUser($scope.user.firstName,$scope.user.secondName,
+            $scope.user.username,$scope.user.email,$scope.user.password,$scope.user.userImgUrl);
         if(sendUser == null){
             $scope.user = "";
             alert("invalid input");
             return;
         }
         
-        $http.post("/registerUser", sendUser).then(function(res) {
+        $http.post("/users/registerUser", sendUser).then(function(res) {
             if(res.status == 200){
                 $scope.user = {};
                 $location.path('/login')

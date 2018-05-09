@@ -7,17 +7,20 @@ app.controller("ContactListController", function ($scope, $location, $http, $win
             userEmail : $scope.userEmail,
             userText : $scope.userText
          }
+
      
-         if(userMeil == null){
+         if((userMeil.userName == "") || (userMeil.userPhone == "") || (userMeil.userEmail == "") || (userMeil.userText == "") ){
             $scope.userName = "",
             $scope.userPhone = "",
             $scope.userEmail = "",
             $scope.userText = ""
-             alert("Invalid data , Please try again .. ")
+            alert("Invalid data , Please try again .. ")
+            return;
          }
      
-         $http.post("/sendMeilToAdmin", userMeil).then(function(res){
+         $http.post("/contactMeil/sendMeilToAdmin", userMeil).then(function(res){
              alert("Message sent");
+
             $scope.userName = "",
             $scope.userPhone = "",
             $scope.userEmail = "",

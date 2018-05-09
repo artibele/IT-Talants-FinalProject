@@ -60,7 +60,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
             return;
         }
 
-        $http.post("/addIdToFavorites", { email: userEmail, bookId: bookId }).then(function (res) {
+        $http.post("/books/addIdToFavorites", { email: userEmail, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
                 console.log("added id");
             }
@@ -99,7 +99,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
     //     }
     // });
 
-    $http.get("/getAllBooks").then(function (response) {
+    $http.get("/books/getAllBooks").then(function (response) {
         console.log(response.data);
         if (response.status == 200) {
             $scope.books = response.data;
@@ -119,7 +119,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
 
     $scope.deleteBook = function (id) {
         console.log(id);
-        $http.delete("/removeBook/" + id).then(function () {
+        $http.delete("/books/removeBook/" + id).then(function () {
             var index = $scope.books.findIndex(function (book) {
                 return book._id == id;
             })
@@ -194,7 +194,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = false;
 
-        $http.get("/getAllBooks").then(function (response) {
+        $http.get("/books/getAllBooks").then(function (response) {
             console.log(response.data);
             if (response.status == 200) {
                 $scope.books = response.data;
@@ -221,7 +221,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = false;
 
-        $http.get("/gettAllBookByGanre/" + "romance").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "romance").then(function(res){
             $scope.romanceBooks = res.data;
         })
     }
@@ -239,7 +239,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = false;
 
-        $http.get("/gettAllBookByGanre/" + "science").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "science").then(function(res){
             $scope.scienceBooks = res.data;
         })
     }
@@ -258,7 +258,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.dramaBook = false;
 
         
-        $http.get("/gettAllBookByGanre/" + "history").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "history").then(function(res){
             $scope.historyBooks = res.data;
         })
     }
@@ -276,7 +276,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook = false;
         $scope.dramaBook = false;
 
-        $http.get("/gettAllBookByGanre/" + "cookbooks").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "cookbooks").then(function(res){
             $scope.cookbooksBooks = res.data;
         })
     }
@@ -294,7 +294,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook = false;
         $scope.dramaBook = false;
 
-        $http.get("/gettAllBookByGanre/" + "fantasy").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "fantasy").then(function(res){
             $scope.fantasyBooks = res.data;
         })
     }
@@ -313,7 +313,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.dramaBook = false;
 
         
-        $http.get("/gettAllBookByGanre/" + "comics").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "comics").then(function(res){
             $scope.comicsBooks = res.data;
         })
 
@@ -333,7 +333,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.dramaBook = false;
 
         
-        $http.get("/gettAllBookByGanre/" + "travel").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "travel").then(function(res){
             $scope.trevalBooks = res.data;
         })
     }
@@ -351,7 +351,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = false;
 
-        $http.get("/gettAllBookByGanre/" + "biographies").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "biographies").then(function(res){
             $scope.biographiesBooks = res.data;
         })
     }
@@ -370,7 +370,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.dramaBook = false;
 
         
-        $http.get("/gettAllBookByGanre/" + "health").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "health").then(function(res){
             $scope.healthBooks = res.data;
         })
     }
@@ -388,7 +388,7 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
         $scope.healthBook  = false;
         $scope.dramaBook = true;
 
-        $http.get("/gettAllBookByGanre/" + "drama").then(function(res){
+        $http.get("/books/gettAllBookByGanre/" + "drama").then(function(res){
             $scope.dramaBooks = res.data;
         })
 

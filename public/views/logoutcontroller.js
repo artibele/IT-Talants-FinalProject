@@ -19,7 +19,7 @@ app.controller("logoutController",function($scope, $http, $location, $window){
 
         $http.get("/api/loggedIn").then(function(res){
             if(res.data.message == "Logged"){
-                $http.get("/logout").then(function(response){
+                $http.get("/users/logout").then(function(response){
                     sessionStorage.removeItem("user");
                     $location.path('/login');
                 })

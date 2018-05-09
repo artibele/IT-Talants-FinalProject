@@ -198,11 +198,12 @@ body{
 
 /* NAV MENU NAV MENU NAV MENI */
 /* NAV MENU NAV MENU NAV MENI */
-nav{
+/* nav{
     width: 100%;
     height: 80px;
     background: #333;
-}
+    border: none;
+} */
 
 #mainMenu{
     list-style-type: none;
@@ -256,7 +257,7 @@ nav{
 
 #textLeft {
     position: relative;
-    left:800px;
+    left:400px;
 }
 
 #homeblackBackground > div > h3 {
@@ -274,14 +275,16 @@ nav{
 }
 
 #homeblackBackground > div {
+    text-align: center;
     position: relative;
     top:170px;
-    left:200px;
+
+    /* left:200px; */
 }
 
 #allBackgroundAllBooksPage {
     width: 100%;
-    height: 900px;
+    height: 950px;
     background: grey;
 }
 
@@ -293,14 +296,14 @@ nav{
 
 #navAllBooks{
     width: 100%;
-    height: 4.5%;
-    background: #333;
+    height: 10%;
+    background: rgb(31, 30, 30);
 
 }
 
 #bigBoxAllBooksTwo {
     width: 100%;
-    height: 70.5%;
+    height: 69%;
     background-image: url("http://mentorlogix.com/wp-content/uploads/2017/09/contact_background.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -310,7 +313,6 @@ nav{
     float:left;
     width: 40%;
     height: 100%;
-    background: rebeccapurple;
     background-image: url("https://thumbs.dreamstime.com/b/concepto-adulto-del-conocimiento-de-la-educaci%C3%B3n-de-la-lectura-de-la-juventud-de-los-estudiantes-67246912.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -347,7 +349,9 @@ nav{
     margin: 0 auto;
     position: relative;
     top: 25px;
-    background: white;
+    /* background: white;
+    position: relative;
+    top:10px; */
 }
 .arrowsLeft {
     position: relative;
@@ -393,9 +397,9 @@ nav{
     width:97%;
     height: 95%; 
     margin: 0 auto;
-    position: relative;
+    /* position: relative;
     top:15px;
-    left: 30px;
+    left: 30px; */
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -405,7 +409,7 @@ nav{
     height: 350px;
     float: left;
     margin-left: 3em;
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
 }
 
 .classButtonsBook {
@@ -424,7 +428,7 @@ nav{
 #buttonsForLikeAddEdit{
     position: relative;
     top:-7px;
-    left: 15px;
+    left: 55px;
 }
 
 .bigBoxBookTempl > img {
@@ -535,13 +539,14 @@ nav{
   }
 
 footer{
-    height: 120px;
+    height: 150px;
     background: #dcd8d8;
 }
 #socialMedia{
     position: relative;
     top:20px;
-    left: 200px;
+    margin: 0 auto;
+    /* left: 200px; */
 }
 
 #socialMedia > h1{
@@ -551,7 +556,6 @@ footer{
     font-weight: bold;
     font-style: italic;
 }
-
 
 
 
@@ -813,17 +817,18 @@ footer{
 #textOne {
     color:white;
     font-size: 3em;
+    text-align: center;
     position: relative;
-    top:150px;
-    left:150px;
+    top:100px;
 }
 
 #textTwo {
     color:white;
     font-size: 3em;
     position: relative;
-    top:150px;
-    left:200px;
+    text-align: center;
+    position: relative;
+    top:100px;
 }
 
 #moreInfoNav{
@@ -833,24 +838,23 @@ footer{
 }
 
 table {
-    width: 80%;
-    /* height: 80%; */
+    width: 70%;
+    height: 80%;
     border-collapse: collapse;
     position: relative;
-    top:70px;
-    left:50px;
+    top:20px;
 
 }
 
 th, td {
-    width: 0;
+    /* width: 0; */
     padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    text-align:left;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 .first{
-    width: 200px;
+    /* width: 200px; */
     font-weight: bold;
     font-style: italic;
 }
@@ -935,7 +939,7 @@ tr:hover {
 .boxWithbookImg > img {
     position: relative;
     top:80px;
-    left:50px;
+    left:100px;
 }
 
 .boxWithbookImg > img:hover {
@@ -944,15 +948,35 @@ tr:hover {
 
 #boxWithFullInfo > .boxOne {
     float: left;
-    width: 30%;
+    width: 40%;
     height: 100%;
+    /* background: pink; */
 }
 
 #boxWithFullInfo > .boxTwo {
     float: left;
-    width: 70%;
+    width: 60%;
     height: 100%;
+    /* background: orange; */
 }
+
+.boxTwo > div {
+    widows: 100%;
+    height: 12%;
+    /* background: blue; */
+    text-align: left;
+}
+
+.boxTwo > div > p {
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Patua One', cursive;
+}
+
+.boxTwo > div:hover {
+    background: rgb(240, 233, 233);
+    font-size: 1.2em;
+}
+
 
 #infoForBook {
     width: 80%;
@@ -1053,7 +1077,12 @@ tr:hover {
     background: none;
 }
 
-.aComment > p {
+.aComment > div {
+    width: 90%;
+    height: 100%;
+}
+
+.aComment > div > p {
     float: left;
     width: 100%;
     position: relative;
@@ -1081,6 +1110,59 @@ tr:hover {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+#addBooksInDB2{
+    /* background: grey; */
+    margin: 2em auto;
+    width: 100%;
+    height: 100%;
+}
+
+
+#editBookInfoTab {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    position: relative;
+    top:20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.classInputBookEditBook {
+    width: 250px;
+    height: 25px;
+    padding: 5px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid rgb(32, 51, 3);
+    margin:  1.5em 0.5em 1.5em 1.5em;
+    color:rgb(32, 51, 3);
+    font-size: 1.4em;
+}
+
+.textareaInputEditBook {
+    margin: 1em 3px ;
+    border:none;
+    border-bottom: 2px solid rgb(32, 51, 3);
+    font-size: 1.1em;
+    color:rgb(32, 51, 3);
+    background: none;
+}
+
+#buttonAddBookEditBook{
+    float: left;
+    position: relative;
+    top:30px;
+    left: 330px;
+}
+
+.iconForEditComment {
+    width: 15px;
+    height: 23px;
+}
+
+
 
 /* MAIN PAGE */
 #conatainerOne {
@@ -1366,34 +1448,52 @@ tr:hover {
 }
 
 #contactInputs > button{
+    width: 150px;
+    height: 35px;
     position: relative;
-    left:230px;
-    background: none;
-    border:none;
+    left:200px;
+    top:30px;
+    /* background: none; */
+    /* border:none; */
+}
+
+#contactInputs > button > img {
+    width: 50px;
+    height: 50px;
 }
 
 /* HELLO PAGEE */
 
 #helloPage{
     width: 100%;
-    height: 1000px;
-    /* background: url("https://i.pinimg.com/originals/9e/60/f8/9e60f8eab62c1dab9acfab6f82db304b.jpg"); */
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    height: 950px;
+    /* background-repeat: no-repeat;
+    background-size: 100% 100%; */
 }
 
-#helloPage > img{
+.imgsWelcomePage {
     width: 100%;
-    height: 1000px;
+    height: 100%;
 }
+
+.slidewithImgWelcomePage {
+    width: 100%;
+    height: 100%;
+}
+
+.slidewithImgWelcomePage > img {
+    width: 100%;
+    height: 100%;
+}
+
 
 #insideHelloPage {
     width: 100%;
     height: 100%;
     background: black;
-    opacity: 0.5;
+    opacity: 0.6;
     position: relative;
-    top:-1020px;
+    top: -970px;
 }
 
 #bigWords{
@@ -1463,3 +1563,92 @@ tr:hover {
     top:-10px;
 
 }
+
+/* 
+@media (max-width: 1024px) {
+   main {
+        width: 100%;
+        height: 100%;
+    }
+
+    #imgsWelcomePage{
+        width: 100%;
+        height: 100%;
+    }
+    .slidewithImgWelcomePage {
+        width: 100%;
+        height: 100%;
+    }
+
+    .slidewithImgWelcomePage > img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #textHelloPage{
+        position: relative;
+        top:100px;
+        left:130px;
+    }
+    #helloPageLogReg{
+        position: relative;
+        top:30%;
+        left:30%;
+    }
+
+    #bigWords{
+        color: white;
+        font-size: 4em;
+    }
+    
+    #smallWords{
+        color: white;
+        font-size: 1.5em;
+        font-style: italic;
+    }
+
+}
+
+@media (max-width: 768) and (max-height: 1024) {
+    main {
+         width: 100%;
+         height: 100%;
+     }
+ 
+     #imgsWelcomePage{
+         width: 100%;
+         height: 100%;
+     }
+     .slidewithImgWelcomePage {
+         width: 100%;
+         height: 100%;
+     }
+ 
+     .slidewithImgWelcomePage > img {
+         width: 100%;
+         height: 100%;
+     }
+ 
+     #textHelloPage{
+         position: relative;
+         top:50px;
+         left:20px;
+     }
+     #helloPageLogReg{
+         position: relative;
+         top:10%;
+         left:10%;
+     }
+ 
+     #bigWords{
+         color: white;
+         font-size: 1em;
+     }
+     
+     #smallWords{
+         color: white;
+         font-style: italic;
+     }
+ 
+ } */
+

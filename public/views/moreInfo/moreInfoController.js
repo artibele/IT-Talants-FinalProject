@@ -1,5 +1,5 @@
 
-app.controller("MoreInfoController",function($scope, $location , $http){
+app.controller("MoreInfoController",function($scope, $location , $http, $window){
    
 
     $http.get("/api/loggedIn").then(function (res) {
@@ -7,7 +7,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         if (res.data.message == "Logged") {
             var params = $location.search(); // return object with id 
             
-                $http.get("/getInfoForAbook/" + params.id).then(function (response) {
+                $http.get("/moreInfoBook/getInfoForAbook/" + params.id).then(function (response) {
                     $scope.book = response.data;
                     var book = JSON.stringify(response.data)
                     sessionStorage.setItem("book", book);
@@ -46,7 +46,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         $scope.four = false;
 
 
-        $http.get("/getAllCommentsforBook/" + id).then(function(res){
+        $http.get("/comments/getAllCommentsforBook/" + id).then(function(res){
             // console.log(res.data); // return full object 
             $scope.comments = res.data.slice().reverse();
         }).catch(function(err){
@@ -69,7 +69,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         }
 
         $scope.editComment = function (comment){
-            $http.post("/editUserComment", comment)
+            $http.post("/comments/editUserComment", comment)
             .then(function(res){
                 var updateCom = res.data; // object
 
@@ -96,11 +96,6 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         }
 
     }
-
-
-    // $scope.watch("book.price",function(val, old){
-    //     $scope.editBookPrice = parseInt(val);
-    // })
 
     $scope.types = [
         {
@@ -134,7 +129,25 @@ app.controller("MoreInfoController",function($scope, $location , $http){
             type:"drama"
         }
     ]
+
+    var user = JSON.parse(sessionStorage.getItem("user"));
+    
+        $scope.$watch(function(){
+            return $window.sessionStorage.getItem("user");
+        }, function(value){
+            if(value == null){
+                $scope.isAdmin = false;
+                return;
+            }
+            var user = JSON.parse(value);
+            if(user.role == "admin"){
+                $scope.isAdmin = true;
+            } else {
+                $scope.isAdmin = false;
+            }
+        })
    
+
     $scope.editInfoBook = function(book){
         $scope.one = false;
         $scope.two = false;
@@ -165,7 +178,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
                     }
                     sendBook._id = book._id;
 
-                    $http.post("/editInfoForBook", sendBook).then(function(responseBook){
+                    $http.post("/moreInfoBook/editInfoForBook", sendBook).then(function(responseBook){
                         $scope.book = responseBook.data;
                         alert("Update sussesfull") ;
                     })
@@ -186,7 +199,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
         }
         // var comment = userStorageMoreInfoForBook.showComment(text,bookId);
        
-        $http.post("/inserComments",data).then(function(res){
+        $http.post("/comments/inserComments",data).then(function(res){
             console.log(res.data);
             $scope.comments.unshift(res.data);
             $scope.userAddComments = "";
@@ -202,7 +215,7 @@ app.controller("MoreInfoController",function($scope, $location , $http){
     }
 
     $scope.deleteComment = function (id){
-        $http.delete("/deleteComment/" + id).then(function(res){
+        $http.delete("/comments/deleteComment/" + id).then(function(res){
             var index = $scope.comments.findIndex(function(comment){
                 return comment._id == id;
             })

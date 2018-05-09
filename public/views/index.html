@@ -28,7 +28,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ReadBook</title>
 </head>
-<body  ng-app="bookApp" >        
+<body  ng-app="bookApp" fxLayout="column" fxLayoutAlign="center center">        
     <!-- <a class="login" href="#!/login">Login</a>
     <a class="register" href="#!/register">Register</a>
     <a class="register" href="#!/allBooks">allBooks</a>
@@ -50,16 +50,11 @@
     </header>
 
     
-    <main ng-view>
+    <main ng-view fxLayout="column" fxLayoutAlign="center center">
         
     </main>
 
-    <!-- <div id="contactBox" ng-controller="contactWithUsController" ng-show="isVisible">
-        <h2>Opaaaaa</h2>
-        <h3>Mopaaaaa</h3>
-    </div> -->
-
-    <footer>
+    <footer fxLayout="row" fxLayoutAlign="center center">
         <div id='socialMedia'>
             <h1> Follow Us on:</h1>
             <a href="#" class="fa fa-facebook" title="Facebook"></a>

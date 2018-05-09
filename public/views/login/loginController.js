@@ -1,18 +1,14 @@
 app.controller("LoginController", function ($scope, $location, $http) {
     $scope.login = function ($event) {
         event.preventDefault()
-        // var user = {
-        //     username : $scope.user.username,
-        //     password : $scope.user.password
-        // }
-        var username = $scope.user.username;
-        var pass = $scope.user.password;
+       
+        // var username = $scope.user.username;
+        // var pass = $scope.user.password;
 
-        var user = userStorageLogin.showLogedUser(username, pass);
-        var res = $http.post("/loginUser", user).then(function (res) {
+        var user = userStorageLogin.showLogedUser($scope.user.username, $scope.user.password);
+        var res = $http.post("/users/loginUser", user).then(function (res) {
 
             if (res.status == 200) {
-                // TODO LOCALSTORAGE 
                 
                 sessionStorage.user = JSON.stringify(res.data);
                 $scope.user = JSON.parse(sessionStorage.user);
