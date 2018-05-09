@@ -13,17 +13,25 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
     }
   });
   var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
+  var userFavoritesId = JSON.parse(sessionStorage.getItem("user")).favoritesId;
 
-  $http({
-    url: "getFavorite",
-    method: "POST",
-    data: { userEmail: userEmail }
-  }).then(function (res) {
-    $scope.books = res.data.books;
-
-  }, function (err) {
-    console.log(err);
-  })
+  $http.get("/getAllBooks").then(function (response) {
+    console.log(response.data);
+    var newData = [];
+    for(var index1 = 0; index1 < userFavoritesId.length; index1++){
+      for(var index2 = 0; index2 < response.data.length; index2++){
+        if(userFavoritesId[index1] == response.data[index2]._id){
+          newData.push(response.data[index2]);
+        }
+      }
+    }
+    if (response.status == 200) {
+      console.log(newData)
+      $scope.books = newData;
+    }
+}).catch(function (err) {
+    console.log("noo response")
+})
 
 
   $scope.moreInfo = function (_id) {
@@ -35,7 +43,7 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
     var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
     var user = JSON.parse(sessionStorage.getItem("user"));
 
-    $http.post("/deleteFavoriteBook", { bookId: id, userEmail: userEmail }).then(function (res) {
+    $http.post("/deleteIdFromFavorites", { bookId: id, userEmail: userEmail }).then(function (res) {
       if (res.status == 200) {
         $scope.books.splice(index, 1)
 
@@ -44,20 +52,8 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
             var indexId = index;
           }
         }
-        console.log(user.favoritesId.splice(indexId, 1))
-        console.log(user)
-    
+        user.favoritesId.splice(indexId, 1);
         sessionStorage.setItem("user", JSON.stringify(user));
-    
-
-      }
-    }).catch(function (res) {
-      console.log(res)
-    })
-
-    $http.post("/deleteIdFromFavorites", { bookId: id, userEmail: userEmail }).then(function (res) {
-      if (res.status == 200) {
-
       }
     }).catch(function (res) {
       console.log(res)

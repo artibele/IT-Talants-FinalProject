@@ -595,25 +595,6 @@ app.get("/gettAllBookByGanre/:type", function(req , res , next){
   })
 })
 
-app.post("/getFavorite", function (req, res) {
-  var email = req.body.userEmail;
-  console.log(email)
-  console.log("here")
-  UserModel.findOne({ email: email }, function (err, user) {
-    if (err) {
-      console.log(err);
-      res.status(404);
-      res.json(err);
-
-    } else {
-      console.log(user.favoriteBooks);
-      res.status(200);
-      res.send({ books: user.favoriteBooks });
-    }
-  })
-})
-
-
 app.delete("/deleteComment/:id", function(req, res, next){
   if (req.session.user == null) {
     res.status(401);
@@ -786,48 +767,6 @@ app.get('/logout', function (req, res, next) {
       }
     });
   }
-});
-
-
-app.post("/deleteFavoriteBook", function (req, res, next) {
-  if (req.session.user == null) {
-    res.status(401);
-    res.send();
-    return;
-  };
-  var body = req.body;
-
-  console.log(body);
-
-  UserModel.findOne({ email: body.userEmail }, function (err, user) {
-    for (var index = 0; index < user.favoriteBooks.length; index++) {
-      console.log(user.favoriteBooks[index]._id)
-      if (user.favoriteBooks[index]._id == body.bookId) {
-        var bookIndex = index;
-      }
-    }
-    var removeBook = user.favoriteBooks.splice(bookIndex, 1);
-    var newBooks = user.favoriteBooks
-    console.log(newBooks)
-    if (err) {
-      res.status(404);
-      res.send();
-      return;
-    }
-    else {
-      if (user != null) {
-        UserModel.update(
-          { "email": body.userEmail },
-          { "$set": { "favoriteBooks": newBooks } },
-          function (err, book) {
-            console.log(book)
-          })
-      }
-    }
-  });
-  res.status(200);
-  res.send("Ok");
-
 });
 
 

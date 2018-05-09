@@ -58,21 +58,18 @@ app.controller('StarCtrl', function ($scope, $http) {
 
         $http.post("/saveUserRating", { rating: rating, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
-
+                $http.post("/newRating", { bookId: bookId }).then(function (res) {
+                    if (res.status == 200) {
+                        console.log(res.avgSum)
+                    }
+                }).catch(function (res) {
+                    console.log(res)
+                })
             }
         }).catch(function (res) {
             console.log(res)
         })
-
         $http.post("/voted", { bookId: bookId }).then(function (res) {
-            if (res.status == 200) {
-
-            }
-        }).catch(function (res) {
-            console.log(res)
-        })
-
-        $http.post("/newRating", { bookId: bookId }).then(function (res) {
             if (res.status == 200) {
 
             }
