@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div id="boxWithFullInfo" fxLayout="row" fxLayoutAlign="center center">
-                    <div class="boxOne">
+                    <div class="boxOne" fxLayout="column" fxLayoutAlign="center center">
                         <div class="boxWithbookImg" fxLayout="row" fxLayoutAlign="center center">
                             <img width="150px" src=" {{book.pictureBook}} " alt="">
                         </div>
@@ -31,13 +31,13 @@
                                     <div class=col-md-12>
                                         <div ng-repeat="rating in ratings">
                                     
-                                            <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                            <div class="reitingStars" star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 clear">
                                     <div class="btn-toolbar" role="toolbar">
                                         <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-primary" ng-click="sendRating()">Send Rating</button>
+                                        <button class="raitingBuuton" type="button" class="btn btn-primary" ng-click="sendRating()">Send Rating</button>
                                         </div>
                                     </div>
                                 </div>
@@ -70,54 +70,24 @@
                          <div>
                             <p> <a class="second" href="{{book.linkToBuy}}"> Link to Buy  </a></p>
                         </div>
-                            <!-- <table fxLayout="column" fxLayoutAlign="center center">
-                                <thead>
-                                </thead>
-                                <tbody fxLayout="row" fxLayoutAlign="center center">
-                                    <tr>
-                                        <td class="first">Author</td>
-                                        <td class="second"> {{book.author}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Type</td>
-                                        <td class="second"> {{book.typeBook}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Publisher</td>
-                                        <td class="second"> {{book.publisher}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Published</td>
-                                        <td class="second"> {{book.published}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Avg.Rating</td>
-                                        <td class="second"> {{book.avgRating}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Pages</td>
-                                        <td class="second"> {{book.pages}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Price</td>
-                                        <td class="second"> {{book.price  | currency }} </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first">Link to buy</td>
-                                        <td class="scroll"> <a class="second" href="{{book.linkToBuy}}"> {{book.linkToBuy}}  </a></td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
+                           
                     </div>
                 </div>
    
             </div>
         </div>
         
-         <div id="smallBoxTwo" fxLayout="row" fxLayoutAlign="center center">
-             <div id="littleBox2">
+         <div id="smallBoxTwo" fxLayout="row" fxLayoutAlign="center center" style="z-index: 999" class="navbar navbar-inverse">
+             <div id="littleBox2" class="container-fluid">
 
-                <div id="moreInfoNav" fxLayout="row" fxLayoutAlign="center center">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                </div>
+                <div id="moreInfoNav" fxLayout="row" fxLayoutAlign="center center" class="collapse navbar-collapse"  id="myNavbar" style="z-index:999" >
                     <ul class="nav nav-tabs">
                             <li><a data-toggle="tab" class="colorNavMoreInfo" ng-click="templAboutBook()"> About Book </a></li>
                             <li><a data-toggle="tab" class="colorNavMoreInfo" ng-click="templAboutAuthor()"> About author </a></li>

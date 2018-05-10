@@ -934,12 +934,14 @@ tr:hover {
 .boxwithStars {
     width: 100%;
     height: 30%;
+    margin: 0 auto;
 }
 
 .boxWithbookImg > img {
     position: relative;
     top:80px;
     left:100px;
+    margin: 0 ;
 }
 
 .boxWithbookImg > img:hover {
@@ -1499,18 +1501,20 @@ tr:hover {
 #bigWords{
     color: white;
     font-size: 6em;
+    text-align: center;
 }
 
 #smallWords{
     color: white;
     font-size: 2em;
     font-style: italic;
+    text-align: center;
 }
 
 #textHelloPage{
     position: relative;
     top:300px;
-    left:350px;
+    /* left:350px; */
 }
 
 #helloPageLogReg{
@@ -1564,31 +1568,12 @@ tr:hover {
 
 }
 
-/* 
+
 @media (max-width: 1024px) {
-   main {
-        width: 100%;
-        height: 100%;
-    }
-
-    #imgsWelcomePage{
-        width: 100%;
-        height: 100%;
-    }
-    .slidewithImgWelcomePage {
-        width: 100%;
-        height: 100%;
-    }
-
-    .slidewithImgWelcomePage > img {
-        width: 100%;
-        height: 100%;
-    }
 
     #textHelloPage{
         position: relative;
         top:100px;
-        left:130px;
     }
     #helloPageLogReg{
         position: relative;
@@ -1596,59 +1581,33 @@ tr:hover {
         left:30%;
     }
 
-    #bigWords{
-        color: white;
-        font-size: 4em;
+    .reitingStars {
+        width: 50px;
+        position: relative;
+        top:-100px;
     }
-    
-    #smallWords{
-        color: white;
-        font-size: 1.5em;
-        font-style: italic;
+
+    .raitingBuuton {
+        width: 100px;
+        position: relative;
+        top:-100px;
+        left: -30px;
     }
+
+   .classButtonsBook {
+       width: 25px;
+       height: 25px;
+       position: relative;
+       left:-30px;
+   }
 
 }
 
-@media (max-width: 768) and (max-height: 1024) {
-    main {
-         width: 100%;
-         height: 100%;
-     }
- 
-     #imgsWelcomePage{
-         width: 100%;
-         height: 100%;
-     }
-     .slidewithImgWelcomePage {
-         width: 100%;
-         height: 100%;
-     }
- 
-     .slidewithImgWelcomePage > img {
-         width: 100%;
-         height: 100%;
-     }
- 
-     #textHelloPage{
-         position: relative;
-         top:50px;
-         left:20px;
-     }
-     #helloPageLogReg{
-         position: relative;
-         top:10%;
-         left:10%;
-     }
- 
-     #bigWords{
-         color: white;
-         font-size: 1em;
-     }
-     
-     #smallWords{
-         color: white;
-         font-style: italic;
-     }
- 
- } */
+ @media (max-width: 768px){
 
+    .boxWithbookImg > img {
+       width: 100px;
+       position: relative;
+       left: 10px;
+    }
+ }
