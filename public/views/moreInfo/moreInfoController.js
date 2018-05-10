@@ -12,12 +12,12 @@ app.controller("MoreInfoController",function($scope, $location , $http, $window)
                     var book = JSON.stringify(response.data)
                     sessionStorage.setItem("book", book);
                 });
-           
-        } else {
-            $location.path('/login');
-            alert("you musto to be logged .. ")
-        }
-    });
+        } 
+    })
+    .catch(function(){
+        $location.path('/login');
+        alert("you musto to be logged .. ")
+    })
 
 
     $scope.one = true;

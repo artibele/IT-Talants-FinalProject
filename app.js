@@ -83,7 +83,7 @@ app.get("/api/loggedIn", function (req, res, next) {
     }
     res.send(msg);
   } else {
-    res.status(200);
+    res.status(500);
     var msg = {
       message: "Not logged"
     }
