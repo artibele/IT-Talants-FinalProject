@@ -68,14 +68,6 @@ app.controller("AllBooksController", function ($scope, $location, $http, $window
             console.log("Book is not added")
         })
 
-        $http.post("/addToFavorite", { email: userEmail, bookId: bookId }).then(function (res) {
-            if (res.status == 200) {
-                console.log("added");
-            }
-        }).catch(function (res) {
-            console.log("Book is not added")
-        })
-
         user.favoritesId.push(bookId);
         sessionStorage.setItem("user", JSON.stringify(user));
     }

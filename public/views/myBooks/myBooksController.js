@@ -15,7 +15,7 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
   var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
   var userFavoritesId = JSON.parse(sessionStorage.getItem("user")).favoritesId;
 
-  $http.get("/getAllBooks").then(function (response) {
+  $http.get("/books/getAllBooks").then(function (response) {
     console.log(response.data);
     var newData = [];
     for(var index1 = 0; index1 < userFavoritesId.length; index1++){
@@ -43,7 +43,7 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
     var userEmail = JSON.parse(sessionStorage.getItem("user")).email;
     var user = JSON.parse(sessionStorage.getItem("user"));
 
-    $http.post("/deleteIdFromFavorites", { bookId: id, userEmail: userEmail }).then(function (res) {
+    $http.post("/myBooks/deleteIdFromFavorites", { bookId: id, userEmail: userEmail }).then(function (res) {
       if (res.status == 200) {
         $scope.books.splice(index, 1)
 

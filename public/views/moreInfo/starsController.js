@@ -47,7 +47,7 @@ app.controller('StarCtrl', function ($scope, $http) {
             return;
         }
 
-        $http.post("/saveBookToUser", { email: userEmail, bookId: bookId }).then(function (res) {
+        $http.post("/moreInfoBook/saveBookToUser", { email: userEmail, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
                 console.log("Rated");
                 alert("Thanks for your rates!\n\nRating: " + $scope.ratings[0].current + "/" + $scope.ratings[0].max + "\n")
@@ -56,9 +56,9 @@ app.controller('StarCtrl', function ($scope, $http) {
             console.log("Book is not rated")
         })
 
-        $http.post("/saveUserRating", { rating: rating, bookId: bookId }).then(function (res) {
+        $http.post("/moreInfoBook/saveUserRating", { rating: rating, bookId: bookId }).then(function (res) {
             if (res.status == 200) {
-                $http.post("/newRating", { bookId: bookId }).then(function (res) {
+                $http.post("/moreInfoBook/newRating", { bookId: bookId }).then(function (res) {
                     if (res.status == 200) {
                         console.log(res.avgSum)
                     }
@@ -69,7 +69,7 @@ app.controller('StarCtrl', function ($scope, $http) {
         }).catch(function (res) {
             console.log(res)
         })
-        $http.post("/voted", { bookId: bookId }).then(function (res) {
+        $http.post("/moreInfoBook/voted", { bookId: bookId }).then(function (res) {
             if (res.status == 200) {
 
             }

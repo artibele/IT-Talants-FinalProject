@@ -15,7 +15,7 @@
 
             <tr id="myBooks1" class="mybooks" ng-repeat="book in books">
                 <td >
-                    <img width="100px" ng-src="{{book.pictureBook}}" alt="">
+                    <img width="150px" class="x" ng-click="moreInfo(book._id)" ng-src="{{book.pictureBook}}" alt="">
                 </td>
                 <td>{{book.title}}</td>
                 <td>{{book.author}}</td>
