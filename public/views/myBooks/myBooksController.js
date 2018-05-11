@@ -47,8 +47,8 @@ app.controller("MyBooksController", function ($scope, BookService, $location, $h
       if (res.status == 200) {
         $scope.books.splice(index, 1)
 
-        for (var index = 0; index < user.favoritesId.length; index++) {
-          if (id == user.favoritesId[index]) {
+        for (var index1 = 0; index1 < user.favoritesId.length; index1++) {
+          if (id == user.favoritesId[index1]) {
             var indexId = index;
           }
         }
